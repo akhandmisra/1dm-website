@@ -1,0 +1,6 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "env": {
+    "SHOPIFY_STORE_DOMAIN": "aynwza-wd.myshopify.com"
+  }
+}
