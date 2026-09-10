@@ -41,7 +41,7 @@ export function Footer() {
             Specialty coffee, for everyone — ten outlets across Chhattisgarh and Pune, and a roastery of our own.
           </p>
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/1dollarmoffee/"
             target="_blank"
             rel="noreferrer"
             className="mt-6 inline-flex h-10 w-10 items-center justify-center rounded-full border border-cream/20 transition-colors hover:border-cream/60"

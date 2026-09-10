@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
 import { Button } from "@/components/button";
@@ -22,7 +23,8 @@ export default function CommunityPage() {
 
   return (
     <section className="grain flex min-h-[70vh] items-center bg-cream py-20">
-      <Container className="max-w-xl">
+      <Container className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+      <div className="mx-auto w-full max-w-xl lg:mx-0">
         {done ? (
           <div className="text-center">
             <p className="font-display text-4xl">Let&apos;s get to know you — done!</p>
@@ -89,6 +91,28 @@ export default function CommunityPage() {
             </form>
           </>
         )}
+      </div>
+
+      <div className="relative hidden aspect-[4/5] w-full lg:block">
+        <div className="absolute inset-0 overflow-hidden rounded-3xl">
+          <Image
+            src="/images/food/tea-pour-outdoor.jpg"
+            alt="Pouring a cup at an outdoor 1DM table"
+            fill
+            className="object-cover"
+            sizes="40vw"
+          />
+        </div>
+        <div className="absolute -bottom-10 -left-10 aspect-square w-2/5 overflow-hidden rounded-2xl border-4 border-cream shadow-soft">
+          <Image
+            src="/images/branding/pink-cups-flowers.jpg"
+            alt="Handmade 1DM ceramic cups with flowers"
+            fill
+            className="object-cover"
+            sizes="20vw"
+          />
+        </div>
+      </div>
       </Container>
     </section>
   );

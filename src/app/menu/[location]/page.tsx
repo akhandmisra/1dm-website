@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
@@ -28,6 +29,12 @@ export default async function LocationMenuPage({ params }: { params: Params }) {
     <section className="grain bg-cream pb-24 pt-20 md:pb-32 md:pt-28">
       <Container>
         <SectionHeading eyebrow={loc.city} title={loc.name} copy={loc.hours} />
+
+        {loc.heroImage && (
+          <div className="relative mt-10 aspect-[16/7] w-full overflow-hidden rounded-3xl">
+            <Image src={loc.heroImage} alt={`A dish from the ${loc.name} menu`} fill className="object-cover object-[50%_78%]" sizes="100vw" priority />
+          </div>
+        )}
 
         <div className="mt-14 grid gap-14 lg:grid-cols-2">
           {categories.map((cat, i) => (

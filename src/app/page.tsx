@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight, MapPin } from "lucide-react";
 import { Container } from "@/components/container";
 import { Button } from "@/components/button";
@@ -46,6 +47,70 @@ export default function Home() {
       </section>
 
       <Marquee items={locations.map((l) => `${l.name}, ${l.city}`)} />
+
+      {/* Gallery */}
+      <section className="bg-cream pb-24 md:pb-32">
+        <Container>
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:grid-rows-2">
+            <Reveal className="col-span-2 row-span-2">
+              <div className="relative h-full min-h-[16rem] overflow-hidden rounded-3xl sm:min-h-[24rem]">
+                <Image
+                  src="/images/interior/cafe-rattan.jpg"
+                  alt="Inside a 1DM cafe — warm lighting and cane seating"
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 640px) 50vw, 100vw"
+                  priority
+                />
+              </div>
+            </Reveal>
+            <Reveal delay={0.05}>
+              <div className="relative aspect-square overflow-hidden rounded-3xl">
+                <Image
+                  src="/images/food/bagel-sandwich.jpg"
+                  alt="Bagel mushroom sandwich, plated at 1DM"
+                  fill
+                  className="object-cover object-[60%_78%]"
+                  sizes="25vw"
+                />
+              </div>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <div className="relative aspect-square overflow-hidden rounded-3xl">
+                <Image
+                  src="/images/branding/storefront-sign.jpg"
+                  alt="1DollarMoffe storefront signage"
+                  fill
+                  className="object-cover"
+                  sizes="25vw"
+                />
+              </div>
+            </Reveal>
+            <Reveal delay={0.15}>
+              <div className="relative aspect-square overflow-hidden rounded-3xl">
+                <Image
+                  src="/images/food/bruschetta.jpg"
+                  alt="Bruschetta from the 1DM kitchen"
+                  fill
+                  className="object-cover"
+                  sizes="25vw"
+                />
+              </div>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <div className="relative aspect-square overflow-hidden rounded-3xl">
+                <Image
+                  src="/images/interior/cafe-doorway.jpg"
+                  alt="A quiet corner inside a 1DM cafe"
+                  fill
+                  className="object-cover"
+                  sizes="25vw"
+                />
+              </div>
+            </Reveal>
+          </div>
+        </Container>
+      </section>
 
       {/* The idea */}
       <section className="bg-cream py-24 md:py-32">

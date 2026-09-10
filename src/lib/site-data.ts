@@ -52,19 +52,50 @@ export type Location = {
   hours: string;
   mapsUrl?: string;
   menuStatus: "live" | "soon";
+  heroImage?: string;
 };
 
+// mapsUrl is a Google Maps *search* link built from the outlet name + city — it opens
+// Maps and searches for the cafe by name rather than pointing at an exact pin. Swap in
+// the precise "Share" link from each outlet's Google Business listing whenever you have it
+// (Google Maps → find the cafe → Share → Copy link) for a pin-accurate result instead.
+function mapsSearchUrl(query: string) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
+
 export const locations: Location[] = [
-  { slug: "samta", name: "1DM Samta", city: "Raipur", hours: "10:30 AM – 11:00 PM, daily", menuStatus: "live" },
-  { slug: "vip-road", name: "1DM VIP Road", city: "Raipur", hours: "10:30 AM – 11:00 PM, daily", menuStatus: "live" },
-  { slug: "bilaspur", name: "1DM Bilaspur", city: "Bilaspur", hours: "12:00 PM – 10:00 PM, closed Tuesdays", menuStatus: "live" },
-  { slug: "tagore", name: "1DM Tagore Nagar", city: "Raipur", hours: "Coming soon", menuStatus: "soon" },
-  { slug: "shailendra-nagar", name: "1DM Shailendra Nagar", city: "Raipur", hours: "Coming soon", menuStatus: "soon" },
-  { slug: "shankar-nagar-1", name: "1DM Shankar Nagar", city: "Raipur", hours: "Coming soon", menuStatus: "soon" },
-  { slug: "shankar-nagar-2", name: "1DM Shankar Nagar II", city: "Raipur", hours: "Coming soon", menuStatus: "soon" },
-  { slug: "avanti", name: "1DM Avanti Vihar", city: "Raipur", hours: "Coming soon", menuStatus: "soon" },
-  { slug: "bhilai", name: "1DM Bhilai", city: "Bhilai", hours: "Coming soon", menuStatus: "soon" },
-  { slug: "pune", name: "1DM Pune", city: "Pune", hours: "Coming soon", menuStatus: "soon" },
+  {
+    slug: "samta",
+    name: "1DM Samta",
+    city: "Raipur",
+    hours: "10:30 AM – 11:00 PM, daily",
+    menuStatus: "live",
+    mapsUrl: mapsSearchUrl("1DM Samta Cafe, Raipur"),
+    heroImage: "/images/food/bagel-sandwich.jpg",
+  },
+  {
+    slug: "vip-road",
+    name: "1DM VIP Road",
+    city: "Raipur",
+    hours: "10:30 AM – 11:00 PM, daily",
+    menuStatus: "live",
+    mapsUrl: mapsSearchUrl("1DM VIP Road Cafe, Raipur"),
+  },
+  {
+    slug: "bilaspur",
+    name: "1DM Bilaspur",
+    city: "Bilaspur",
+    hours: "12:00 PM – 10:00 PM, closed Tuesdays",
+    menuStatus: "live",
+    mapsUrl: mapsSearchUrl("1DM Bilaspur Cafe"),
+  },
+  { slug: "tagore", name: "1DM Tagore Nagar", city: "Raipur", hours: "Coming soon", menuStatus: "soon", mapsUrl: mapsSearchUrl("1DM Tagore Nagar Cafe, Raipur") },
+  { slug: "shailendra-nagar", name: "1DM Shailendra Nagar", city: "Raipur", hours: "Coming soon", menuStatus: "soon", mapsUrl: mapsSearchUrl("1DM Shailendra Nagar Cafe, Raipur") },
+  { slug: "shankar-nagar-1", name: "1DM Shankar Nagar", city: "Raipur", hours: "Coming soon", menuStatus: "soon", mapsUrl: mapsSearchUrl("1DM Shankar Nagar Cafe, Raipur") },
+  { slug: "shankar-nagar-2", name: "1DM Shankar Nagar II", city: "Raipur", hours: "Coming soon", menuStatus: "soon", mapsUrl: mapsSearchUrl("1DM Shankar Nagar Cafe, Raipur") },
+  { slug: "avanti", name: "1DM Avanti Vihar", city: "Raipur", hours: "Coming soon", menuStatus: "soon", mapsUrl: mapsSearchUrl("1DM Avanti Vihar Cafe, Raipur") },
+  { slug: "bhilai", name: "1DM Bhilai", city: "Bhilai", hours: "Coming soon", menuStatus: "soon", mapsUrl: mapsSearchUrl("1DM Bhilai Cafe") },
+  { slug: "pune", name: "1DM Pune", city: "Pune", hours: "Coming soon", menuStatus: "soon", mapsUrl: mapsSearchUrl("1DM Cafe Pune") },
 ];
 
 export type MenuCategory = {
@@ -297,6 +328,45 @@ export const clubTiers = [
     perks: ["Everything in 1DM Club", "3-day pickup trials on new roasts, at no cost", "Priority access to Noir by 1DM tastings", "A direct line to the roasting team"],
   },
 ];
+
+// The specialty roasters and tool/community partners 1DM has worked with — carried over
+// from the roasters directory on the previous site.
+export type RoasterPartner = { name: string; global?: boolean };
+
+export const roasterPartners: RoasterPartner[] = [
+  { name: "Kruptos Coffee" },
+  { name: "Blue Tokai" },
+  { name: "Bloom Coffee" },
+  { name: "Coffee Genetic" },
+  { name: "Savourworks" },
+  { name: "DAK", global: true },
+  { name: "B&W", global: true },
+  { name: "Hydrangea", global: true },
+  { name: "Hatch", global: true },
+  { name: "El Bueno" },
+  { name: "Handcrafted" },
+  { name: "Half Light" },
+  { name: "South Indian Coffee Company" },
+  { name: "Groundzero" },
+  { name: "Kokoro" },
+  { name: "Rossette Coffee" },
+  { name: "Kapikottai" },
+  { name: "Siolim Coffee" },
+];
+
+export const communityPartners: RoasterPartner[] = [
+  { name: "Brewing Gadgets" },
+  { name: "Benki Tools" },
+  { name: "Floating Everyday" },
+  { name: "Chakara Fitness" },
+  { name: "The Local" },
+];
+
+export const founder = {
+  name: "Akhand Mishra",
+  role: "Founder & CEO",
+  bio: "Akhand founded 1DollarMoffe Pvt. Ltd. and built both 1DM Cafe and Kruptos Coffee Roasters from the ground up — from the first ₹1 cup off a coffee truck in Pune to a ten-outlet chain and Raipur's first dedicated specialty roastery. He runs the operations across every outlet personally, and has built much of the brand's operational and digital backbone himself, from the inventory systems that keep the cafes stocked to the identity and packaging that carry the Kruptos name.",
+};
 
 export const team = [
   {

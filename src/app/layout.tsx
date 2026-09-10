@@ -17,6 +17,7 @@ export const metadata: Metadata = {
       "1DM Cafe and Kruptos Coffee Roasters — specialty coffee across Chhattisgarh and Pune, built one honest cup at a time.",
     siteName: "1DM",
     type: "website",
+    images: ["/images/branding/storefront-sign.jpg"],
   },
 };
 

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
 import { locations } from "@/lib/site-data";
@@ -10,6 +11,17 @@ export default function MenuIndexPage() {
   return (
     <section className="grain bg-cream pb-24 pt-20 md:pb-32 md:pt-28">
       <Container>
+        <div className="relative mb-14 aspect-[21/9] w-full overflow-hidden rounded-3xl">
+          <Image
+            src="/images/food/bread-texture.jpg"
+            alt="Close-up crumb of fresh-baked bread from the 1DM kitchen"
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority
+          />
+          <div className="absolute inset-0 bg-ink/30" />
+        </div>
         <SectionHeading
           eyebrow="Menu"
           title="Pick your outlet."
