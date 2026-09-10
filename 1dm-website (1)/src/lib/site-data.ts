@@ -286,7 +286,7 @@ export const equipmentProducts: EquipmentProduct[] = [
 export const clubTiers = [
   {
     name: "1DM Club",
-    price: "Free to apply",
+    price: "Membership",
     pitch: "The front door — reserved seating, member drops, and first word on new releases.",
     perks: ["Reserved seating at your home outlet", "Early access to seasonal menu drops", "Member-only pricing on Kruptos beans", "Birthday cup, on the house"],
   },
