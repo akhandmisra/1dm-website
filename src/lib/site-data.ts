@@ -381,11 +381,42 @@ export const team: TeamMember[] = [
     name: "Abhishek Mishra",
     role: "Brewing & Extraction Lead",
     credentials: "National-Level AeroPress Championship winner · SCA Certified Barista",
+    photo: "/images/team/abhishek-mishra.jpg",
   },
   {
     name: "Tushar Nagarchi",
     role: "Barista Trainer",
     credentials: "Multiple barista championship wins · SCA Authorised Barista · Coffee Board of India Certified",
     photo: "/images/team/tushar-nagarchi.jpg",
+  },
+  {
+    name: "Shreya Mishra",
+    role: "Head Barista",
+    credentials: "Pulling shots since 19 · Actress and model turned barista, choosing coffee over the camera",
+    photo: "/images/team/shreya-mishra.jpg",
+  },
+  {
+    name: "Shreya Sahu",
+    role: "Beverage R&D Lead",
+    credentials: "Assistant Roaster at Kruptos, roasting alongside Akhand · Develops new beverages for 1DM and Slice",
+    photo: "/images/team/shreya-sahu.jpg",
+  },
+  {
+    name: "Adnan Sheikh",
+    role: "Head Chef",
+    credentials: "Leads the Food & Bakery R&D team · Builds the kitchen menu from scratch, outlet to outlet",
+    photo: "/images/team/adnan-sheikh.jpg",
+  },
+  {
+    name: "Sanskar",
+    role: "Food Consultant",
+    credentials: "Food & Bakery R&D, working with Head Chef Adnan on every new dish before it reaches the menu",
+    photo: "/images/team/sanskar.jpg",
+  },
+  {
+    name: "Luffy",
+    role: "Chief Bark-ista",
+    credentials: "Self-appointed captain of the crumb patrol · Undefeated in the Grand Line of belly rubs · Refuses decaf on principle",
+    photo: "/images/team/luffy.jpg",
   },
 ];

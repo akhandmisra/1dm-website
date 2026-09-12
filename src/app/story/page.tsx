@@ -69,7 +69,7 @@ export default function StoryPage() {
 
       <section className="bg-paper py-24 md:py-32">
         <Container>
-          <SectionHeading eyebrow="Behind the bar" title="The people pulling the shots." />
+          <SectionHeading eyebrow="Our team" title="The people behind every cup, plate, and roast." />
           <div className="relative mt-10 aspect-[21/9] w-full overflow-hidden rounded-3xl">
             <Image
               src="/images/team/pour-over-bw.jpg"
@@ -79,7 +79,7 @@ export default function StoryPage() {
               sizes="100vw"
             />
           </div>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2">
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {team.map((member) => (
               <div key={member.name} className="rounded-2xl border border-ink/10 bg-cream p-8">
                 {member.photo ? (
