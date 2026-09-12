@@ -72,8 +72,8 @@ export default function StoryPage() {
           <SectionHeading eyebrow="Our team" title="The people behind every cup, plate, and roast." />
           <div className="relative mt-10 aspect-[21/9] w-full overflow-hidden rounded-3xl">
             <Image
-              src="/images/team/pour-over-bw.jpg"
-              alt="A 1DM barista pulling a pour-over behind the bar"
+              src="/images/team/luffy-banner.jpg"
+              alt="Luffy, 1DM's Chief Bark-ista, ready for his close-up"
               fill
               className="object-cover"
               sizes="100vw"

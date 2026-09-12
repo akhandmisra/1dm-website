@@ -378,16 +378,16 @@ export type TeamMember = {
 
 export const team: TeamMember[] = [
   {
-    name: "Abhishek Mishra",
-    role: "Brewing & Extraction Lead",
-    credentials: "National-Level AeroPress Championship winner · SCA Certified Barista",
-    photo: "/images/team/abhishek-mishra.jpg",
-  },
-  {
     name: "Tushar Nagarchi",
     role: "Barista Trainer",
     credentials: "Multiple barista championship wins · SCA Authorised Barista · Coffee Board of India Certified",
     photo: "/images/team/tushar-nagarchi.jpg",
+  },
+  {
+    name: "Abhishek Mishra",
+    role: "Brewing & Extraction Lead",
+    credentials: "National-Level AeroPress Championship winner · SCA Certified Barista",
+    photo: "/images/team/abhishek-mishra.jpg",
   },
   {
     name: "Shreya Mishra",
