@@ -368,7 +368,15 @@ export const founder = {
   bio: "Akhand founded 1DollarMoffe Pvt. Ltd. and built both 1DM Cafe and Kruptos Coffee Roasters from the ground up — from the first ₹1 cup off a coffee truck in Pune to a ten-outlet chain and Raipur's first dedicated specialty roastery. He runs the operations across every outlet personally, and has built much of the brand's operational and digital backbone himself, from the inventory systems that keep the cafes stocked to the identity and packaging that carry the Kruptos name.",
 };
 
-export const team = [
+export type TeamMember = {
+  name: string;
+  role: string;
+  credentials: string;
+  // Optional real photo — falls back to an initials monogram on /story when unset.
+  photo?: string;
+};
+
+export const team: TeamMember[] = [
   {
     name: "Abhishek Mishra",
     role: "Brewing & Extraction Lead",
@@ -378,5 +386,6 @@ export const team = [
     name: "Tushar Nagarchi",
     role: "Barista Trainer",
     credentials: "Multiple barista championship wins · SCA Authorised Barista · Coffee Board of India Certified",
+    photo: "/images/team/tushar-nagarchi.jpg",
   },
 ];

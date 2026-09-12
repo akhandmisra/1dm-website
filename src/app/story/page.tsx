@@ -82,9 +82,21 @@ export default function StoryPage() {
           <div className="mt-8 grid gap-6 sm:grid-cols-2">
             {team.map((member) => (
               <div key={member.name} className="rounded-2xl border border-ink/10 bg-cream p-8">
-                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-rust/30 to-gold/30">
-                  <span className="font-display text-lg text-ink">{initials(member.name)}</span>
-                </div>
+                {member.photo ? (
+                  <div className="mb-5 h-14 w-14 overflow-hidden rounded-full border border-ink/10">
+                    <Image
+                      src={member.photo}
+                      alt={member.name}
+                      width={56}
+                      height={56}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-rust/30 to-gold/30">
+                    <span className="font-display text-lg text-ink">{initials(member.name)}</span>
+                  </div>
+                )}
                 <p className="font-display text-xl">{member.name}</p>
                 <p className="mt-1 text-sm text-rust">{member.role}</p>
                 <p className="mt-3 text-sm text-ink-soft/70">{member.credentials}</p>
