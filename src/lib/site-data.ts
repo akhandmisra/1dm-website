@@ -331,35 +331,41 @@ export const clubTiers = [
 
 // The specialty roasters and tool/community partners 1DM has worked with — carried over
 // from the roasters directory on the previous site.
-export type RoasterPartner = { name: string; global?: boolean };
+// logo is optional — falls back to a text pill on /kruptos when unset. Real logo files
+// live in /public/images/partners.
+export type RoasterPartner = { name: string; global?: boolean; logo?: string };
 
 export const roasterPartners: RoasterPartner[] = [
   { name: "Kruptos Coffee" },
-  { name: "Blue Tokai" },
-  { name: "Bloom Coffee" },
+  { name: "Blue Tokai", logo: "/images/partners/blue-tokai.png" },
+  { name: "Bloom Coffee", logo: "/images/partners/bloom-coffee.png" },
   { name: "Coffee Genetic" },
-  { name: "Savourworks" },
-  { name: "DAK", global: true },
-  { name: "B&W", global: true },
-  { name: "Hydrangea", global: true },
-  { name: "Hatch", global: true },
-  { name: "El Bueno" },
+  { name: "Savourworks", logo: "/images/partners/savorworks.png" },
+  { name: "DAK", global: true, logo: "/images/partners/dak.png" },
+  { name: "B&W", global: true, logo: "/images/partners/black-and-white.png" },
+  { name: "Hydrangea", global: true, logo: "/images/partners/hydrangea.png" },
+  { name: "Hatch", global: true, logo: "/images/partners/hatch.png" },
+  { name: "El Bueno", logo: "/images/partners/el-bueno.png" },
   { name: "Handcrafted" },
   { name: "Half Light" },
   { name: "South Indian Coffee Company" },
-  { name: "Groundzero" },
-  { name: "Kokoro" },
+  { name: "Groundzero", logo: "/images/partners/ground-zero.png" },
+  { name: "Kokoro", logo: "/images/partners/kokoro.png" },
   { name: "Rossette Coffee" },
-  { name: "Kapikottai" },
+  { name: "Kapikottai", logo: "/images/partners/kapikottai.png" },
   { name: "Siolim Coffee" },
+  { name: "Capulus Beans", logo: "/images/partners/capulus-beans.png" },
+  { name: "Quick Brown Fox", logo: "/images/partners/quick-brown-fox.png" },
+  { name: "Naivo Coffee", logo: "/images/partners/naivo.png" },
 ];
 
 export const communityPartners: RoasterPartner[] = [
   { name: "Brewing Gadgets" },
   { name: "Benki Tools" },
   { name: "Floating Everyday" },
-  { name: "Chakara Fitness" },
+  { name: "Chakara Fitness", logo: "/images/partners/chakra-raipur.png" },
   { name: "The Local" },
+  { name: "Shimmmi", logo: "/images/partners/shimmmi.png" },
 ];
 
 export const founder = {

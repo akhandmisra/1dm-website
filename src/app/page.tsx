@@ -6,8 +6,16 @@ import { Button } from "@/components/button";
 import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
 import { Marquee } from "@/components/marquee";
+import { LogoMarquee, type LogoItem } from "@/components/logo-marquee";
 import { ProductCard } from "@/components/product-card";
-import { brand, coffeeProducts, locations, clubTiers } from "@/lib/site-data";
+import { brand, coffeeProducts, locations, clubTiers, roasterPartners, communityPartners } from "@/lib/site-data";
+
+const partnerLogos: LogoItem[] = [...roasterPartners, ...communityPartners]
+  .filter((p): p is LogoItem => Boolean(p.logo))
+  .map((p) => ({ name: p.name, logo: p.logo! }));
+const partnerMidpoint = Math.ceil(partnerLogos.length / 2);
+const partnerRowOne = partnerLogos.slice(0, partnerMidpoint);
+const partnerRowTwo = partnerLogos.slice(partnerMidpoint);
 
 export default function Home() {
   return (
@@ -206,6 +214,18 @@ export default function Home() {
             ))}
           </div>
         </Container>
+      </section>
+
+      {/* Partner logos */}
+      <section className="bg-paper py-24 md:py-32">
+        <Container>
+          <SectionHeading
+            eyebrow="Our network"
+            title="Independent roasters and local makers we've poured alongside."
+            copy="Before Kruptos had its own roastery — and still, for the guest drops — the 1DM bar has run on a rotating cast of India's best independent coffee, tools, and community spaces."
+          />
+        </Container>
+        <LogoMarquee rowOne={partnerRowOne} rowTwo={partnerRowTwo} />
       </section>
 
       {/* Locations */}
