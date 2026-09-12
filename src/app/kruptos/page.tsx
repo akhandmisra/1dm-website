@@ -34,16 +34,20 @@ export default function KruptosPage() {
       <section className="bg-kruptos-charcoal py-24 text-kruptos-cream md:py-32">
         <Container>
           <SectionHeading eyebrow="On the roaster now" title="Current lineup" tone="dark" />
-          <div className="mt-12 grid grid-cols-2 gap-5 md:grid-cols-3">
+          <div className="mt-12 grid gap-5 sm:grid-cols-[1.1fr_1fr]">
             {coffeeProducts.map((p) => (
-              <div key={p.handle} className="rounded-2xl border border-kruptos-cream/10 bg-kruptos-black p-6">
+              <div key={p.handle} className="rounded-3xl border border-kruptos-cream/10 bg-kruptos-black p-8 sm:p-10">
                 <p className="text-[10px] font-semibold uppercase tracking-wide text-kruptos-gold">{p.badge}</p>
-                <p className="mt-3 font-display text-2xl">{p.name}</p>
+                <p className="mt-3 font-display text-3xl md:text-4xl">{p.name}</p>
                 <p className="mt-1 text-xs text-kruptos-cream/50">{p.origin}</p>
-                <p className="mt-4 text-sm text-kruptos-cream/70">{p.notes}</p>
-                <p className="mt-5 font-display text-lg text-kruptos-gold">₹{p.price} / {p.unit}</p>
+                <p className="mt-4 max-w-md text-sm text-kruptos-cream/70">{p.notes}</p>
+                <p className="mt-6 font-display text-xl text-kruptos-gold">₹{p.price} / {p.unit}</p>
               </div>
             ))}
+            <div className="flex flex-col justify-center rounded-3xl border border-dashed border-kruptos-cream/15 p-8 text-sm text-kruptos-cream/50 sm:p-10">
+              One drop at a time, done properly. The full archive of past roasts lives on kruptoscoffee.com —
+              the next one lands there first too.
+            </div>
           </div>
         </Container>
       </section>
@@ -99,7 +103,7 @@ export default function KruptosPage() {
           <SectionHeading
             eyebrow="Beyond our own roast"
             title="Specialty roasters we've carried."
-            copy="Before Kruptos had its own roastery, the 1DM bar ran on a rotating cast of India's best independent roasters — and a few from further afield. Some still make guest appearances."
+            copy="Before Kruptos had its own roastery, the 1DM bar ran on a rotating cast of India's best independent roasters — and a few from across the globe. Some still make guest appearances."
             tone="dark"
           />
           <div className="mt-10 flex flex-wrap gap-3">

@@ -7,8 +7,7 @@ import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
 import { Marquee } from "@/components/marquee";
 import { LogoMarquee, type LogoItem } from "@/components/logo-marquee";
-import { ProductCard } from "@/components/product-card";
-import { brand, coffeeProducts, locations, clubTiers, roasterPartners, communityPartners } from "@/lib/site-data";
+import { brand, coffeeProducts, barRoasters, locations, clubTiers, roasterPartners, communityPartners } from "@/lib/site-data";
 
 const partnerLogos: LogoItem[] = [...roasterPartners, ...communityPartners]
   .filter((p): p is LogoItem => Boolean(p.logo))
@@ -126,8 +125,8 @@ export default function Home() {
           <Reveal>
             <SectionHeading
               eyebrow="The idea"
-              title="One rupee bought the door. Everything after that is on the coffee."
-              copy="Our signature ₹1 cuppa isn't a gimmick — it's the whole philosophy. Get people through the door with something honest, then let the cold brews, single origins, and Kruptos roasts do the convincing."
+              title="One rupee bought the door, once. Everything since is on the coffee."
+              copy="Our very first cup, off a truck in 2019, was priced at ₹1 — just enough to get someone through the door with something honest. We don't run that price anymore, but the philosophy stuck: let the cold brews, single origins, and Kruptos roasts do the convincing."
             />
           </Reveal>
           <Reveal delay={0.1}>
@@ -185,31 +184,31 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Featured products */}
+      {/* Roaster of the week */}
       <section className="bg-cream py-24 md:py-32">
         <Container>
           <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
-            <SectionHeading eyebrow="From the roastery" title="This week's single origins" />
-            <Link
-              href="https://kruptoscoffee.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline-hover text-sm font-medium text-ink"
-            >
-              View all coffee
+            <SectionHeading eyebrow="On the bar this week" title="Three roasters, one bar." />
+            <Link href="/kruptos" className="underline-hover text-sm font-medium text-ink">
+              Meet the roastery
             </Link>
           </div>
-          <div className="grid grid-cols-2 gap-5 md:grid-cols-3">
-            {coffeeProducts.map((p, i) => (
-              <Reveal key={p.handle} delay={i * 0.05}>
-                <ProductCard
-                  handle={p.handle}
-                  title={p.name}
-                  subtitle={`${p.roaster} · ${p.origin}`}
-                  price={p.price}
-                  badge={p.badge}
-                  href="https://kruptoscoffee.com"
-                />
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
+            {barRoasters.map((r, i) => (
+              <Reveal key={r.roaster} delay={i * 0.05}>
+                <div className="flex h-full flex-col items-center gap-4 rounded-2xl border border-ink/10 bg-paper p-8 text-center">
+                  <div className="relative h-14 w-full max-w-[10rem]">
+                    {r.logo ? (
+                      <Image src={r.logo} alt={r.roaster} fill className="object-contain" sizes="160px" />
+                    ) : (
+                      <div className="flex h-full items-center justify-center font-display text-lg text-ink">
+                        {r.roaster}
+                      </div>
+                    )}
+                  </div>
+                  <p className="font-display text-lg">{r.roaster}</p>
+                  <p className="text-sm text-ink-soft/60">{r.note}</p>
+                </div>
               </Reveal>
             ))}
           </div>
@@ -222,7 +221,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="Our network"
             title="Independent roasters and local makers we've poured alongside."
-            copy="Before Kruptos had its own roastery — and still, for the guest drops — the 1DM bar has run on a rotating cast of India's best independent coffee, tools, and community spaces."
+            copy="Before Kruptos had its own roastery — and still, for the guest drops — the 1DM bar has run on a rotating cast of India's best, and the world's, independent coffee, tools, and community spaces."
           />
         </Container>
         <LogoMarquee rowOne={partnerRowOne} rowTwo={partnerRowTwo} />

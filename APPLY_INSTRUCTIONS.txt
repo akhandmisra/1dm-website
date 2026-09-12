@@ -1,0 +1,114 @@
+1DM — Content + fact fixes (round 2)
+=====================================
+
+IMPORTANT: this zip is a superset. It includes everything from the brand-kit zip
+(1dm-brand-kit-update.zip) PLUS all the fixes below. If you haven't successfully applied
+and pushed that earlier zip yet, you don't need it anymore — just apply this one.
+
+Apply it
+--------
+1. cd ~/Downloads
+   unzip -o 1dm-content-fixes.zip -d 1dm-content-fixes
+
+2. cd /home/coffee/Downloads/1dm-website
+   git remote -v   (confirm you're in the right repo)
+
+3. cp -r ~/Downloads/1dm-content-fixes/. /home/coffee/Downloads/1dm-website/
+
+4. npm install   (package.json is included again, in case you haven't run this yet)
+
+5. Build + preview. Your machine's glibc is too old for Turbopack, so use webpack:
+     npm run build -- --webpack
+     npm run start
+   Check http://localhost:3000 — home, /story, /kruptos, /club, /locations, /menu/samta.
+
+6. git add -A
+   git commit -m "Fix logo, timeline facts, locations, pricing copy, roaster data, and rebuild /club with real Elite Club content"
+   git push
+
+What changed, and why
+----------------------
+1. LOGO — removed the red "." after "1DM" in the navbar and footer. The real brand-kit
+   logo has no dot; now it just says "1DM".
+
+2. STORY TIMELINE — 2021 entry now says 1DM was first to bring specialty coffee culture
+   to Raipur/Chhattisgarh AND that your team was the first from Chhattisgarh to win
+   coffee trophies at state/national level (badged "India's 1st"). 2022 Choubey entry
+   rewritten to your exact phrasing: first in India to do it, when nobody was thinking
+   about it.
+
+3. STORY PHOTO CAPTION — the photo of Akhand at the espresso machine now correctly
+   describes it as a 1DM bar takeover with Handcrafted's owner, not "training the next
+   roaster."
+
+4. FOUNDER BIO — added a line about how much Akhand cares about menu R&D, ongoing study,
+   and collaboration with roasters/chefs/brands before anything goes on the menu.
+
+5. LOCATIONS — removed Pune everywhere it was listed as a CURRENT outlet (footer,
+   contact page, site metadata, the /locations page). Pune stays only in the historical
+   story (the truck really did start there in 2019 — that's unchanged). Added "1DM
+   Jagdalpur" as a "coming soon" outlet, same pattern as your other unopened locations.
+   Current spread is now Raipur (7) + Bilaspur (1) + Bhilai (1) + Jagdalpur (1) = 10
+   outlets, 4 cities — matches what you told me.
+
+6. ₹1 PRICING — reframed everywhere as a 2019 launch story, not a current offer:
+   - Homepage "One rupee bought the door" section now says the ₹1 price was the first
+     cup only, and "we don't run that price anymore."
+   - /locations page copy no longer implies every outlet still shows a ₹1 cuppa today.
+   - REMOVED the "1 Rupee Signatures" menu category from the live Samta menu (1DM Cuppa,
+     1DM Toasties, 1DM Green Tea — all listed at ₹1). That was actually showing on your
+     live menu data as a current price, which you said is wrong. I didn't have real
+     current prices for those three items, so I removed the category rather than guess —
+     if those items are still sold today, tell me the real prices and I'll add them back.
+
+7. KRUPTOS CURRENT LINEUP — this was showing 3 made-up SKUs, all labeled "Kruptos
+   Coffee Roasters." I checked kruptoscoffee.com directly: right now there's exactly ONE
+   live drop, "Stairway to Heaven" (Side A / Side B), ₹300. Replaced the fake 3-item
+   lineup with this one real entry, on both /kruptos and the homepage's Kruptos spotlight.
+   Heads up: there's no live storefront API wired up, so this won't auto-update when you
+   launch a new drop — you'll need to tell me (or a future session) to refresh it. I left
+   a comment in the code pointing at this.
+
+8. HOMEPAGE "ROASTER OF THE WEEK" — this used to be the same fake 3-Kruptos-SKU list.
+   Replaced it with a new section showing the 3 roasters actually rotating through your
+   bar: Bloom Coffee Roasters, Capulus Beans, and Kruptos Coffee Roasters, with each
+   roaster's name/logo front and center (not a specific bean). I don't have the current
+   real bean name each one is pouring, so the copy just says "ask your barista what's on
+   pour" — send me the 3 actual bean names if you want that spelled out instead.
+
+9. ROASTER-NETWORK COPY — added "and across the globe" / "and the world's" to the two
+   places that described your independent-roaster network, on both the homepage and
+   /kruptos.
+
+10. /club PAGE — full rebuild:
+    - Hero photo swapped for your real logo file (already in the repo at
+      public/images/branding/1dm-logo.png) instead of the branded-cups photo.
+    - Replaced the placeholder perks with the real 6 Elite Club benefits (10% off
+      everything + birthday perk, priority seating, ₹3,500/mo credit line, zero-deposit
+      equipment rental from ₹1,200/mo, 15 hrs/yr brewing classes, private member
+      gatherings) — pulled directly from 1dm.coffee/home/elite-club/.
+    - Added the full equipment-registry section you described: "Stop Buying. Start
+      Accessing.", the Normal Customer vs 1DM Elite Member comparison, the Equity Rule,
+      the 3-Day Trial Policy, and the Master Home Lab Bundle at ₹1,200/mo.
+    - Added the "Elite Network" partner section: Kruptos Roastery, Chakara Fitness, The
+      Local, and Professional Courses, with their real perks from the live page.
+    - Added the real pricing (₹5,999 new member / ₹2,999 veteran renewal) and the
+      "strictly 5 new members a month" scarcity line to the join/renew cards.
+    - One thing I couldn't find on the live page: a dedicated Razorpay subscription link
+      just for the Master Home Lab Bundle rental. I pointed that button at
+      kruptoscoffee.com for now (where Equipment & Tools already lives) — send me the
+      exact link if you have a separate one for equipment subscriptions.
+
+Verified before packaging: TypeScript, ESLint, and a full production build all pass
+clean, and I checked home, /story, /kruptos, /club, /locations, and /menu/samta locally.
+
+Still need from you (not blocking, but worth sending when you can)
+--------------------------------------------------------------------
+- Real current prices for 1DM Cuppa / 1DM Toasties / 1DM Green Tea (item 6), if those
+  are still sold.
+- The 3 actual bean names Bloom / Capulus / Kruptos are currently pouring at the bar, if
+  you want the homepage "roaster of the week" cards to name the specific coffee (item 8).
+- A dedicated Razorpay link for the equipment bundle subscription, if one exists
+  separately from kruptoscoffee.com (item 10).
+- Hours + exact address for 1DM Jagdalpur once it's confirmed, so I can swap "Coming
+  soon" for real details and a precise Maps link.

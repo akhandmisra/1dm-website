@@ -15,33 +15,78 @@ export type TimelineEntry = {
   year: string;
   title: string;
   copy: string;
+  badge?: string;
 };
 
 export const timeline: TimelineEntry[] = [
   {
     year: "2019",
-    title: "The first cup, on wheels",
-    copy: "1DM begins as a multi-roaster coffee truck in Pune — a one-rupee cup used as the door into specialty coffee for people who'd never tried it.",
+    title: "Pune — the first cup, on wheels",
+    badge: "India's 1st",
+    copy: "1DM starts India's first multi-roaster coffee truck and cafe concept — a one-rupee cup used as the door into specialty coffee for people who'd never tried it. Nobody else in the country was running this model.",
   },
   {
     year: "2021",
     title: "Raipur, and roots",
-    copy: "The brand plants its flag in Raipur, building toward a sustainable, low-waste model for cafe operations from day one.",
+    badge: "India's 1st",
+    copy: "The truck parks for good and 1DM brings specialty coffee culture to Raipur, Chhattisgarh for the first time — nobody else in the state was pouring this way. Our own team went on to be the first from Chhattisgarh to win coffee trophies at the state and national level.",
+  },
+  {
+    year: "2022",
+    title: "Choubey turns up the volume",
+    badge: "India's 1st",
+    copy: "1DM hosts India's first techno rave inside a coffee shop — the first in India to do it, when nobody else was even thinking about it.",
   },
   {
     year: "2024",
-    title: "Coffee meets kitchen",
-    copy: "A culinary pivot — toasts, bowls, and bakes built to sit alongside the coffee program, not compete with it.",
+    title: "Shailendra Nagar, chef-crafted",
+    copy: "A culinary pivot — a chef-crafted menu of toasts, bowls, and bakes built to sit alongside the coffee program, not compete with it.",
   },
   {
     year: "2025",
     title: "Six outlets, one year",
-    copy: "Rapid expansion across Chhattisgarh — six new cafes open as the operating model matures into something repeatable.",
+    badge: "India's 1st",
+    copy: "Rapid expansion across Chhattisgarh — six outlets live in a single year, and 1DM becomes India's first cafe brand to champion reusable cups across its entire counter.",
   },
   {
     year: "2026",
-    title: "Kruptos, and outlet ten",
-    copy: "Kruptos Coffee Roasters — Raipur's first dedicated specialty roastery — launches under the 1DM umbrella, alongside a tenth outlet in Bilaspur.",
+    title: "Bilaspur, seed to cup",
+    copy: "Kruptos Coffee Roasters — Raipur's first dedicated specialty roastery — launches under the 1DM umbrella alongside a tenth outlet in Bilaspur. Roasting the beans, baking the bread: total control, seed to cup.",
+  },
+];
+
+export type StoryPhoto = {
+  image: string;
+  caption: string;
+  span?: "wide" | "tall";
+};
+
+export const storyGallery: StoryPhoto[] = [
+  {
+    image: "/images/story/cupping-overhead.jpg",
+    caption: "Cupping session — every batch gets tasted before it earns a place on the menu.",
+    span: "wide",
+  },
+  {
+    image: "/images/story/barista-training.jpg",
+    caption: "A 1DM bar takeover — Akhand hosting Handcrafted's owner and their coffee behind our counter, one of many guest takeovers we've run.",
+    span: "tall",
+  },
+  {
+    image: "/images/story/aeropress-trophy.jpg",
+    caption: "2023 India AeroPress Championship — 2nd place.",
+  },
+  {
+    image: "/images/story/flavor-wheel.jpg",
+    caption: "The SCAA flavor wheel — the language our baristas train on.",
+  },
+  {
+    image: "/images/story/croissant.jpg",
+    caption: "Bakery R&D — laminated dough, done properly.",
+  },
+  {
+    image: "/images/story/cocktails-sunflower.jpg",
+    caption: "Beverage R&D — espresso martinis alongside the single origins.",
   },
 ];
 
@@ -95,7 +140,7 @@ export const locations: Location[] = [
   { slug: "shankar-nagar-2", name: "1DM Shankar Nagar II", city: "Raipur", hours: "Coming soon", menuStatus: "soon", mapsUrl: mapsSearchUrl("1DM Shankar Nagar Cafe, Raipur") },
   { slug: "avanti", name: "1DM Avanti Vihar", city: "Raipur", hours: "Coming soon", menuStatus: "soon", mapsUrl: mapsSearchUrl("1DM Avanti Vihar Cafe, Raipur") },
   { slug: "bhilai", name: "1DM Bhilai", city: "Bhilai", hours: "Coming soon", menuStatus: "soon", mapsUrl: mapsSearchUrl("1DM Bhilai Cafe") },
-  { slug: "pune", name: "1DM Pune", city: "Pune", hours: "Coming soon", menuStatus: "soon", mapsUrl: mapsSearchUrl("1DM Cafe Pune") },
+  { slug: "jagdalpur", name: "1DM Jagdalpur", city: "Jagdalpur", hours: "Coming soon", menuStatus: "soon", mapsUrl: mapsSearchUrl("1DM Cafe Jagdalpur") },
 ];
 
 export type MenuCategory = {
@@ -106,14 +151,6 @@ export type MenuCategory = {
 
 export const menuByLocation: Record<string, MenuCategory[]> = {
   samta: [
-    {
-      name: "The 1 Rupee Signatures",
-      items: [
-        { name: "1DM Cuppa", price: 1 },
-        { name: "1DM Toasties", price: 1 },
-        { name: "1DM Green Tea", price: 1, note: "Chamomile · Blue Pea · Matcha · Hibiscus · Rose Oolong · Kashmiri Kahwa" },
-      ],
-    },
     {
       name: "Water-based Coffee",
       items: [
@@ -243,36 +280,45 @@ export type CoffeeProduct = {
   badge?: string;
 };
 
+// Kept in sync manually with kruptoscoffee.com's current drop — there's no live
+// storefront API wired up, so when a new drop launches, update this entry (or ask
+// Claude to re-check kruptoscoffee.com and refresh it).
 export const coffeeProducts: CoffeeProduct[] = [
   {
-    handle: "the-dark-side",
-    name: "The Dark Side",
+    handle: "stairway-to-heaven",
+    name: "Stairway to Heaven",
     roaster: "Kruptos Coffee Roasters",
-    origin: "Chikkamagaluru, India",
-    price: 250,
-    unit: "100g",
-    notes: "Nutty, chocolate, fruity, with a structured aftertaste",
-    badge: "Best Seller",
+    origin: "Side A & Side B",
+    price: 300,
+    unit: "bag",
+    notes: "Kruptos's debut drop — two sides, one stairway. Full tasting notes on kruptoscoffee.com.",
+    badge: "Debut Drop",
+  },
+];
+
+export type BarRoaster = {
+  roaster: string;
+  logo?: string;
+  note: string;
+};
+
+// The guest roasters currently rotating through the 1DM bar's pour-over/guest slot —
+// distinct from `coffeeProducts` above (Kruptos's own retail drop on kruptoscoffee.com).
+// Update this list whenever the bar's lineup changes.
+export const barRoasters: BarRoaster[] = [
+  {
+    roaster: "Bloom Coffee Roasters",
+    logo: "/images/partners/bloom-coffee.png",
+    note: "Ask your barista what's on pour — the lineup rotates.",
   },
   {
-    handle: "bloom",
-    name: "Bloom",
-    roaster: "Kruptos Coffee Roasters",
-    origin: "Koraput, Odisha",
-    price: 280,
-    unit: "100g",
-    notes: "Berries, plum, almond, apple, with a sweet lingering finish",
-    badge: "Summer Drop",
+    roaster: "Capulus Beans",
+    logo: "/images/partners/capulus-beans.png",
+    note: "Ask your barista what's on pour — the lineup rotates.",
   },
   {
-    handle: "simple-men",
-    name: "Simple Men",
     roaster: "Kruptos Coffee Roasters",
-    origin: "Koraput, Odisha",
-    price: 250,
-    unit: "100g",
-    notes: "Fruity, chocolate, with a juicy body",
-    badge: "New Release",
+    note: "Our own roastery, poured alongside the guests.",
   },
 ];
 
@@ -316,16 +362,59 @@ export const equipmentProducts: EquipmentProduct[] = [
 
 export const clubTiers = [
   {
-    name: "1DM Club",
-    price: "Membership",
-    pitch: "The front door — reserved seating, member drops, and first word on new releases.",
-    perks: ["Reserved seating at your home outlet", "Early access to seasonal menu drops", "Member-only pricing on Kruptos beans", "Birthday cup, on the house"],
+    name: "1DM Elite Club",
+    price: "₹5,999 to join",
+    pitch: "Reserved for you. Forbidden to all — strictly 5 new members a month.",
+    perks: [
+      "10% off everything, every outlet — plus a free birthday drink and 10% off all day",
+      "Priority seating — 1DM doesn't take public reservations, Elite members do",
+      "₹3,500 monthly credit line — brew now, settle up at month-end",
+      "Zero-deposit equipment rental — pro kettles, scales, grinders, and V60s from ₹1,200/mo",
+      "15 hours of complimentary brewing classes every year",
+      "Invitation-only Member Circle gatherings — cuppings, mixers, jamming evenings",
+    ],
+    renewalPrice: "₹2,999 veteran renewal",
   },
   {
     name: "Chakara Privilege",
     price: "By invitation",
     pitch: "The inner circle — for the members who show up every week.",
-    perks: ["Everything in 1DM Club", "3-day pickup trials on new roasts, at no cost", "Priority access to Noir by 1DM tastings", "A direct line to the roasting team"],
+    perks: ["Everything in 1DM Elite Club", "3-day pickup trials on new roasts, at no cost", "Priority access to Noir by 1DM tastings", "A direct line to the roasting team"],
+  },
+];
+
+export type EliteNetworkPartner = {
+  name: string;
+  offer: string;
+  cta: string;
+  href: string;
+};
+
+// The "Elite Network" partner perks from the live 1DM Elite Club page.
+export const eliteNetwork: EliteNetworkPartner[] = [
+  {
+    name: "Kruptos Roastery",
+    offer: "10% off all beans, plus first-week exclusive access to new drops.",
+    cta: "Visit the roastery",
+    href: "/kruptos",
+  },
+  {
+    name: "Chakara Fitness",
+    offer: "Elite discounts on annual memberships for the 1DM family.",
+    cta: "See Chakara Privilege",
+    href: "/club/chakara-privilege",
+  },
+  {
+    name: "The Local",
+    offer: "Priority entry and reserved seating at Raipur's premium hub.",
+    cta: "Ask at the counter",
+    href: "/contact",
+  },
+  {
+    name: "Professional Courses",
+    offer: "Discounted rates on expert brewing certifications and SCA modules.",
+    cta: "Ask at the counter",
+    href: "/contact",
   },
 ];
 
@@ -371,7 +460,7 @@ export const communityPartners: RoasterPartner[] = [
 export const founder = {
   name: "Akhand Mishra",
   role: "Founder & CEO",
-  bio: "Akhand founded 1DollarMoffe Pvt. Ltd. and built both 1DM Cafe and Kruptos Coffee Roasters from the ground up — from the first ₹1 cup off a coffee truck in Pune to a ten-outlet chain and Raipur's first dedicated specialty roastery. He runs the operations across every outlet personally, and has built much of the brand's operational and digital backbone himself, from the inventory systems that keep the cafes stocked to the identity and packaging that carry the Kruptos name.",
+  bio: "Akhand founded 1DollarMoffe Pvt. Ltd. and built both 1DM Cafe and Kruptos Coffee Roasters from the ground up — from the first ₹1 cup off a coffee truck in Pune to a ten-outlet chain and Raipur's first dedicated specialty roastery. He runs the operations across every outlet personally, and has built much of the brand's operational and digital backbone himself, from the inventory systems that keep the cafes stocked to the identity and packaging that carry the Kruptos name. Nothing goes on a 1DM menu without his sign-off — every new drink and dish goes through rounds of R&D and cupping first, built on his own ongoing study of coffee and food, and on close collaboration with the roasters, chefs, and brands 1DM partners with. The menu is the part of the business he obsesses over the most.",
 };
 
 export type TeamMember = {

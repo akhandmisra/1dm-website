@@ -10,11 +10,11 @@ export const metadata: Metadata = {
     template: "%s · 1DM",
   },
   description:
-    "1DM Cafe and Kruptos Coffee Roasters — specialty coffee across Chhattisgarh and Pune, built one honest cup at a time.",
+    "1DM Cafe and Kruptos Coffee Roasters — specialty coffee across Chhattisgarh, built one honest cup at a time.",
   openGraph: {
     title: "1DM — Specialty Coffee, For Everyone",
     description:
-      "1DM Cafe and Kruptos Coffee Roasters — specialty coffee across Chhattisgarh and Pune, built one honest cup at a time.",
+      "1DM Cafe and Kruptos Coffee Roasters — specialty coffee across Chhattisgarh, built one honest cup at a time.",
     siteName: "1DM",
     type: "website",
     images: ["/images/branding/storefront-sign.jpg"],

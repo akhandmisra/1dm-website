@@ -19,7 +19,7 @@ export default function ContactPage() {
             <InstagramIcon className="h-5 w-5 text-rust" /> @1dm.coffee
           </a>
           <div className="flex items-center gap-3 rounded-xl border border-ink/10 bg-paper p-5">
-            <MapPin className="h-5 w-5 text-rust" /> Raipur · Bhilai · Bilaspur · Pune
+            <MapPin className="h-5 w-5 text-rust" /> Raipur · Bhilai · Bilaspur · Jagdalpur
           </div>
         </div>
       </Container>

@@ -3,7 +3,8 @@ import Image from "next/image";
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
-import { timeline, team, founder } from "@/lib/site-data";
+import { cn } from "@/lib/utils";
+import { timeline, team, founder, storyGallery } from "@/lib/site-data";
 
 export const metadata: Metadata = { title: "Our Story" };
 
@@ -22,8 +23,8 @@ export default function StoryPage() {
         <Container>
           <SectionHeading
             eyebrow="Our story"
-            title="From a coffee truck in Pune to a roastery of our own."
-            copy="Every expansion has followed the same rule: don't open the next outlet until the last one runs itself."
+            title="We started the multi-roaster coffee truck. Everyone else followed."
+            copy="In 2019, 1DM put multiple roasters on one coffee cart in Pune — a concept nobody else in India was running. Every expansion since has followed the same rule: don't open the next outlet until the last one runs itself. Seven years later, that truck is ten cafes, a roastery, and a bakery."
           />
         </Container>
       </section>
@@ -34,9 +35,52 @@ export default function StoryPage() {
             {timeline.map((entry, i) => (
               <Reveal key={entry.year} delay={i * 0.05} className="relative pb-14 last:pb-0">
                 <span className="absolute -left-[calc(2rem+5px)] top-1 h-2.5 w-2.5 rounded-full bg-rust md:-left-[calc(3rem+5px)]" />
-                <p className="font-display text-2xl text-rust">{entry.year}</p>
+                <div className="flex flex-wrap items-center gap-3">
+                  <p className="font-display text-2xl text-rust">{entry.year}</p>
+                  {entry.badge && (
+                    <span className="rounded-full bg-yellow px-3 py-1 text-xs font-semibold uppercase tracking-[0.1em] text-ink">
+                      {entry.badge}
+                    </span>
+                  )}
+                </div>
                 <h3 className="mt-2 font-display text-3xl text-ink md:text-4xl">{entry.title}</h3>
                 <p className="mt-3 max-w-xl text-ink-soft/80">{entry.copy}</p>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Craft gallery */}
+      <section className="bg-paper py-24 md:py-32">
+        <Container>
+          <SectionHeading
+            eyebrow="In the field"
+            title="What ten cafes, a roastery, and a bakery actually look like."
+            copy="Training sessions, competition trophies, and the everyday work behind the counter — the parts of the trend-setting that don't fit in a highlight reel."
+          />
+          <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4 sm:grid-rows-2">
+            {storyGallery.map((photo, i) => (
+              <Reveal
+                key={photo.image}
+                delay={i * 0.05}
+                className={cn(
+                  "group relative overflow-hidden rounded-3xl",
+                  photo.span === "wide" && "col-span-2 aspect-[16/9] sm:aspect-auto",
+                  photo.span === "tall" && "row-span-2 aspect-[3/4] sm:aspect-auto",
+                  !photo.span && "aspect-square"
+                )}
+              >
+                <Image
+                  src={photo.image}
+                  alt={photo.caption}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes={photo.span === "wide" ? "(min-width: 640px) 50vw, 100vw" : "(min-width: 640px) 25vw, 50vw"}
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent p-4 pt-10">
+                  <p className="text-xs leading-snug text-cream/90 sm:text-sm">{photo.caption}</p>
+                </div>
               </Reveal>
             ))}
           </div>

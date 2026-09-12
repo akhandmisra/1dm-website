@@ -23,7 +23,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 border-b border-ink/10 bg-cream/85 backdrop-blur-md">
       <Container className="flex h-16 items-center justify-between md:h-20">
         <Link href="/" className="font-display text-2xl tracking-tight text-ink">
-          1DM<span className="text-rust">.</span>
+          1DM
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">

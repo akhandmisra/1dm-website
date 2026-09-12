@@ -34,11 +34,9 @@ export function Footer() {
     <footer className="border-t border-ink/10 bg-ink text-cream">
       <Container className="grid gap-12 py-16 md:grid-cols-[1.3fr_repeat(3,1fr)] md:py-20">
         <div>
-          <p className="font-display text-3xl">
-            1DM<span className="text-rust">.</span>
-          </p>
+          <p className="font-display text-3xl">1DM</p>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-cream/60">
-            Specialty coffee, for everyone — ten outlets across Chhattisgarh and Pune, and a roastery of our own.
+            Specialty coffee, for everyone — ten outlets across Chhattisgarh, and a roastery of our own.
           </p>
           <a
             href="https://www.instagram.com/1dollarmoffee/"
@@ -71,7 +69,7 @@ export function Footer() {
       </Container>
       <Container className="flex flex-col gap-2 border-t border-cream/10 py-6 text-xs text-cream/40 md:flex-row md:items-center md:justify-between">
         <p>© {new Date().getFullYear()} 1DollarMoffe Pvt. Ltd. All rights reserved.</p>
-        <p>Raipur · Bhilai · Bilaspur · Pune</p>
+        <p>Raipur · Bhilai · Bilaspur · Jagdalpur</p>
       </Container>
     </footer>
   );
