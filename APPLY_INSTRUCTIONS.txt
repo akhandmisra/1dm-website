@@ -1,44 +1,57 @@
-1DM — Fix the browser tab icon (favicon)
-=========================================
+1DM — Homepage hero: simplified to 2 clips (v4 — IMG_3029 + 1000077708 only)
+================================================================================
 
-This is a single-file patch.
+What changed from the last version
+------------------------------------
+Simplified down to just the two best-quality clips you pointed to — IMG_3029
+(cherries on the branch, tilting up through the canopy) and 1000077708 (the V60
+pour-over) — dropping the other four. Both of these were already a clean fit for a
+9:16 background with zero cropping or padding needed (one is natively the right
+shape, the other just downscales cleanly), which is why they hold up sharper than the
+others did.
 
-What was wrong
----------------
-Your site had two different icon files: `src/app/icon.png` (correctly shows the real
-"1DM" wordmark — used for things like home-screen/PWA icons) and `src/app/favicon.ico`
-(the classic browser-tab icon). The favicon.ico was NOT your logo at all — it was a
-generic black circle with a white triangle, unrelated to the brand. Browsers pull
-`/favicon.ico` directly for the tab icon, so that's almost certainly what you were
-seeing in the tab instead of "1DM".
+The two now crossfade into a simple 13.8-second loop: cherries tilting up to the sky
+→ pour-over building toward the finished cup, then back to the start. Longer, fuller
+takes of each clip than before (7s and 7.6s) so the motion in both reads naturally
+rather than feeling cut short.
 
-Fixed by regenerating favicon.ico from the same real "1DM" wordmark used in icon.png,
-built as a proper multi-size icon (16/32/48/64/128/256px) so it's crisp in browser tabs,
-bookmarks, and anywhere else favicons show up.
+This drops the roasting, hand-sorting, drying-bed, and espresso shots entirely — say
+the word if you'd rather work any of those back in later, now that we know which
+clips hold up best at full quality.
+
+What's in this patch
+---------------------
+- public/videos/hero-bean-to-cup.mp4 (~4.3MB) and hero-bean-to-cup.webm (~4.0MB) —
+  much smaller than every previous version, since it's just two clips now.
+- public/images/hero/hero-poster.jpg — new poster frame from the pour-over.
+- src/app/page.tsx, src/components/hero-video.tsx, src/app/favicon.ico — same as
+  before, included again so this zip is a complete drop-in on its own.
 
 Apply it
 --------
 1. cd ~/Downloads
-   rm -rf 1dm-favicon-fix
-   unzip -o 1dm-favicon-fix.zip -d 1dm-favicon-fix
+   rm -rf 1dm-hero-bean-to-cup-v4
+   ZIP=$(ls -t 1dm-hero-bean-to-cup-v4*.zip | head -1)
+   echo "Using: $ZIP"
+   unzip -o "$ZIP" -d 1dm-hero-bean-to-cup-v4
 
 2. cd /home/coffee/Downloads/1dm-website
-   cp -r ~/Downloads/1dm-favicon-fix/. /home/coffee/Downloads/1dm-website/
+   cp -r ~/Downloads/1dm-hero-bean-to-cup-v4/. /home/coffee/Downloads/1dm-website/
 
-3. No dependency or code changes, so skip npm install. Just rebuild:
-     rm -rf .next
-     npm run build -- --webpack
-     npm run start
+3. rm -rf .next
+   npm run build -- --webpack
+   npm run start
 
-4. Open http://localhost:3000 in a fresh incognito window (favicons are aggressively
-   cached by browsers — a normal tab may keep showing the old one even after this fix).
-   You should see "1DM" in the browser tab instead of the black circle/triangle.
+4. Check http://localhost:3000 — the hero should loop cherries-on-branch into the
+   pour-over and back, sharp with no cropping.
 
 5. git add -A
-   git commit -m "Fix favicon — was a generic placeholder icon, now the real 1DM wordmark"
+   git commit -m "Simplify hero video to the two highest-quality clips"
    git push
 
-Note: a full wordmark like "1DM" is a little tight at the smallest favicon size (16px)
-compared to a single-letter monogram, but it's legible and — most importantly — it's
-actually your brand now instead of an unrelated icon. Say the word if you'd rather have
-a tighter monogram-style mark designed specifically for the tiny sizes.
+Worth knowing
+-------------
+- File size dropped a lot (~8.3MB total, down from ~21MB) since it's just two clips
+  now — lighter on mobile data too.
+- Verified: production build passes clean, and I checked both desktop and phone
+  widths plus the pour-over segment specifically.

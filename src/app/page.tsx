@@ -5,6 +5,7 @@ import { Container } from "@/components/container";
 import { Button } from "@/components/button";
 import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
+import { HeroVideo } from "@/components/hero-video";
 import { Marquee } from "@/components/marquee";
 import { LogoMarquee, type LogoItem } from "@/components/logo-marquee";
 import { brand, coffeeProducts, barRoasters, locations, clubTiers, roasterPartners, communityPartners } from "@/lib/site-data";
@@ -20,22 +21,30 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="grain relative overflow-hidden bg-cream pb-20 pt-16 md:pb-28 md:pt-24">
-        <div className="pointer-events-none absolute -right-40 -top-40 h-[36rem] w-[36rem] rounded-full bg-rust/10 blur-3xl" />
-        <div className="pointer-events-none absolute -left-32 top-1/2 h-[28rem] w-[28rem] rounded-full bg-gold/10 blur-3xl" />
+      <section className="relative flex min-h-[34rem] items-center overflow-hidden pb-20 pt-16 md:min-h-[42rem] md:pb-28 md:pt-24">
+        <HeroVideo
+          poster="/images/hero/hero-poster.jpg"
+          sources={[
+            { src: "/videos/hero-bean-to-cup.webm", type: "video/webm" },
+            { src: "/videos/hero-bean-to-cup.mp4", type: "video/mp4" },
+          ]}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-ink/60" />
+        <div className="pointer-events-none absolute -right-40 -top-40 h-[36rem] w-[36rem] rounded-full bg-rust/20 blur-3xl" />
         <Container className="relative">
           <Reveal>
-            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.25em] text-rust">
+            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.25em] text-gold">
               Since {brand.founded} · {brand.outlets} outlets · {brand.cities} cities
             </p>
           </Reveal>
           <Reveal delay={0.05}>
-            <h1 className="max-w-4xl text-balance font-display text-5xl leading-[1.02] text-ink sm:text-6xl md:text-7xl lg:text-[5.5rem]">
+            <h1 className="max-w-4xl text-balance font-display text-5xl leading-[1.02] text-cream sm:text-6xl md:text-7xl lg:text-[5.5rem]">
               Specialty coffee, priced like it belongs to everyone.
             </h1>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft/80">
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream/80">
               What began as a $1 cup off a coffee truck in Pune is now ten cafes and a roastery of our own —
               built on the idea that great coffee shouldn&apos;t be a luxury.
             </p>
@@ -45,7 +54,12 @@ export default function Home() {
               <Button href="/menu" size="lg">
                 View the menu
               </Button>
-              <Button href="https://kruptoscoffee.com" variant="ghost" size="lg">
+              <Button
+                href="https://kruptoscoffee.com"
+                variant="ghost"
+                size="lg"
+                className="border-cream/30 text-cream hover:border-cream/60"
+              >
                 Shop roasted coffee <ArrowUpRight className="h-4 w-4" />
               </Button>
             </div>
