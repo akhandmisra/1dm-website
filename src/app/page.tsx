@@ -154,9 +154,16 @@ export default function Home() {
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-kruptos-gold">
               Roaster of the week
             </p>
-            <h2 className="font-display text-balance text-4xl leading-[1.05] md:text-5xl">
-              Kruptos Coffee Roasters
-            </h2>
+            <h2 className="sr-only">Kruptos Coffee Roasters</h2>
+            <div className="relative h-24 w-56 sm:h-28 sm:w-64">
+              <Image
+                src="/images/kruptos/kruptos-logo.png"
+                alt="Kruptos Coffee Roasters"
+                fill
+                className="object-contain object-left"
+                sizes="256px"
+              />
+            </div>
             <p className="mt-4 max-w-md text-kruptos-cream/70">
               Raipur&apos;s first dedicated specialty roastery, born inside the 1DM ecosystem. Small batches,
               traceable origins, and a lot of cupping sessions before anything reaches a shelf.
@@ -188,12 +195,12 @@ export default function Home() {
       <section className="bg-cream py-24 md:py-32">
         <Container>
           <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
-            <SectionHeading eyebrow="On the bar this week" title="Three roasters, one bar." />
+            <SectionHeading eyebrow="On the bar this week" title="Five roasters, one bar." />
             <Link href="/kruptos" className="underline-hover text-sm font-medium text-ink">
               Meet the roastery
             </Link>
           </div>
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
+          <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
             {barRoasters.map((r, i) => (
               <Reveal key={r.roaster} delay={i * 0.05}>
                 <div className="flex h-full flex-col items-center gap-4 rounded-2xl border border-ink/10 bg-paper p-8 text-center">

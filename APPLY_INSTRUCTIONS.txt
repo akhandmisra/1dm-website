@@ -1,38 +1,54 @@
-1DM — $1, not ₹1 (small fix)
-==============================
+1DM — Two more roasters + real Kruptos logo
+============================================
 
-You're right — the brand's origin story is "one dollar" (that's where 1DollarMoffe gets
-its name), not "one rupee." Fixed every place that said ₹1 / "one rupee" as part of the
-founding story:
-
-- Homepage hero: "What began as a $1 cup off a coffee truck in Pune..."
-- Homepage "The idea" section: title now "One dollar bought the door, once..." and the
-  copy explains the price was $1 and that's literally where the name 1DollarMoffe comes
-  from.
-- /locations page copy: "...the same bar we set back when a cup cost $1."
-- Story timeline (2019 entry): "a one-dollar cup used as the door into specialty coffee."
-- Founder bio: "from the first $1 cup off a coffee truck in Pune..."
-
-Left untouched on purpose: the ₹1,200/mo equipment-rental pricing on /club and in the
-Elite Club perks — that's real current INR pricing for gear rental, unrelated to the
-founding-story dollar/rupee wording.
+This is a small incremental patch. Apply it ON TOP of what you already have (after
+1dm-content-fixes.zip and 1dm-dollar-fix.zip, which you've already pushed).
 
 Apply it
 --------
 1. cd ~/Downloads
-   unzip -o 1dm-dollar-fix.zip -d 1dm-dollar-fix
+   unzip -o 1dm-roaster-update.zip -d 1dm-roaster-update
 
 2. cd /home/coffee/Downloads/1dm-website
-   cp -r ~/Downloads/1dm-dollar-fix/. /home/coffee/Downloads/1dm-website/
+   cp -r ~/Downloads/1dm-roaster-update/. /home/coffee/Downloads/1dm-website/
 
-3. No new dependencies this time, so you can skip npm install. Just rebuild:
+3. No new dependencies, so skip npm install. Just rebuild:
      npm run build -- --webpack
      npm run start
-   Check the homepage and /locations at http://localhost:3000.
+   Check the homepage's "Five roasters, one bar." section and /kruptos at
+   http://localhost:3000.
 
 4. git add -A
-   git commit -m "Fix founding-story wording: one dollar, not one rupee"
+   git commit -m "Add Rossette and Naivo to bar roasters, wire in the real Kruptos logo"
    git push
 
+What changed
+------------
+1. HOMEPAGE "ON THE BAR THIS WEEK" — added two more roasters alongside Bloom, Capulus,
+   and Kruptos: Rossette Coffee and Naivo Coffee Company (I matched the exact names
+   already used for these two elsewhere on your site, under "Beyond our own roast" on
+   /kruptos). Naivo already had a logo file in the repo, so it shows the real logo.
+   Rossette doesn't have a logo file yet, so it shows as text for now, same as Kruptos
+   did before this update — send me a logo file and I'll wire it in. The section is now
+   "Five roasters, one bar." and the grid lays out 5 cards cleanly at every screen size.
+
+2. REAL KRUPTOS LOGO — you shared the Kruptos brand kit cover page. I cropped it down to
+   two clean, transparent-background assets from that source (no re-drawing):
+   - A small gold icon-only mark (the crescent/vinyl groove symbol) — used on the
+     homepage roaster card, next to the other roaster logos, since a big wordmark on a
+     small card would've been too cramped.
+   - The full lockup (icon + "KRUPTOS" + "COFFEE ROASTERS") — used wherever the brand
+     name previously appeared as a plain text heading:
+       - The homepage's Kruptos spotlight section (previously just said "Kruptos Coffee
+         Roasters" as a heading).
+       - The /kruptos page's hero heading, same swap.
+     Both spots kept an invisible (screen-reader/SEO) heading with the real text, so
+     nothing is lost for accessibility or search — visually it's now your actual logo.
+
 Verified: TypeScript, ESLint, and a clean production build all pass, and I checked the
-homepage's "The idea" section renders the corrected copy.
+homepage roaster section, the Kruptos spotlight, and the /kruptos hero render correctly.
+
+Still open
+----------
+- A real logo file for Rossette Coffee, if you have one — right now it shows as text
+  like Kruptos did before.

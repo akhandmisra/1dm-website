@@ -317,7 +317,17 @@ export const barRoasters: BarRoaster[] = [
     note: "Ask your barista what's on pour — the lineup rotates.",
   },
   {
+    roaster: "Rossette Coffee",
+    note: "Ask your barista what's on pour — the lineup rotates.",
+  },
+  {
+    roaster: "Naivo Coffee Company",
+    logo: "/images/partners/naivo.png",
+    note: "Ask your barista what's on pour — the lineup rotates.",
+  },
+  {
     roaster: "Kruptos Coffee Roasters",
+    logo: "/images/partners/kruptos.png",
     note: "Our own roastery, poured alongside the guests.",
   },
 ];

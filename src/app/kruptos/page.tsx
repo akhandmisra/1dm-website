@@ -17,9 +17,17 @@ export default function KruptosPage() {
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-kruptos-gold">
               Raipur&apos;s first specialty roastery
             </p>
-            <h1 className="max-w-3xl text-balance font-display text-5xl leading-[1.05] md:text-6xl">
-              Kruptos Coffee Roasters
-            </h1>
+            <h1 className="sr-only">Kruptos Coffee Roasters</h1>
+            <div className="relative h-32 w-64 sm:h-40 sm:w-80">
+              <Image
+                src="/images/kruptos/kruptos-logo.png"
+                alt="Kruptos Coffee Roasters"
+                fill
+                className="object-contain object-left"
+                sizes="320px"
+                priority
+              />
+            </div>
             <p className="mt-6 max-w-xl text-kruptos-cream/70">
               Kruptos exists to give the 1DM bar program a roastery it can call its own — small batches, full
               traceability, and a cupping table that argues over every lot before it ships.
