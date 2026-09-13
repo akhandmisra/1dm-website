@@ -23,7 +23,7 @@ export const timeline: TimelineEntry[] = [
     year: "2019",
     title: "Pune — the first cup, on wheels",
     badge: "India's 1st",
-    copy: "1DM starts India's first multi-roaster coffee truck and cafe concept — a one-rupee cup used as the door into specialty coffee for people who'd never tried it. Nobody else in the country was running this model.",
+    copy: "1DM starts India's first multi-roaster coffee truck and cafe concept — a one-dollar cup used as the door into specialty coffee for people who'd never tried it. Nobody else in the country was running this model.",
   },
   {
     year: "2021",
@@ -460,7 +460,7 @@ export const communityPartners: RoasterPartner[] = [
 export const founder = {
   name: "Akhand Mishra",
   role: "Founder & CEO",
-  bio: "Akhand founded 1DollarMoffe Pvt. Ltd. and built both 1DM Cafe and Kruptos Coffee Roasters from the ground up — from the first ₹1 cup off a coffee truck in Pune to a ten-outlet chain and Raipur's first dedicated specialty roastery. He runs the operations across every outlet personally, and has built much of the brand's operational and digital backbone himself, from the inventory systems that keep the cafes stocked to the identity and packaging that carry the Kruptos name. Nothing goes on a 1DM menu without his sign-off — every new drink and dish goes through rounds of R&D and cupping first, built on his own ongoing study of coffee and food, and on close collaboration with the roasters, chefs, and brands 1DM partners with. The menu is the part of the business he obsesses over the most.",
+  bio: "Akhand founded 1DollarMoffe Pvt. Ltd. and built both 1DM Cafe and Kruptos Coffee Roasters from the ground up — from the first $1 cup off a coffee truck in Pune to a ten-outlet chain and Raipur's first dedicated specialty roastery. He runs the operations across every outlet personally, and has built much of the brand's operational and digital backbone himself, from the inventory systems that keep the cafes stocked to the identity and packaging that carry the Kruptos name. Nothing goes on a 1DM menu without his sign-off — every new drink and dish goes through rounds of R&D and cupping first, built on his own ongoing study of coffee and food, and on close collaboration with the roasters, chefs, and brands 1DM partners with. The menu is the part of the business he obsesses over the most.",
 };
 
 export type TeamMember = {

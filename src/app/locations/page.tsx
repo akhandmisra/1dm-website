@@ -17,7 +17,7 @@ export default function LocationsPage() {
         <SectionHeading
           eyebrow="Locations"
           title="Ten cafes across four cities."
-          copy="Every outlet runs the same standard — the same shots, the same seven-second pour, the same bar we set back when a cup cost ₹1."
+          copy="Every outlet runs the same standard — the same shots, the same seven-second pour, the same bar we set back when a cup cost $1."
         />
 
         <div className="mt-14 space-y-14">

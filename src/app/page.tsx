@@ -36,7 +36,7 @@ export default function Home() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft/80">
-              What began as a ₹1 cup off a coffee truck in Pune is now ten cafes and a roastery of our own —
+              What began as a $1 cup off a coffee truck in Pune is now ten cafes and a roastery of our own —
               built on the idea that great coffee shouldn&apos;t be a luxury.
             </p>
           </Reveal>
@@ -125,8 +125,8 @@ export default function Home() {
           <Reveal>
             <SectionHeading
               eyebrow="The idea"
-              title="One rupee bought the door, once. Everything since is on the coffee."
-              copy="Our very first cup, off a truck in 2019, was priced at ₹1 — just enough to get someone through the door with something honest. We don't run that price anymore, but the philosophy stuck: let the cold brews, single origins, and Kruptos roasts do the convincing."
+              title="One dollar bought the door, once. Everything since is on the coffee."
+              copy="Our very first cup, off a truck in 2019, was priced at $1 — just enough to get someone through the door with something honest, and where 1DollarMoffe gets its name. We don't run that price anymore, but the philosophy stuck: let the cold brews, single origins, and Kruptos roasts do the convincing."
             />
           </Reveal>
           <Reveal delay={0.1}>
