@@ -1,5 +1,5 @@
-1DM — Two more roasters + real Kruptos logo
-============================================
+1DM — Two more roasters + real Kruptos & Rossette logos
+=========================================================
 
 This is a small incremental patch. Apply it ON TOP of what you already have (after
 1dm-content-fixes.zip and 1dm-dollar-fix.zip, which you've already pushed).
@@ -25,11 +25,12 @@ Apply it
 What changed
 ------------
 1. HOMEPAGE "ON THE BAR THIS WEEK" — added two more roasters alongside Bloom, Capulus,
-   and Kruptos: Rossette Coffee and Naivo Coffee Company (I matched the exact names
-   already used for these two elsewhere on your site, under "Beyond our own roast" on
-   /kruptos). Naivo already had a logo file in the repo, so it shows the real logo.
-   Rossette doesn't have a logo file yet, so it shows as text for now, same as Kruptos
-   did before this update — send me a logo file and I'll wire it in. The section is now
+   and Kruptos: Rossette Coffee Lab and Naivo Coffee Company. Both now show their real
+   logos — Naivo's was already in the repo, and I cropped Rossette's from the logo file
+   you sent (renamed it "Rossette Coffee Lab" to match what's actually on that logo,
+   was "Rossette Coffee" before). Also updated the matching entries in the roaster
+   partner list (used on /kruptos and the homepage's animated partner-logo strip) so
+   Rossette's real logo shows there too, consistent with the rest. The section is now
    "Five roasters, one bar." and the grid lays out 5 cards cleanly at every screen size.
 
 2. REAL KRUPTOS LOGO — you shared the Kruptos brand kit cover page. I cropped it down to
@@ -46,9 +47,5 @@ What changed
      nothing is lost for accessibility or search — visually it's now your actual logo.
 
 Verified: TypeScript, ESLint, and a clean production build all pass, and I checked the
-homepage roaster section, the Kruptos spotlight, and the /kruptos hero render correctly.
-
-Still open
-----------
-- A real logo file for Rossette Coffee, if you have one — right now it shows as text
-  like Kruptos did before.
+homepage roaster section (all 5 logos, including Rossette), the Kruptos spotlight, and
+the /kruptos hero render correctly.

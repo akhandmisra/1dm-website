@@ -317,7 +317,8 @@ export const barRoasters: BarRoaster[] = [
     note: "Ask your barista what's on pour — the lineup rotates.",
   },
   {
-    roaster: "Rossette Coffee",
+    roaster: "Rossette Coffee Lab",
+    logo: "/images/partners/rossette.png",
     note: "Ask your barista what's on pour — the lineup rotates.",
   },
   {
@@ -450,7 +451,7 @@ export const roasterPartners: RoasterPartner[] = [
   { name: "South Indian Coffee Company" },
   { name: "Groundzero", logo: "/images/partners/ground-zero.png" },
   { name: "Kokoro", logo: "/images/partners/kokoro.png" },
-  { name: "Rossette Coffee" },
+  { name: "Rossette Coffee Lab", logo: "/images/partners/rossette.png" },
   { name: "Kapikottai", logo: "/images/partners/kapikottai.png" },
   { name: "Siolim Coffee" },
   { name: "Capulus Beans", logo: "/images/partners/capulus-beans.png" },
