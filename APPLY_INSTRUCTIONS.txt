@@ -1,51 +1,44 @@
-1DM — Two more roasters + real Kruptos & Rossette logos
-=========================================================
+1DM — Fix the browser tab icon (favicon)
+=========================================
 
-This is a small incremental patch. Apply it ON TOP of what you already have (after
-1dm-content-fixes.zip and 1dm-dollar-fix.zip, which you've already pushed).
+This is a single-file patch.
+
+What was wrong
+---------------
+Your site had two different icon files: `src/app/icon.png` (correctly shows the real
+"1DM" wordmark — used for things like home-screen/PWA icons) and `src/app/favicon.ico`
+(the classic browser-tab icon). The favicon.ico was NOT your logo at all — it was a
+generic black circle with a white triangle, unrelated to the brand. Browsers pull
+`/favicon.ico` directly for the tab icon, so that's almost certainly what you were
+seeing in the tab instead of "1DM".
+
+Fixed by regenerating favicon.ico from the same real "1DM" wordmark used in icon.png,
+built as a proper multi-size icon (16/32/48/64/128/256px) so it's crisp in browser tabs,
+bookmarks, and anywhere else favicons show up.
 
 Apply it
 --------
 1. cd ~/Downloads
-   unzip -o 1dm-roaster-update.zip -d 1dm-roaster-update
+   rm -rf 1dm-favicon-fix
+   unzip -o 1dm-favicon-fix.zip -d 1dm-favicon-fix
 
 2. cd /home/coffee/Downloads/1dm-website
-   cp -r ~/Downloads/1dm-roaster-update/. /home/coffee/Downloads/1dm-website/
+   cp -r ~/Downloads/1dm-favicon-fix/. /home/coffee/Downloads/1dm-website/
 
-3. No new dependencies, so skip npm install. Just rebuild:
+3. No dependency or code changes, so skip npm install. Just rebuild:
+     rm -rf .next
      npm run build -- --webpack
      npm run start
-   Check the homepage's "Five roasters, one bar." section and /kruptos at
-   http://localhost:3000.
 
-4. git add -A
-   git commit -m "Add Rossette and Naivo to bar roasters, wire in the real Kruptos logo"
+4. Open http://localhost:3000 in a fresh incognito window (favicons are aggressively
+   cached by browsers — a normal tab may keep showing the old one even after this fix).
+   You should see "1DM" in the browser tab instead of the black circle/triangle.
+
+5. git add -A
+   git commit -m "Fix favicon — was a generic placeholder icon, now the real 1DM wordmark"
    git push
 
-What changed
-------------
-1. HOMEPAGE "ON THE BAR THIS WEEK" — added two more roasters alongside Bloom, Capulus,
-   and Kruptos: Rossette Coffee Lab and Naivo Coffee Company. Both now show their real
-   logos — Naivo's was already in the repo, and I cropped Rossette's from the logo file
-   you sent (renamed it "Rossette Coffee Lab" to match what's actually on that logo,
-   was "Rossette Coffee" before). Also updated the matching entries in the roaster
-   partner list (used on /kruptos and the homepage's animated partner-logo strip) so
-   Rossette's real logo shows there too, consistent with the rest. The section is now
-   "Five roasters, one bar." and the grid lays out 5 cards cleanly at every screen size.
-
-2. REAL KRUPTOS LOGO — you shared the Kruptos brand kit cover page. I cropped it down to
-   two clean, transparent-background assets from that source (no re-drawing):
-   - A small gold icon-only mark (the crescent/vinyl groove symbol) — used on the
-     homepage roaster card, next to the other roaster logos, since a big wordmark on a
-     small card would've been too cramped.
-   - The full lockup (icon + "KRUPTOS" + "COFFEE ROASTERS") — used wherever the brand
-     name previously appeared as a plain text heading:
-       - The homepage's Kruptos spotlight section (previously just said "Kruptos Coffee
-         Roasters" as a heading).
-       - The /kruptos page's hero heading, same swap.
-     Both spots kept an invisible (screen-reader/SEO) heading with the real text, so
-     nothing is lost for accessibility or search — visually it's now your actual logo.
-
-Verified: TypeScript, ESLint, and a clean production build all pass, and I checked the
-homepage roaster section (all 5 logos, including Rossette), the Kruptos spotlight, and
-the /kruptos hero render correctly.
+Note: a full wordmark like "1DM" is a little tight at the smallest favicon size (16px)
+compared to a single-letter monogram, but it's legible and — most importantly — it's
+actually your brand now instead of an unrelated icon. Say the word if you'd rather have
+a tighter monogram-style mark designed specifically for the tiny sizes.
