@@ -113,7 +113,10 @@ export function organizationSchema() {
     alternateName: brand.name,
     url: siteUrl,
     logo: `${siteUrl}/images/branding/1dm-logo.png`,
-    sameAs: ["https://www.instagram.com/1dollarmoffee/"],
+    sameAs: [
+      "https://www.instagram.com/1dollarmoffee/",
+      "https://magicpin.in/Raipur/Shankar-Nagar/Restaurant/1dollar-Moffee/store/1670110",
+    ],
     description:
       "1DM is a specialty coffee cafe chain based in Raipur, Chhattisgarh, India, with outlets across Chhattisgarh and its own roastery, Kruptos Coffee Roasters.",
   };
