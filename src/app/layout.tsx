@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { organizationSchema, withContext } from "@/lib/schema";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://1dm.coffee"),
@@ -25,6 +26,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className="antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(withContext(organizationSchema())) }}
+        />
         <Navbar />
         <main>{children}</main>
         <Footer />

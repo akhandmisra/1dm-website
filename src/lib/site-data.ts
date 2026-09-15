@@ -245,7 +245,7 @@ export const menuByLocation: Record<string, MenuCategory[]> = {
       ],
     },
   ],
-  "vip-road": [
+  dumartarai: [
     {
       name: "Water-based Coffee",
       items: [
