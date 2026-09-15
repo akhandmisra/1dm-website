@@ -1,45 +1,52 @@
-1DM — Outlet name & map location updates
-==========================================
+1DM — Real hours pulled from Google Business Profile, 7 outlets
+==================================================================
 
 What changed
 ------------
-Four outlets in the Locations list (src/lib/site-data.ts) renamed and/or
-repointed to real Google Maps links, per your instructions:
+You sent screenshots of the Google Business Profile "Hours" panel for 7
+outlets. Pulled the real hours + closed days from each and put them into
+src/lib/site-data.ts:
 
-1. "1DM Shankar Nagar II" -> "1DM Civil Line"
-   Still Coming Soon, map link still a generic search placeholder
-   (no real pin given yet) — just retitled to Civil Line.
+1. 1DM Avanti Vihar     -> 9:00 AM – 10:30 PM, closed Thursdays
+2. 1DM Dumartarai       -> 10:00 AM – 8:00 PM, closed Sundays
+3. 1DM Bhilai           -> 11:00 AM – 10:00 PM, closed Mondays
+4. 1DM Samta            -> 11:00 AM – 10:30 PM, daily   (was 10:30 AM–11:00 PM — corrected)
+5. 1DM Tagore Nagar     -> 9:00 AM – 10:00 PM, daily
+6. Slice By 1DM Shankar Nagar -> 12:00 PM – 10:00 PM, closed Tuesdays
+7. 1DM Bilaspur         -> 12:00 PM – 10:00 PM, daily   (was "closed Tuesdays" — corrected,
+                            your real listing shows open all 7 days)
 
-2. "1DM Shankar Nagar" -> "Slice By 1DM Shankar Nagar"
-   Now points at the real Google Maps place link you sent
-   (SLICE BY 1DM). Left as "Coming soon" since you didn't say it's
-   open yet — just say the word once it's live and I'll flip it to a
-   real menu-live listing.
+Since these 7 now all have real, specific hours from a live Google
+Business Profile, I also flipped Avanti Vihar, Bhilai, Tagore Nagar, and
+Slice By 1DM Shankar Nagar from "Coming Soon" to "Menu live" status —
+showing exact hours next to a "Coming Soon" label would've read as a
+contradiction to a visitor. Samta, Dumartarai, and Bilaspur were already
+live.
 
-3. "1DM Shailendra Nagar" -> "Slice By 1DM VIP Road"
-   Still Coming Soon, map link still a generic search placeholder
-   (you said this one's location is Coming Soon too).
+Left alone, still genuinely Coming Soon (you didn't send GMB screenshots
+for these, and earlier you confirmed they don't have real listings yet):
+- 1DM Civil Line
+- Slice By 1DM VIP Road
+- 1DM Jagdalpur
 
-4. "1DM VIP Road" -> "1DM Dumartarai"
-   Now points at the real Google Maps place link you sent (1DM
-   Specialty Coffee). Kept as a live, menu-available outlet with its
-   existing hours, since you didn't mention those changing — flag it
-   if the hours at the new location are actually different.
+Important — this widens a gap that was already there
+------------------------------------------------------
+Flipping those 4 outlets to "Menu live" means the site now generates a
+/menu/<slug> page for all 7 real outlets, but menuByLocation in
+site-data.ts still only has actual menu content for Samta and Bilaspur.
+So right now:
+  - /menu/samta       -> real menu, works
+  - /menu/bilaspur     -> real menu, works
+  - /menu/dumartarai, /menu/avanti, /menu/bhilai, /menu/tagore,
+    /menu/slice-shankar-nagar -> blank/not-found page (no menu data yet)
 
-All four keep their spot in the Raipur section of /locations, the
-homepage locations teaser, and the /menu location switcher — those all
-read from this one file, so nothing else needed to change.
-
-One thing I found while in here, unrelated to what you asked for
-----------------------------------------------------------------
-"1DM VIP Road" (now "1DM Dumartarai") has been listed as a "live,
-menu-available" outlet, but there's actually no menu content wired up
-for it in site-data.ts — only Samta and Bilaspur have real menu data.
-Visiting /menu/dumartarai (previously /menu/vip-road, same gap) shows
-a blank/not-found page instead of a menu. This isn't something I
-introduced — it was already true before this change, just hiding
-under the old name. Send over the Dumartarai menu whenever you have
-it and I'll wire it in.
+This isn't new — Dumartarai (formerly VIP Road) already had this problem
+before this change, just for one location instead of five. If you'd
+rather these 5 outlets go back to showing "Menu coming soon" instead of
+a blank page until you have real menu content for each, say the word and
+I'll flip menuStatus back to "soon" for the ones without real menus.
+Otherwise, send over menu items for any of these five whenever you have
+them and I'll wire them in.
 
 What's in this patch
 ---------------------
@@ -47,33 +54,21 @@ What's in this patch
 
 Apply it
 --------
-1. cd ~/Downloads
-   rm -rf 1dm-outlet-updates
-   ZIP=$(ls -t 1dm-outlet-updates*.zip | head -1)
-   echo "Using: $ZIP"
-   unzip -o "$ZIP" -d 1dm-outlet-updates
+cd ~/Downloads
+rm -rf 1dm-hours-update
+ZIP=$(ls -t 1dm-hours-update*.zip | head -1)
+unzip -o "$ZIP" -d 1dm-hours-update
 
-2. cd /home/coffee/Downloads/1dm-website
-   cp -r ~/Downloads/1dm-outlet-updates/. /home/coffee/Downloads/1dm-website/
+cd /home/coffee/Downloads/1dm-website
+cp -r ~/Downloads/1dm-hours-update/. /home/coffee/Downloads/1dm-website/
 
-3. rm -rf .next
-   npm run build -- --webpack
-   npm run start
-
-4. Check http://localhost:3000/locations — you should see 1DM Civil
-   Line, Slice By 1DM Shankar Nagar, Slice By 1DM VIP Road, and 1DM
-   Dumartarai in place of the four old names, with the map pin icon
-   on Shankar Nagar and Dumartarai opening your real Google Maps
-   listings.
-
-5. git add -A
-   git commit -m "Update outlet names and map links for 4 locations"
-   git push
+git add -A
+git commit -m "Update outlet hours from Google Business Profile, flip 4 to live"
+git push
 
 Worth knowing
 -------------
-- Verified: tsc --noEmit, eslint, and a clean production build
-  (next build -- --webpack) all pass with no errors — 16/16 pages
-  generated, including the renamed /menu/dumartarai route.
-- Nothing else in the codebase referenced the old names/slugs by
-  string, so this one file is a complete, self-contained patch.
+- Verified: tsc --noEmit, eslint, and a clean production build all pass
+  — 20/20 pages, 7 live /menu/<slug> routes generated (up from 3).
+- No local build/preview needed before pushing — only data changed, same
+  as the last patch.
