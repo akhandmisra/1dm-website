@@ -6,7 +6,11 @@ import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/button";
 import { coffeeProducts, roasterPartners, communityPartners } from "@/lib/site-data";
 
-export const metadata: Metadata = { title: "Kruptos Coffee Roasters" };
+export const metadata: Metadata = {
+  title: "Kruptos Coffee Roasters",
+  description:
+    "Kruptos Coffee Roasters — Raipur's first dedicated specialty roastery, born inside the 1DM ecosystem. The current single-origin drop, roast notes, and where to buy.",
+};
 
 export default function KruptosPage() {
   return (

@@ -7,7 +7,11 @@ import { Reveal } from "@/components/reveal";
 import { locations } from "@/lib/site-data";
 import { allCafeSchemas, jsonLdGraph } from "@/lib/schema";
 
-export const metadata: Metadata = { title: "Locations" };
+export const metadata: Metadata = {
+  title: "Locations",
+  description:
+    "Ten 1DM cafes across Raipur, Bhilai, Bilaspur, and Jagdalpur — hours, maps, and menus for every outlet, all run to the same bar we set at $1 a cup.",
+};
 
 export default function LocationsPage() {
   const cities = Array.from(new Set(locations.map((l) => l.city)));

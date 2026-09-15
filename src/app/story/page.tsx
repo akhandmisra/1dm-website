@@ -6,7 +6,11 @@ import { Reveal } from "@/components/reveal";
 import { cn } from "@/lib/utils";
 import { timeline, team, founder, storyGallery } from "@/lib/site-data";
 
-export const metadata: Metadata = { title: "Our Story" };
+export const metadata: Metadata = {
+  title: "Our Story",
+  description:
+    "How a multi-roaster coffee cart in Pune, 2019, became ten cafes and a roastery — the real 1DM timeline, team, and the $1 cup that started it.",
+};
 
 function initials(name: string) {
   return name

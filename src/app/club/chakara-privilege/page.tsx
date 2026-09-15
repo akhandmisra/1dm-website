@@ -4,7 +4,11 @@ import { SectionHeading } from "@/components/section-heading";
 import { Button } from "@/components/button";
 import { clubTiers } from "@/lib/site-data";
 
-export const metadata: Metadata = { title: "Chakara Privilege" };
+export const metadata: Metadata = {
+  title: "Chakara Privilege",
+  description:
+    "Chakara Privilege — 1DM's invitation-only inner circle for Elite Club members who show up every week: free roast trials, tasting priority, and a direct line to the roasting team.",
+};
 
 export default function ChakaraPage() {
   const tier = clubTiers[1];

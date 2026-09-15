@@ -4,7 +4,11 @@ import { InstagramIcon } from "@/components/icons";
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
 
-export const metadata: Metadata = { title: "Contact" };
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Reach 1DM by email or Instagram, or find an outlet in Raipur, Bhilai, Bilaspur, or Jagdalpur.",
+};
 
 export default function ContactPage() {
   return (

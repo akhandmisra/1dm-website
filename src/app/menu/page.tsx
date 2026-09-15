@@ -5,7 +5,11 @@ import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
 import { locations } from "@/lib/site-data";
 
-export const metadata: Metadata = { title: "Menu" };
+export const metadata: Metadata = {
+  title: "Menu",
+  description:
+    "Browse the menu for every 1DM outlet — coffee, toasties, and bakery items, with live menus for Samta, Dumartarai, Bilaspur, and more.",
+};
 
 export default function MenuIndexPage() {
   return (
