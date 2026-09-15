@@ -13,6 +13,7 @@
 // instead of a fabricated street number — see `KNOWN_ADDRESSES` below.
 
 import { brand, locations, type Location } from "./site-data";
+import type { JournalArticle } from "./journal";
 
 export const siteUrl = "https://1dm.coffee";
 
@@ -175,5 +176,22 @@ export function jsonLdGraph(nodes: object[]) {
   return {
     "@context": "https://schema.org",
     "@graph": nodes,
+  };
+}
+
+// Article schema for a Journal post — helps it show up as a rich result
+// and ties it back to the Organization as publisher.
+export function articleSchema(article: JournalArticle) {
+  return {
+    "@type": "Article",
+    "@id": `${siteUrl}/journal/${article.slug}`,
+    headline: article.title,
+    description: article.dek,
+    datePublished: article.publishedAt,
+    dateModified: article.publishedAt,
+    author: { "@id": `${siteUrl}/#organization` },
+    publisher: { "@id": `${siteUrl}/#organization` },
+    mainEntityOfPage: `${siteUrl}/journal/${article.slug}`,
+    articleSection: article.category,
   };
 }

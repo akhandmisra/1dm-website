@@ -9,6 +9,7 @@ const columns = [
       { href: "/story", label: "Our Story", external: false },
       { href: "/menu", label: "Menu", external: false },
       { href: "/locations", label: "Locations", external: false },
+      { href: "/journal", label: "Journal", external: false },
       { href: "/kruptos", label: "Kruptos Roasters", external: false },
     ],
   },
