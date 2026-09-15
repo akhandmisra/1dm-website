@@ -1,74 +1,77 @@
-1DM — Real hours pulled from Google Business Profile, 7 outlets
-==================================================================
+1DM — llms.txt for AI/SEO discovery
+====================================
 
-What changed
-------------
-You sent screenshots of the Google Business Profile "Hours" panel for 7
-outlets. Pulled the real hours + closed days from each and put them into
-src/lib/site-data.ts:
+What this is
+-------------
+llms.txt is an emerging standard (llmstxt.org) — a plain-text/markdown file
+at the root of a site that AI crawlers (ChatGPT, Perplexity, Claude, Google's
+AI Overviews, etc.) can read to get accurate, structured facts about a
+business instead of having to parse full HTML pages. It doesn't replace
+normal SEO, but it makes it much more likely AI answers about 1DM are
+correct and current rather than guessed or outdated.
 
-1. 1DM Avanti Vihar     -> 9:00 AM – 10:30 PM, closed Thursdays
-2. 1DM Dumartarai       -> 10:00 AM – 8:00 PM, closed Sundays
-3. 1DM Bhilai           -> 11:00 AM – 10:00 PM, closed Mondays
-4. 1DM Samta            -> 11:00 AM – 10:30 PM, daily   (was 10:30 AM–11:00 PM — corrected)
-5. 1DM Tagore Nagar     -> 9:00 AM – 10:00 PM, daily
-6. Slice By 1DM Shankar Nagar -> 12:00 PM – 10:00 PM, closed Tuesdays
-7. 1DM Bilaspur         -> 12:00 PM – 10:00 PM, daily   (was "closed Tuesdays" — corrected,
-                            your real listing shows open all 7 days)
+What's in it
+-------------
+public/llms.txt covers, in plain language:
+- What 1DM is, and how it relates to Kruptos Coffee Roasters and
+  kruptoscoffee.com (so an AI doesn't try to send someone to 1dm.coffee to
+  buy beans)
+- All 10 locations, their real hours (from the GMB round), and which 3 are
+  still Coming Soon
+- Menu categories and the Bilaspur bakery partnership
+- Kruptos's current drop
+- 1DM Elite Club pricing and perks
+- The 5 bar roasters
+- Founder + team credentials
+- Brand milestones/timeline
+- Links to every key page
 
-Since these 7 now all have real, specific hours from a live Google
-Business Profile, I also flipped Avanti Vihar, Bhilai, Tagore Nagar, and
-Slice By 1DM Shankar Nagar from "Coming Soon" to "Menu live" status —
-showing exact hours next to a "Coming Soon" label would've read as a
-contradiction to a visitor. Samta, Dumartarai, and Bilaspur were already
-live.
+I pulled all of this from the same site-data.ts facts already on the site
+(plus the contact email and Instagram handle already in the footer/contact
+page) — nothing here is invented, and it matches what's live once you've
+pushed the outlet-name and hours updates from the last two rounds.
 
-Left alone, still genuinely Coming Soon (you didn't send GMB screenshots
-for these, and earlier you confirmed they don't have real listings yet):
-- 1DM Civil Line
-- Slice By 1DM VIP Road
-- 1DM Jagdalpur
+Where it lives
+---------------
+- public/llms.txt — this is the important part. Since it's in the `public`
+  folder, Next.js serves it directly at https://1dm.coffee/llms.txt with no
+  routing needed — that's the actual convention AI crawlers look for (like
+  robots.txt or sitemap.xml, it needs to be at the site root, not buried in
+  a page).
+- src/components/footer.tsx — added a small "llms.txt" text link next to
+  the city list at the very bottom of the footer, since you asked for it to
+  be reachable from the footer too. It's a plain text link, doesn't disturb
+  the existing footer layout/columns.
 
-Important — this widens a gap that was already there
-------------------------------------------------------
-Flipping those 4 outlets to "Menu live" means the site now generates a
-/menu/<slug> page for all 7 real outlets, but menuByLocation in
-site-data.ts still only has actual menu content for Samta and Bilaspur.
-So right now:
-  - /menu/samta       -> real menu, works
-  - /menu/bilaspur     -> real menu, works
-  - /menu/dumartarai, /menu/avanti, /menu/bhilai, /menu/tagore,
-    /menu/slice-shankar-nagar -> blank/not-found page (no menu data yet)
-
-This isn't new — Dumartarai (formerly VIP Road) already had this problem
-before this change, just for one location instead of five. If you'd
-rather these 5 outlets go back to showing "Menu coming soon" instead of
-a blank page until you have real menu content for each, say the word and
-I'll flip menuStatus back to "soon" for the ones without real menus.
-Otherwise, send over menu items for any of these five whenever you have
-them and I'll wire them in.
-
-What's in this patch
----------------------
-- src/lib/site-data.ts — the only file touched.
+Nothing else needed to change — this is a 2-file patch.
 
 Apply it
 --------
 cd ~/Downloads
-rm -rf 1dm-hours-update
-ZIP=$(ls -t 1dm-hours-update*.zip | head -1)
-unzip -o "$ZIP" -d 1dm-hours-update
+rm -rf 1dm-llms-txt
+ZIP=$(ls -t 1dm-llms-txt*.zip | head -1)
+unzip -o "$ZIP" -d 1dm-llms-txt
 
 cd /home/coffee/Downloads/1dm-website
-cp -r ~/Downloads/1dm-hours-update/. /home/coffee/Downloads/1dm-website/
+cp -r ~/Downloads/1dm-llms-txt/. /home/coffee/Downloads/1dm-website/
 
 git add -A
-git commit -m "Update outlet hours from Google Business Profile, flip 4 to live"
+git commit -m "Add llms.txt for AI/SEO discovery, link it in the footer"
 git push
 
 Worth knowing
 -------------
-- Verified: tsc --noEmit, eslint, and a clean production build all pass
-  — 20/20 pages, 7 live /menu/<slug> routes generated (up from 3).
-- No local build/preview needed before pushing — only data changed, same
-  as the last patch.
+- Verified: tsc --noEmit, eslint, and a clean production build all pass —
+  20/20 pages. Also started the built site locally and confirmed
+  http://localhost:3000/llms.txt returns HTTP 200 as plain text.
+- Once pushed and deployed, check https://1dm.coffee/llms.txt directly to
+  confirm it's live.
+- If you ever want, you can also submit https://1dm.coffee/llms.txt
+  directly to tools like ChatGPT's or Perplexity's site-crawl/verification
+  flows, the same way you'd submit a sitemap to Google Search Console —
+  most don't require this, but a few AI search products have a manual
+  "add my site" step.
+- Keep this file honest — if hours, pricing, or the outlet list change
+  again, this file needs the same update or it'll start telling AI
+  assistants stale facts. Worth updating it alongside site-data.ts
+  whenever you send me location/menu/pricing changes going forward.

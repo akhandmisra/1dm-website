@@ -69,7 +69,12 @@ export function Footer() {
       </Container>
       <Container className="flex flex-col gap-2 border-t border-cream/10 py-6 text-xs text-cream/40 md:flex-row md:items-center md:justify-between">
         <p>© {new Date().getFullYear()} 1DollarMoffe Pvt. Ltd. All rights reserved.</p>
-        <p>Raipur · Bhilai · Bilaspur · Jagdalpur</p>
+        <p className="flex items-center gap-4">
+          <span>Raipur · Bhilai · Bilaspur · Jagdalpur</span>
+          <Link href="/llms.txt" className="transition-colors hover:text-cream/70">
+            llms.txt
+          </Link>
+        </p>
       </Container>
     </footer>
   );
