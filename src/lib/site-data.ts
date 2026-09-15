@@ -119,12 +119,13 @@ export const locations: Location[] = [
     heroImage: "/images/food/bagel-sandwich.jpg",
   },
   {
-    slug: "vip-road",
-    name: "1DM VIP Road",
+    slug: "dumartarai",
+    name: "1DM Dumartarai",
     city: "Raipur",
     hours: "10:30 AM – 11:00 PM, daily",
     menuStatus: "live",
-    mapsUrl: mapsSearchUrl("1DM VIP Road Cafe, Raipur"),
+    mapsUrl:
+      "https://www.google.com/maps/place/1DM+Specialty+Coffee/data=!4m2!3m1!1s0x0:0x2e3464ea6f04c378?sa=X&ved=1t:2428&hl=en-GB&ictx=111",
   },
   {
     slug: "bilaspur",
@@ -135,9 +136,17 @@ export const locations: Location[] = [
     mapsUrl: mapsSearchUrl("1DM Bilaspur Cafe"),
   },
   { slug: "tagore", name: "1DM Tagore Nagar", city: "Raipur", hours: "Coming soon", menuStatus: "soon", mapsUrl: mapsSearchUrl("1DM Tagore Nagar Cafe, Raipur") },
-  { slug: "shailendra-nagar", name: "1DM Shailendra Nagar", city: "Raipur", hours: "Coming soon", menuStatus: "soon", mapsUrl: mapsSearchUrl("1DM Shailendra Nagar Cafe, Raipur") },
-  { slug: "shankar-nagar-1", name: "1DM Shankar Nagar", city: "Raipur", hours: "Coming soon", menuStatus: "soon", mapsUrl: mapsSearchUrl("1DM Shankar Nagar Cafe, Raipur") },
-  { slug: "shankar-nagar-2", name: "1DM Shankar Nagar II", city: "Raipur", hours: "Coming soon", menuStatus: "soon", mapsUrl: mapsSearchUrl("1DM Shankar Nagar Cafe, Raipur") },
+  { slug: "slice-vip-road", name: "Slice By 1DM VIP Road", city: "Raipur", hours: "Coming soon", menuStatus: "soon", mapsUrl: mapsSearchUrl("Slice By 1DM VIP Road, Raipur") },
+  {
+    slug: "slice-shankar-nagar",
+    name: "Slice By 1DM Shankar Nagar",
+    city: "Raipur",
+    hours: "Coming soon",
+    menuStatus: "soon",
+    mapsUrl:
+      "https://www.google.com/maps/place/SLICE+BY+1DM/data=!4m2!3m1!1s0x3a28ddc16768623b:0x8da9884a73fb5713?sa=X&ved=1t:242&hl=en-GB&ictx=111",
+  },
+  { slug: "civil-line", name: "1DM Civil Line", city: "Raipur", hours: "Coming soon", menuStatus: "soon", mapsUrl: mapsSearchUrl("1DM Civil Line Cafe, Raipur") },
   { slug: "avanti", name: "1DM Avanti Vihar", city: "Raipur", hours: "Coming soon", menuStatus: "soon", mapsUrl: mapsSearchUrl("1DM Avanti Vihar Cafe, Raipur") },
   { slug: "bhilai", name: "1DM Bhilai", city: "Bhilai", hours: "Coming soon", menuStatus: "soon", mapsUrl: mapsSearchUrl("1DM Bhilai Cafe") },
   { slug: "jagdalpur", name: "1DM Jagdalpur", city: "Jagdalpur", hours: "Coming soon", menuStatus: "soon", mapsUrl: mapsSearchUrl("1DM Cafe Jagdalpur") },

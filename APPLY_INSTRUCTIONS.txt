@@ -1,57 +1,79 @@
-1DM — Homepage hero: simplified to 2 clips (v4 — IMG_3029 + 1000077708 only)
-================================================================================
+1DM — Outlet name & map location updates
+==========================================
 
-What changed from the last version
-------------------------------------
-Simplified down to just the two best-quality clips you pointed to — IMG_3029
-(cherries on the branch, tilting up through the canopy) and 1000077708 (the V60
-pour-over) — dropping the other four. Both of these were already a clean fit for a
-9:16 background with zero cropping or padding needed (one is natively the right
-shape, the other just downscales cleanly), which is why they hold up sharper than the
-others did.
+What changed
+------------
+Four outlets in the Locations list (src/lib/site-data.ts) renamed and/or
+repointed to real Google Maps links, per your instructions:
 
-The two now crossfade into a simple 13.8-second loop: cherries tilting up to the sky
-→ pour-over building toward the finished cup, then back to the start. Longer, fuller
-takes of each clip than before (7s and 7.6s) so the motion in both reads naturally
-rather than feeling cut short.
+1. "1DM Shankar Nagar II" -> "1DM Civil Line"
+   Still Coming Soon, map link still a generic search placeholder
+   (no real pin given yet) — just retitled to Civil Line.
 
-This drops the roasting, hand-sorting, drying-bed, and espresso shots entirely — say
-the word if you'd rather work any of those back in later, now that we know which
-clips hold up best at full quality.
+2. "1DM Shankar Nagar" -> "Slice By 1DM Shankar Nagar"
+   Now points at the real Google Maps place link you sent
+   (SLICE BY 1DM). Left as "Coming soon" since you didn't say it's
+   open yet — just say the word once it's live and I'll flip it to a
+   real menu-live listing.
+
+3. "1DM Shailendra Nagar" -> "Slice By 1DM VIP Road"
+   Still Coming Soon, map link still a generic search placeholder
+   (you said this one's location is Coming Soon too).
+
+4. "1DM VIP Road" -> "1DM Dumartarai"
+   Now points at the real Google Maps place link you sent (1DM
+   Specialty Coffee). Kept as a live, menu-available outlet with its
+   existing hours, since you didn't mention those changing — flag it
+   if the hours at the new location are actually different.
+
+All four keep their spot in the Raipur section of /locations, the
+homepage locations teaser, and the /menu location switcher — those all
+read from this one file, so nothing else needed to change.
+
+One thing I found while in here, unrelated to what you asked for
+----------------------------------------------------------------
+"1DM VIP Road" (now "1DM Dumartarai") has been listed as a "live,
+menu-available" outlet, but there's actually no menu content wired up
+for it in site-data.ts — only Samta and Bilaspur have real menu data.
+Visiting /menu/dumartarai (previously /menu/vip-road, same gap) shows
+a blank/not-found page instead of a menu. This isn't something I
+introduced — it was already true before this change, just hiding
+under the old name. Send over the Dumartarai menu whenever you have
+it and I'll wire it in.
 
 What's in this patch
 ---------------------
-- public/videos/hero-bean-to-cup.mp4 (~4.3MB) and hero-bean-to-cup.webm (~4.0MB) —
-  much smaller than every previous version, since it's just two clips now.
-- public/images/hero/hero-poster.jpg — new poster frame from the pour-over.
-- src/app/page.tsx, src/components/hero-video.tsx, src/app/favicon.ico — same as
-  before, included again so this zip is a complete drop-in on its own.
+- src/lib/site-data.ts — the only file touched.
 
 Apply it
 --------
 1. cd ~/Downloads
-   rm -rf 1dm-hero-bean-to-cup-v4
-   ZIP=$(ls -t 1dm-hero-bean-to-cup-v4*.zip | head -1)
+   rm -rf 1dm-outlet-updates
+   ZIP=$(ls -t 1dm-outlet-updates*.zip | head -1)
    echo "Using: $ZIP"
-   unzip -o "$ZIP" -d 1dm-hero-bean-to-cup-v4
+   unzip -o "$ZIP" -d 1dm-outlet-updates
 
 2. cd /home/coffee/Downloads/1dm-website
-   cp -r ~/Downloads/1dm-hero-bean-to-cup-v4/. /home/coffee/Downloads/1dm-website/
+   cp -r ~/Downloads/1dm-outlet-updates/. /home/coffee/Downloads/1dm-website/
 
 3. rm -rf .next
    npm run build -- --webpack
    npm run start
 
-4. Check http://localhost:3000 — the hero should loop cherries-on-branch into the
-   pour-over and back, sharp with no cropping.
+4. Check http://localhost:3000/locations — you should see 1DM Civil
+   Line, Slice By 1DM Shankar Nagar, Slice By 1DM VIP Road, and 1DM
+   Dumartarai in place of the four old names, with the map pin icon
+   on Shankar Nagar and Dumartarai opening your real Google Maps
+   listings.
 
 5. git add -A
-   git commit -m "Simplify hero video to the two highest-quality clips"
+   git commit -m "Update outlet names and map links for 4 locations"
    git push
 
 Worth knowing
 -------------
-- File size dropped a lot (~8.3MB total, down from ~21MB) since it's just two clips
-  now — lighter on mobile data too.
-- Verified: production build passes clean, and I checked both desktop and phone
-  widths plus the pour-over segment specifically.
+- Verified: tsc --noEmit, eslint, and a clean production build
+  (next build -- --webpack) all pass with no errors — 16/16 pages
+  generated, including the renamed /menu/dumartarai route.
+- Nothing else in the codebase referenced the old names/slugs by
+  string, so this one file is a complete, self-contained patch.
