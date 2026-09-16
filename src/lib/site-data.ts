@@ -11,6 +11,14 @@ export const brand = {
   outlets: 10,
 };
 
+export const contactInfo = {
+  phone: "+91 9179241042",
+  phoneHref: "tel:+919179241042",
+  email: "hello@1dollarmoffee.com",
+  instagramHandle: "@1dollarmoffee",
+  instagramUrl: "https://www.instagram.com/1dollarmoffee/",
+};
+
 export type TimelineEntry = {
   year: string;
   title: string;

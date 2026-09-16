@@ -42,22 +42,38 @@ export async function POST(request: Request) {
     );
   }
 
+  // Trim every SMTP value defensively — a stray trailing space or newline
+  // picked up when copying a password into Vercel's dashboard or a local
+  // .env.local file is a common, invisible cause of "535 authentication
+  // failed" even when the password is correct. Webmail login forms almost
+  // always trim input automatically; a raw environment variable does not.
+  const smtpHost = SMTP_HOST.trim();
+  const smtpUser = SMTP_USER.trim();
+  const smtpPass = SMTP_PASS.trim();
+  if (smtpPass !== SMTP_PASS || smtpUser !== SMTP_USER || smtpHost !== SMTP_HOST) {
+    console.warn("Careers form: SMTP_HOST/SMTP_USER/SMTP_PASS had leading/trailing whitespace — trimmed automatically.");
+  }
+
   const port = Number(SMTP_PORT ?? 465);
-  const to = CAREERS_TO_EMAIL || SMTP_USER;
+  // Deliberately NOT falling back to SMTP_USER here — the same SMTP account
+  // now sends mail for both this form and the Contact form, so the
+  // destination inbox has to stay pinned to career@ regardless of which
+  // mailbox is doing the actual sending.
+  const to = CAREERS_TO_EMAIL || "career@1dollarmoffee.com";
 
   try {
     const transporter = nodemailer.createTransport({
-      host: SMTP_HOST,
+      host: smtpHost,
       port,
       secure: port === 465, // Hostinger: 465 = SSL, 587 = STARTTLS
       auth: {
-        user: SMTP_USER,
-        pass: SMTP_PASS,
+        user: smtpUser,
+        pass: smtpPass,
       },
     });
 
     await transporter.sendMail({
-      from: `"1DM Careers" <${SMTP_USER}>`,
+      from: `"1DM Careers" <${smtpUser}>`,
       to,
       replyTo: email,
       subject: `Job application: ${role} — ${name}`,
