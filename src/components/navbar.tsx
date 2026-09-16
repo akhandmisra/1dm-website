@@ -15,6 +15,7 @@ const links = [
   { href: "/kruptos", label: "Kruptos Roasters" },
   { href: "https://kruptoscoffee.com", label: "Shop", external: true },
   { href: "/club", label: "1DM Club" },
+  { href: "/careers", label: "Careers" },
 ];
 
 export function Navbar() {

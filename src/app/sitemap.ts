@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/menu",
     "/locations",
     "/journal",
+    "/careers",
     "/kruptos",
     "/club",
     "/club/chakara-privilege",

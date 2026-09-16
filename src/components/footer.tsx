@@ -11,6 +11,7 @@ const columns = [
       { href: "/locations", label: "Locations", external: false },
       { href: "/journal", label: "Journal", external: false },
       { href: "/kruptos", label: "Kruptos Roasters", external: false },
+      { href: "/careers", label: "Careers", external: false },
     ],
   },
   {
