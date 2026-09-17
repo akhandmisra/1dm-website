@@ -32,7 +32,7 @@ export function CommunityForm() {
           </div>
         ) : (
           <>
-            <SectionHeading eyebrow={`Question ${step + 1} of ${steps.length}`} title="Coffee Community" />
+            <SectionHeading eyebrow={`Question ${step + 1} of ${steps.length}`} title="Coffee Community" as="h1" />
             <div className="mt-8 h-1 w-full overflow-hidden rounded-full bg-ink/10">
               <div
                 className="h-full rounded-full bg-rust transition-all duration-500"

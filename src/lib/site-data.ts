@@ -307,6 +307,17 @@ export const menuByLocation: Record<string, MenuCategory[]> = {
   ],
 };
 
+// A location's `menuStatus` says whether the cafe itself is open; it does
+// NOT mean a real menu has been entered into `menuByLocation` yet (several
+// "live" outlets still have no menu content — see the project status doc).
+// Anything that links to a per-location menu page should check this, not
+// `menuStatus` directly, or it produces a real dead link: `/menu/<slug>`
+// calls notFound() and returns an actual HTTP 404 when there's no entry
+// here, which Sitechecker flagged as "internal links to 4xx pages".
+export function hasLiveMenu(slug: string): boolean {
+  return Boolean(menuByLocation[slug]);
+}
+
 export type CoffeeProduct = {
   handle: string;
   name: string;

@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { CityLocations } from "@/components/city-locations";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: "/raipur",
   title: "1DM Specialty Coffee | Best Cafe in Raipur",
   description:
     "1DM's home city — five open cafes (Samta, Dumartarai, Avanti Vihar, Tagore Nagar, Slice By 1DM Shankar Nagar) with two more on the way, running the same specialty coffee standard 1DM first brought to Raipur in 2021.",
-};
+});
 
 export default function RaipurPage() {
   return (

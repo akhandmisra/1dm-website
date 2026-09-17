@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { CityLocations } from "@/components/city-locations";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: "/bhilai",
   title: "1DM Specialty Coffee | Cafe in Bhilai",
   description:
     "1DM Bhilai — the same specialty coffee bar as every other 1DM outlet, open six days a week (closed Mondays).",
-};
+});
 
 export default function BhilaiPage() {
   return (

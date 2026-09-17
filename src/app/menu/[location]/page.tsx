@@ -6,17 +6,34 @@ import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
 import { locations, menuByLocation } from "@/lib/site-data";
 import { formatINR } from "@/lib/utils";
+import { pageMetadata } from "@/lib/metadata";
 
 type Params = Promise<{ location: string }>;
 
+// Only build a page for locations that actually have menu content in
+// menuByLocation — filtering on menuStatus === "live" alone (the site's
+// open/closed flag) previously generated pages for outlets with no menu
+// data at all, which immediately called notFound() and returned a real
+// HTTP 404. Those pages were still linked to from /locations, /menu, and
+// the city pages whenever a location was "live", which is exactly what
+// Sitechecker flagged as "internal links to 4xx pages". See the matching
+// link-guard fix in site-data.ts (hasLiveMenu) and its call sites.
 export function generateStaticParams() {
-  return locations.filter((l) => l.menuStatus === "live").map((l) => ({ location: l.slug }));
+  return Object.keys(menuByLocation).map((location) => ({ location }));
 }
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { location } = await params;
   const loc = locations.find((l) => l.slug === location);
-  return { title: loc ? `Menu · ${loc.name}` : "Menu" };
+  const categories = menuByLocation[location];
+  if (!loc || !categories) return { title: "Menu" };
+
+  const categoryNames = categories.map((c) => c.name).join(", ");
+  return pageMetadata({
+    path: `/menu/${location}`,
+    title: `Menu · ${loc.name}`,
+    description: `The full menu at ${loc.name} in ${loc.city} — ${categoryNames}. Open ${loc.hours}.`,
+  });
 }
 
 export default async function LocationMenuPage({ params }: { params: Params }) {
@@ -28,7 +45,7 @@ export default async function LocationMenuPage({ params }: { params: Params }) {
   return (
     <section className="grain bg-cream pb-24 pt-20 md:pb-32 md:pt-28">
       <Container>
-        <SectionHeading eyebrow={loc.city} title={loc.name} copy={loc.hours} />
+        <SectionHeading eyebrow={loc.city} title={loc.name} copy={loc.hours} as="h1" />
 
         {loc.heroImage && (
           <div className="relative mt-10 aspect-[16/7] w-full overflow-hidden rounded-3xl">

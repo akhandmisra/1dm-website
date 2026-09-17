@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import Image from "next/image";
 import { Percent, Armchair, CreditCard, Wrench, GraduationCap, Users, Check, X, ArrowUpRight } from "lucide-react";
@@ -8,11 +9,12 @@ import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/button";
 import { clubTiers, eliteNetwork } from "@/lib/site-data";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: "/club",
   title: "1DM Elite Club",
   description:
     "1DM Elite Club — 10% off every outlet, priority seating, zero-deposit equipment rental, and 15 hours of brewing classes a year. ₹5,999 to join.",
-};
+});
 
 const NEW_MEMBER_PAYMENT_URL = "https://rzp.io/l/1DollarMoffee";
 const RENEWAL_PAYMENT_URL = "https://rzp.io/l/1dmrenew";

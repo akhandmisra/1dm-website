@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
 import { Button } from "@/components/button";
 import { clubTiers } from "@/lib/site-data";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: "/club/chakara-privilege",
   title: "Chakara Privilege",
   description:
     "Chakara Privilege — 1DM's invitation-only inner circle for Elite Club members who show up every week: free roast trials, tasting priority, and a direct line to the roasting team.",
-};
+});
 
 export default function ChakaraPage() {
   const tier = clubTiers[1];
@@ -16,7 +18,7 @@ export default function ChakaraPage() {
   return (
     <section className="grain bg-kruptos-black pb-24 pt-20 text-kruptos-cream md:pb-32 md:pt-28">
       <Container className="max-w-2xl">
-        <SectionHeading eyebrow={tier.price} title={tier.name} copy={tier.pitch} tone="dark" />
+        <SectionHeading eyebrow={tier.price} title={tier.name} copy={tier.pitch} tone="dark" as="h1" />
         <ul className="mt-8 space-y-3">
           {tier.perks.map((perk) => (
             <li key={perk} className="flex gap-3 text-kruptos-cream/80">

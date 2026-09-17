@@ -5,6 +5,7 @@ import { Container } from "@/components/container";
 import { Reveal } from "@/components/reveal";
 import { journalArticles, getJournalArticle, type JournalBlock } from "@/lib/journal";
 import { articleSchema, withContext } from "@/lib/schema";
+import { pageMetadata } from "@/lib/metadata";
 
 type Params = Promise<{ slug: string }>;
 
@@ -16,7 +17,11 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const { slug } = await params;
   const article = getJournalArticle(slug);
   if (!article) return { title: "Journal" };
-  return { title: article.title, description: article.dek };
+  return pageMetadata({
+    path: `/journal/${slug}`,
+    title: article.title,
+    description: article.dek,
+  });
 }
 
 function Block({ block }: { block: JournalBlock }) {

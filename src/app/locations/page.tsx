@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { MapPin, Clock } from "lucide-react";
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
-import { locations } from "@/lib/site-data";
+import { locations, hasLiveMenu } from "@/lib/site-data";
 import { allCafeSchemas, jsonLdGraph } from "@/lib/schema";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: "/locations",
   title: "Locations",
   description:
     "Ten 1DM cafes across Raipur, Bhilai, Bilaspur, and Jagdalpur — hours, maps, and menus for every outlet, all run to the same bar we set at $1 a cup.",
-};
+});
 
 export default function LocationsPage() {
   const cities = Array.from(new Set(locations.map((l) => l.city)));
@@ -30,6 +32,7 @@ export default function LocationsPage() {
           eyebrow="Locations"
           title="Ten cafes across four cities."
           copy="Every outlet runs the same standard — the same shots, the same seven-second pour, the same bar we set back when a cup cost $1."
+          as="h1"
         />
 
         <div className="mt-14 space-y-14">
@@ -41,13 +44,15 @@ export default function LocationsPage() {
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {locations
                   .filter((l) => l.city === city)
-                  .map((loc, i) => (
+                  .map((loc, i) => {
+                    const hasMenu = hasLiveMenu(loc.slug);
+                    return (
                     <Reveal key={loc.slug} delay={i * 0.04}>
                       <div className="flex h-full flex-col justify-between rounded-2xl border border-ink/10 bg-paper p-6">
                         <div>
                           <div className="flex items-start justify-between gap-3">
                             <p className="font-display text-xl leading-snug">{loc.name}</p>
-                            {loc.menuStatus === "live" && (
+                            {hasMenu && (
                               <span className="shrink-0 rounded-full bg-moss/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-moss">
                                 Menu live
                               </span>
@@ -59,10 +64,10 @@ export default function LocationsPage() {
                         </div>
                         <div className="mt-6 flex items-center justify-between">
                           <Link
-                            href={loc.menuStatus === "live" ? `/menu/${loc.slug}` : "/menu"}
+                            href={hasMenu ? `/menu/${loc.slug}` : "/menu"}
                             className="underline-hover text-sm font-medium text-ink"
                           >
-                            {loc.menuStatus === "live" ? "View menu" : "Menu coming soon"}
+                            {hasMenu ? "View menu" : "Menu coming soon"}
                           </Link>
                           <a
                             href={loc.mapsUrl ?? "#"}
@@ -76,7 +81,8 @@ export default function LocationsPage() {
                         </div>
                       </div>
                     </Reveal>
-                  ))}
+                    );
+                  })}
               </div>
             </div>
           ))}

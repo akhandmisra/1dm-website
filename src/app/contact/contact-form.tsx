@@ -50,7 +50,7 @@ export function ContactForm() {
   return (
     <section className="grain bg-cream pb-24 pt-20 md:pb-32 md:pt-28">
       <Container>
-        <SectionHeading eyebrow="Get in touch" title="Say hello." copy="Franchise questions, feedback, press — or just to say hi." />
+        <SectionHeading eyebrow="Get in touch" title="Say hello." copy="Franchise questions, feedback, press — or just to say hi." as="h1" />
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:gap-14">
           <div className="space-y-4">

@@ -3,7 +3,7 @@ import { MapPin, Clock } from "lucide-react";
 import { Container } from "./container";
 import { SectionHeading } from "./section-heading";
 import { Reveal } from "./reveal";
-import { locations } from "@/lib/site-data";
+import { locations, hasLiveMenu } from "@/lib/site-data";
 import { citySchemas, jsonLdGraph } from "@/lib/schema";
 
 export function CityLocations({
@@ -29,16 +29,18 @@ export function CityLocations({
         />
       )}
       <Container>
-        <SectionHeading eyebrow={eyebrow} title={title} copy={copy} />
+        <SectionHeading eyebrow={eyebrow} title={title} copy={copy} as="h1" />
 
         <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {cityLocations.map((loc, i) => (
+          {cityLocations.map((loc, i) => {
+            const hasMenu = hasLiveMenu(loc.slug);
+            return (
             <Reveal key={loc.slug} delay={i * 0.04}>
               <div className="flex h-full flex-col justify-between rounded-2xl border border-ink/10 bg-paper p-6">
                 <div>
                   <div className="flex items-start justify-between gap-3">
                     <p className="font-display text-xl leading-snug">{loc.name}</p>
-                    {loc.menuStatus === "live" && (
+                    {hasMenu && (
                       <span className="shrink-0 rounded-full bg-moss/15 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-moss">
                         Menu live
                       </span>
@@ -50,10 +52,10 @@ export function CityLocations({
                 </div>
                 <div className="mt-6 flex items-center justify-between">
                   <Link
-                    href={loc.menuStatus === "live" ? `/menu/${loc.slug}` : "/menu"}
+                    href={hasMenu ? `/menu/${loc.slug}` : "/menu"}
                     className="underline-hover text-sm font-medium text-ink"
                   >
-                    {loc.menuStatus === "live" ? "View menu" : "Menu coming soon"}
+                    {hasMenu ? "View menu" : "Menu coming soon"}
                   </Link>
                   <a
                     href={loc.mapsUrl ?? "#"}
@@ -67,7 +69,8 @@ export function CityLocations({
                 </div>
               </div>
             </Reveal>
-          ))}
+            );
+          })}
         </div>
 
         <p className="mt-14 text-sm text-ink-soft/60">

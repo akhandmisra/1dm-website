@@ -3,22 +3,22 @@ import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { organizationSchema, withContext } from "@/lib/schema";
+import { pageMetadata, siteUrl } from "@/lib/metadata";
+
+const HOME_TITLE = "1DM — Specialty Coffee, For Everyone";
+const HOME_DESCRIPTION =
+  "1DM Cafe and Kruptos Coffee Roasters — specialty coffee across Chhattisgarh, built one honest cup at a time.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://1dm.coffee"),
+  metadataBase: new URL(siteUrl),
+  ...pageMetadata({ path: "/", title: HOME_TITLE, description: HOME_DESCRIPTION }),
+  // The homepage title itself stays a plain string (set above via pageMetadata),
+  // but every other page's shorter title should still get the " · 1DM" suffix —
+  // that behavior comes from `title.template` below, which Next.js applies on
+  // top of whatever plain-string `title` each page's own metadata provides.
   title: {
-    default: "1DM — Specialty Coffee, For Everyone",
+    default: HOME_TITLE,
     template: "%s · 1DM",
-  },
-  description:
-    "1DM Cafe and Kruptos Coffee Roasters — specialty coffee across Chhattisgarh, built one honest cup at a time.",
-  openGraph: {
-    title: "1DM — Specialty Coffee, For Everyone",
-    description:
-      "1DM Cafe and Kruptos Coffee Roasters — specialty coffee across Chhattisgarh, built one honest cup at a time.",
-    siteName: "1DM",
-    type: "website",
-    images: ["/images/branding/storefront-sign.jpg"],
   },
 };
 

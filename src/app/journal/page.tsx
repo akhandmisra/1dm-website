@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
 import { journalArticles } from "@/lib/journal";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: "/journal",
   title: "Journal",
   description:
     "Brew guides, roasting notes, and coffee-origin stories from 1DM and Kruptos Coffee Roasters — how to dial in a V60, why beans need to rest, and where India's coffee actually comes from.",
-};
+});
 
 export default function JournalPage() {
   return (
@@ -19,6 +21,7 @@ export default function JournalPage() {
           eyebrow="Journal"
           title="Brew guides and coffee notes."
           copy="Everything we tell our own baristas, written down — grind sizes, rest times, and where the beans actually come from."
+          as="h1"
         />
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

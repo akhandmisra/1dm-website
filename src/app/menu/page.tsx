@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Link from "next/link";
 import Image from "next/image";
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
-import { locations } from "@/lib/site-data";
+import { locations, hasLiveMenu } from "@/lib/site-data";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: "/menu",
   title: "Menu",
   description:
     "Browse the menu for every 1DM outlet — coffee, toasties, and bakery items, with live menus for Samta, Dumartarai, Bilaspur, and more.",
-};
+});
 
 export default function MenuIndexPage() {
   return (
@@ -30,20 +32,24 @@ export default function MenuIndexPage() {
           eyebrow="Menu"
           title="Pick your outlet."
           copy="Menus vary slightly by location while the roastery program is being rolled out cafe by cafe."
+          as="h1"
         />
         <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {locations.map((loc) => (
-            <Link
-              key={loc.slug}
-              href={loc.menuStatus === "live" ? `/menu/${loc.slug}` : "/menu"}
-              className="flex items-center justify-between rounded-xl border border-ink/10 bg-paper px-5 py-4 transition-colors hover:border-rust/40"
-            >
-              <span className="font-medium">{loc.name}</span>
-              <span className="text-xs text-ink-soft/50">
-                {loc.menuStatus === "live" ? "View menu" : "Coming soon"}
-              </span>
-            </Link>
-          ))}
+          {locations.map((loc) => {
+            const hasMenu = hasLiveMenu(loc.slug);
+            return (
+              <Link
+                key={loc.slug}
+                href={hasMenu ? `/menu/${loc.slug}` : "/menu"}
+                className="flex items-center justify-between rounded-xl border border-ink/10 bg-paper px-5 py-4 transition-colors hover:border-rust/40"
+              >
+                <span className="font-medium">{loc.name}</span>
+                <span className="text-xs text-ink-soft/50">
+                  {hasMenu ? "View menu" : loc.menuStatus === "live" ? "Menu coming soon" : "Coming soon"}
+                </span>
+              </Link>
+            );
+          })}
         </div>
       </Container>
     </section>

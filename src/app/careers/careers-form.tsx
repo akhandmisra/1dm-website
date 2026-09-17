@@ -55,6 +55,7 @@ export function CareersForm() {
           eyebrow="Careers"
           title="We're hiring."
           copy="Four roles open across every 1DM outlet right now — Head Barista, Chef, Manager, and HR. Tell us about yourself below."
+          as="h1"
         />
 
         <div className="mt-12 space-y-6">

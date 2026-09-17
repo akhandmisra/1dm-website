@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
@@ -6,11 +7,12 @@ import { Reveal } from "@/components/reveal";
 import { cn } from "@/lib/utils";
 import { timeline, team, founder, storyGallery } from "@/lib/site-data";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
+  path: "/story",
   title: "Our Story",
   description:
     "How a multi-roaster coffee cart in Pune, 2019, became ten cafes and a roastery — the real 1DM timeline, team, and the $1 cup that started it.",
-};
+});
 
 function initials(name: string) {
   return name
@@ -29,6 +31,7 @@ export default function StoryPage() {
             eyebrow="Our story"
             title="We started the multi-roaster coffee truck. Everyone else followed."
             copy="In 2019, 1DM put multiple roasters on one coffee cart in Pune — a concept nobody else in India was running. Every expansion since has followed the same rule: don't open the next outlet until the last one runs itself. Seven years later, that truck is ten cafes, a roastery, and a bakery."
+            as="h1"
           />
         </Container>
       </section>
