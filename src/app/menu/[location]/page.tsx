@@ -3,9 +3,8 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
-import { Reveal } from "@/components/reveal";
+import { MenuPager } from "@/components/menu-pager";
 import { locations, menuByLocation } from "@/lib/site-data";
-import { formatINR } from "@/lib/utils";
 import { pageMetadata } from "@/lib/metadata";
 
 type Params = Promise<{ location: string }>;
@@ -62,25 +61,7 @@ export default async function LocationMenuPage({ params }: { params: Params }) {
           </div>
         )}
 
-        <div className="mt-14 grid gap-14 lg:grid-cols-2">
-          {categories.map((cat, i) => (
-            <Reveal key={cat.name} delay={i * 0.05}>
-              <h3 className="font-display text-2xl text-rust">{cat.name}</h3>
-              {cat.note && <p className="mt-1 text-xs italic text-ink-soft/50">{cat.note}</p>}
-              <ul className="mt-5 divide-y divide-ink/10">
-                {cat.items.map((item) => (
-                  <li key={item.name} className="flex items-start justify-between gap-4 py-3">
-                    <div>
-                      <p className="font-medium">{item.name}</p>
-                      {item.note && <p className="mt-0.5 text-xs text-ink-soft/50">{item.note}</p>}
-                    </div>
-                    <p className="shrink-0 font-display text-lg text-ink">{formatINR(item.price)}</p>
-                  </li>
-                ))}
-              </ul>
-            </Reveal>
-          ))}
-        </div>
+        <MenuPager categories={categories} />
       </Container>
     </section>
   );

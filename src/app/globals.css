@@ -129,3 +129,10 @@ body {
     animation-play-state: paused;
   }
 }
+
+/* Menu page pagination — gives the flipping leaf a real 3D context so the
+   rotateY turn (see MenuPager) renders as a fold around the spine instead
+   of a flat skew. */
+.menu-pager-stage {
+  transform-style: preserve-3d;
+}
