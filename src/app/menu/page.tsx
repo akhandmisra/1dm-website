@@ -10,7 +10,7 @@ export const metadata: Metadata = pageMetadata({
   path: "/menu",
   title: "Menu",
   description:
-    "Browse the menu for every 1DM outlet — coffee, toasties, and bakery items, with live menus for Samta, Dumartarai, Bilaspur, and more.",
+    "The Daily Pour — 1DM's full menu, vegetarian at every live outlet, with chicken and egg dishes added at Tagore Nagar.",
 });
 
 export default function MenuIndexPage() {
@@ -31,7 +31,7 @@ export default function MenuIndexPage() {
         <SectionHeading
           eyebrow="Menu"
           title="Pick your outlet."
-          copy="Menus vary slightly by location while the roastery program is being rolled out cafe by cafe."
+          copy="The full Daily Pour menu, vegetarian at every outlet — plus chicken and egg dishes at Tagore Nagar."
           as="h1"
         />
         <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

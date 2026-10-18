@@ -187,124 +187,470 @@ export type MenuCategory = {
   items: { name: string; price: number; note?: string }[];
 };
 
+// The "Daily Pour" menu — 1DM's standard menu, printed as a 12-page
+// newspaper-style handout (Vol. 01, The Menu Edition). It comes in two
+// real editions from the printer, and this file now mirrors that split
+// instead of flattening it into one shared menu (an earlier round wrongly
+// put the combined edition at every outlet — see the status doc):
+//   - The VEGETARIAN EDITION ("100% vegetarian menu" on its own notice
+//     box) — no eggs, no chicken, anywhere.
+//   - The VEG & NON-VEG EDITION — the same drinks and kitchen menu, plus
+//     an "Eggs & chicken" page, chicken/egg options folded into several
+//     breakfast platters, a Chicken Panuozzo, a Chicken Taco and a Pesto
+//     Chicken Salad.
+// Transcribed in full from both handouts on 2026-10-18, including every
+// price. Every category that's identical between the two editions below
+// is defined once and shared by reference — edit it once here and both
+// editions update together; only the handful of categories that actually
+// differ (Breakfast Platters, Panuozzo, plus the three non-veg-only
+// categories) are duplicated. "Chicken Panuozzo" is genuinely cross-listed
+// in both Signature Chicken Mains and Panuozzo in the non-veg handout —
+// kept in both to match. Bilaspur's previous "Fresh Bakes & Desserts, in
+// partnership with Brownie & Co." category is not part of either edition
+// and stays dropped — reintroduce it as a Bilaspur-only addendum if that
+// partnership is still active and should stay on the site.
+
+const shortAndStrong: MenuCategory = {
+  name: "Short & Strong",
+  items: [
+    { name: "Espresso", price: 200, note: "Hot · Iced — concentrated, syrupy and bittersweet; the base of every espresso drink." },
+    { name: "Americano", price: 200, note: "Hot · Iced — long, clean and smooth; espresso stretched with water." },
+    { name: "Macchiato", price: 220, note: "Hot · Iced — espresso marked with a spoonful of milk foam." },
+    { name: "Cortado", price: 230, note: "Hot · Iced — equal parts espresso and milk; bold, balanced and smooth." },
+  ],
+};
+
+const milkAndSilk: MenuCategory = {
+  name: "Milk & Silk",
+  note: "Double shot, silky milk.",
+  items: [
+    { name: "Artisan Mocha", price: 280, note: "Hot · Iced — coffee and chocolate in balance; rich and dessert-like." },
+    { name: "Spanish Latte", price: 250, note: "Hot — silky and sweet, with a caramel-like richness from condensed milk." },
+    { name: "Vietnamese Latte", price: 250, note: "Iced — bold, sweet and creamy; condensed milk meets a long, strong shot." },
+    { name: "Cafe Latte", price: 230, note: "Hot · Iced — smooth and milky, finished with a light layer of foam." },
+    { name: "Cappuccino", price: 230, note: "Hot · Iced — airy, thick foam over a rich espresso base." },
+    { name: "Flat White", price: 200, note: "Hot · Iced — strong coffee under a thin, velvety micro-foam." },
+  ],
+};
+
+const houseFavourite: MenuCategory = {
+  name: "The House Favourite",
+  items: [
+    {
+      name: "1DM Cuppa & a Bake",
+      price: 250,
+      note: "Our signature small cup — gentle coffee, creamy milky finish. Bake included: tea cake, muffin, Korean bun or mini croissants. Tea cake with any other drink, +89.",
+    },
+  ],
+};
+
+const espressoSignatures: MenuCategory = {
+  name: "Espresso Signatures",
+  note: "The drinks people come back for. Every signature, 250.",
+  items: [
+    { name: "Shaken Espresso", price: 250, note: "Iced — chilled, frothy espresso sweetened with jaggery, topped with a tiramisu cloud." },
+    { name: "Clarified Iced Latte", price: 250, note: "Iced — clear as tea, creamy in flavour; all the taste of a latte without the cloudiness." },
+    { name: "Honey Cinnamon Latte", price: 250, note: "Hot · Iced — warm spice and floral sweetness, built right into the espresso." },
+    { name: "Jaggery Flat White", price: 250, note: "Hot — our flat white, sweetened the Indian way with jaggery." },
+    { name: "1DM Flat White", price: 250, note: "Hot — the house take on the flat white; strong, silky and smooth." },
+    { name: "Affogato", price: 250, note: "Hot espresso melting into cold vanilla ice cream." },
+  ],
+};
+
+const cloudCreations: MenuCategory = {
+  name: "Cloud Creations",
+  note: "Airy cream clouds, only at 1DM. Every one, 250.",
+  items: [
+    { name: "Mango Espresso Cloud", price: 250, note: "Iced — tropical mango and coconut water under a salted-butter espresso cloud." },
+    { name: "Cookie Butter Iced Latte", price: 250, note: "Iced — Biscoff sweetness in an iced latte, finished with a tiramisu cloud." },
+    { name: "Cold Brew Cloud", price: 250, note: "Iced — smooth cold brew under a sweet, creamy syrup cloud." },
+    { name: "1DM Iced Chocolate", price: 250, note: "Iced — cold, blended chocolate topped with a tiramisu cloud." },
+    { name: "Bluepea Berry", price: 250, note: "Iced · caffeine-free — berry and coconut water under a bluepea cloud. Colourful and refreshing." },
+  ],
+};
+
+const espressoCoolers: MenuCategory = {
+  name: "Espresso Coolers",
+  note: "Coffee mocktails. Every one, 250.",
+  items: [
+    { name: "Espresso Tonic / Ale", price: 250, note: "Iced — bittersweet and sparkling; a coffee-forward refresher." },
+    { name: "Espresso with Juices", price: 250, note: "Iced — bright, fruity and fizzy." },
+    { name: "Mixed Berry Tonic", price: 250, note: "Iced — sweet berry, sparkling tonic and a bright shot of espresso." },
+  ],
+};
+
+const coldBrew: MenuCategory = {
+  name: "Cold Brew",
+  note: "Bisal Munti Single Estate, roasted by Kruptos · steeped for 24 hours. Any shot can be lengthened with tonic, ginger ale or juice, +50.",
+  items: [
+    { name: "Cold Brew Classic", price: 230, note: "Iced — smooth, low in acidity and naturally sweet." },
+    { name: "Cold Brew Lemonade", price: 250, note: "Iced — sweet-tart lemonade layered with smooth cold brew." },
+    { name: "Cold Brew with Tonic", price: 250, note: "Iced — crisp, bittersweet and bubbly." },
+    { name: "Cold Brew with Juice", price: 250, note: "Iced — smooth cold brew with a fruity, sparkling lift." },
+    { name: "Mont Blanc", price: 250, note: "Iced — cold brew crowned with a snowy cream top." },
+  ],
+};
+
+const handBrewed: MenuCategory = {
+  name: "Hand-Brewed",
+  note: "Aeropress, V60, Origami, Chemex or French Press — clean, bright and aromatic, brewed by hand on Bisal Munti Single Estate.",
+  items: [
+    { name: "Hand-Brewed Pour-Over", price: 269, note: "Hot · Iced · Indian micro-lot +50 · International micro-lot +120." },
+  ],
+};
+
+const teasAndInfusions: MenuCategory = {
+  name: "Teas & Infusions",
+  note: "Brewed to order, hot or iced.",
+  items: [
+    { name: "Hibiscus", price: 139, note: "Caffeine-free — tart and ruby-red." },
+    { name: "Chamomile", price: 139, note: "Caffeine-free — soft and floral." },
+    { name: "Blue Pea", price: 139, note: "Caffeine-free — floral, deep-blue butterfly pea." },
+    { name: "Rose Tea", price: 139, note: "Gently fragrant and floral." },
+    { name: "Kashmiri Kahwa", price: 139, note: "A warming, spiced green tea from the valley." },
+    { name: "Matcha", price: 139, note: "Vivid, earthy and umami-rich, whisked to order." },
+  ],
+};
+
+const matchaAndTeaLattes: MenuCategory = {
+  name: "Matcha & Tea Lattes",
+  items: [
+    { name: "Mango Matcha Latte", price: 300, note: "Iced — mango at the base, matcha and milk on top." },
+    { name: "Mixed Berry Matcha Latte", price: 300, note: "Iced — berry at the base, matcha and milk on top." },
+    { name: "Strawberry Matcha Latte", price: 300, note: "Iced — strawberry at the base, matcha and milk on top." },
+    { name: "Matcha Latte", price: 250, note: "Hot · Iced — earthy matcha rounded out with milk." },
+    { name: "Matcha Latte Cloud", price: 250, note: "Iced — our matcha latte, finished with a soft cloud." },
+    { name: "Bluepea Latte", price: 250, note: "Hot · Iced · caffeine-free — creamy, caramel-sweet and colourful." },
+  ],
+};
+
+const coolers: MenuCategory = {
+  name: "Coolers",
+  note: "Fizzy, fruity and made for hot afternoons. Every cooler, 250.",
+  items: [
+    { name: "Tropical Sunset", price: 250, note: "Iced · caffeine-free — hibiscus, orange or mango and pineapple, with a honey finish." },
+    { name: "Typical Chai", price: 250, note: "Iced · caffeine-free — zingy ginger fizz with a tart hibiscus edge." },
+    { name: "Flower Ale", price: 250, note: "Iced · caffeine-free — ginger ale with the deep blue of butterfly pea." },
+    { name: "Hibiscus with Juices", price: 250, note: "Iced · caffeine-free — tart, fruity and sparkling." },
+    { name: "Mango Heat Fizz", price: 250, note: "Iced — mango with a little heat, lifted with fizz." },
+    { name: "Matcha with Coconut Water", price: 250, note: "Iced — light, hydrating and gently sweet." },
+    { name: "Mom's Hot Chocolate", price: 250, note: "Hot — thick, creamy and deeply chocolatey." },
+  ],
+};
+
+const kombucha: MenuCategory = {
+  name: "Kombucha",
+  note: "By Shimmmi. Small-batch, sparkling fermented tea.",
+  items: [
+    { name: "Kombucha Cans", price: 130, note: "Mango + Jalapeño · Cranberry + Star Anise · Blackberry + Cinnamon." },
+    { name: "Kombucha Bottles", price: 200, note: "Ginger Grass · Lovely Lavender · Kaffir Limey Hopbucha." },
+  ],
+};
+
+const customizeIt: MenuCategory = {
+  name: "Customize It",
+  note: "Make it yours.",
+  items: [
+    { name: "Slice of Tea Cake", price: 89 },
+    { name: "Upgrade to The Vibrant Espresso", price: 30, note: "Kruptos Coffee Roasters — medium-light, mixed berries." },
+    { name: "Oat or Almond Milk", price: 80 },
+    { name: "Coconut Milk", price: 100 },
+    { name: "Sweetened Cold Foam", price: 60 },
+    { name: "Syrup", price: 30 },
+    { name: "Tonic, Ginger Ale or Juice", price: 50 },
+  ],
+};
+
+// Breakfast Platters — differs by edition: the Veg Edition has no egg or
+// chicken anywhere; the Veg & Non-Veg Edition folds chicken sausage,
+// grilled chicken breast or egg options into five of the six platters
+// (the Vegan platter is unchanged either way).
+const breakfastPlattersVeg: MenuCategory = {
+  name: "Breakfast Platters",
+  note: "Every platter comes with your choice of tea, coffee or fresh juice.",
+  items: [
+    { name: "Heavy Protein", price: 799, note: "Grilled paneer or tofu, German mashed potatoes, warm baked beans, mushroom patty, giant artisanal bread basket, sautéed greens, house dips and fresh fruits." },
+    { name: "Green", price: 699, note: "Grilled veggies with mushroom, paneer and tofu, golden hash brown, fresh guacamole, cherry tomatoes and radish, artisanal bread basket and fresh fruits. With green tea or fresh juice." },
+    { name: "French", price: 599, note: "One signature fluffy pancake, one brioche French toast, warm butter croissant, mushroom patty, house salad, dips and fresh fruits." },
+    { name: "English", price: 499, note: "Choice of hummus or paneer, warm baked beans, grilled veggies, house dips, artisanal bread basket and fresh fruit." },
+    { name: "Pahadi", price: 499, note: "Choice of paneer or tofu bhurji, golden crisp hash brown, artisanal bread basket, four house dips, house garden salad and fresh fruits." },
+    { name: "Vegan", price: 450, note: "Vegan — mushroom patty, grilled zucchini, tofu scramble, guacamole, hummus and an artisanal bread basket." },
+  ],
+};
+
+const breakfastPlattersVegNonVeg: MenuCategory = {
+  name: "Breakfast Platters",
+  note: "Every platter comes with your choice of tea, coffee or fresh juice. Egg and chicken options marked.",
+  items: [
+    { name: "Heavy Protein", price: 799, note: "Non-veg option — grilled chicken breast, paneer or tofu, German mashed potatoes, warm baked beans, mushroom patty or chicken sausage, giant artisanal bread basket, sautéed greens, house dips and fresh fruits." },
+    { name: "Green", price: 699, note: "Non-veg option — grilled veggies with mushroom, paneer and tofu, hash brown or chicken sausage, fresh guacamole, cherry tomatoes and radish, artisanal bread basket, choice of eggs and fresh fruits. With green tea or fresh juice." },
+    { name: "French", price: 599, note: "Non-veg option — one signature fluffy pancake, one brioche French toast, warm butter croissant, mushroom patty or chicken sausage, house salad, dips and fresh fruits." },
+    { name: "English", price: 499, note: "Non-veg option — choice of eggs, hummus, sausage or paneer, warm baked beans, grilled veggies, house dips, artisanal bread basket and fresh fruit." },
+    { name: "Pahadi", price: 499, note: "Non-veg option — choice of paneer, tofu or egg bhurji, golden crisp hash brown, artisanal bread basket, four house dips, house garden salad and fresh fruits." },
+    { name: "Vegan", price: 450, note: "Vegan — mushroom patty, grilled zucchini, tofu scramble, guacamole, hummus and an artisanal bread basket." },
+  ],
+};
+
+// Non-veg-only categories — from the "Eggs & chicken" page, which doesn't
+// exist at all in the Vegetarian Edition handout.
+const artisanalEggs: MenuCategory = {
+  name: "Artisanal Eggs",
+  note: "Non-veg · cooked to order, served on butter-toasted sourdough.",
+  items: [
+    { name: "Egg Benedict with Avocado", price: 350, note: "Poached eggs on fresh Hass avocado and a warm English muffin or sourdough, with rich house hollandaise." },
+    { name: "Mushroom Omelette", price: 250, note: "Fluffy three-egg French-style omelette, folded around garlic-butter wild mushrooms and melted cheese." },
+    { name: "Scrambled Eggs", price: 200, note: "Soft, creamy scrambled eggs with fresh herbs on butter-toasted sourdough. Add guacamole, +150." },
+    { name: "Sunny Side-Up", price: 200, note: "Golden, runny-yolk fried eggs with crackled edges, cracked black pepper and sea salt, over sourdough. Add guacamole, +150." },
+  ],
+};
+
+const gourmetSalad: MenuCategory = {
+  name: "Gourmet Salad",
+  note: "Non-veg.",
+  items: [
+    { name: "Pesto Chicken Salad", price: 380, note: "Herb-grilled chicken breast with crisp garden greens, cherry tomatoes, bocconcini, roasted pine nuts and a creamy basil pesto dressing." },
+  ],
+};
+
+const signatureChickenMains: MenuCategory = {
+  name: "Signature Chicken Mains",
+  note: "Non-veg.",
+  items: [
+    { name: "Harissa Chicken Flatbread", price: 400, note: "Chef's pick — fire-baked flatbread with harissa-glazed chicken, caramelised onions, mozzarella and hot ranch." },
+    { name: "Chipotle Chicken Rice Bowl", price: 399, note: "Mexican seasoned rice with smoky chipotle grilled chicken, baked beans, sweet corn salsa, fresh guacamole and house sour cream." },
+    { name: "Harissa Chicken Sandwich", price: 350, note: "Spicy harissa grilled chicken in toasted sourdough or focaccia, with house sauce, melted cheese and crisp lettuce." },
+    { name: "Grilled Chicken Wrap", price: 350, note: "Chargrilled chicken strips, shredded lettuce, melted mozzarella, creamy slaw and house chilli spread in a grilled tortilla." },
+    { name: "Chicken Panuozzo", price: 350, note: "Herb-grilled chicken in warm panuozzo bread." },
+    { name: "Chicken Taco", price: 300, note: "Soft tortillas with seasoned grilled chicken, tomato pico de gallo, crisp lettuce, cheese and a cool garlic yoghurt drizzle." },
+  ],
+};
+
+const sandwichesAndBagels: MenuCategory = {
+  name: "Sandwiches & Bagels",
+  items: [
+    { name: "Focaccia Gone Wild", price: 350, note: "Our loaded focaccia, pressed hot and piled high." },
+    { name: "Focaccia Paneer Tikka", price: 350, note: "Spiced paneer tikka in toasted focaccia." },
+    { name: "Hot Mushroom Melt", price: 350, note: "Mushrooms and melted cheese, pressed hot." },
+    { name: "Avocado Cream Cheese Bagel", price: 329, note: "Jain available — freshly crushed avocado and cream cheese on a toasted bagel." },
+    { name: "Sun-dried Tomato Bagel", price: 250, note: "Jain available — warm toasted bagel with sun-dried tomato spread and herbs." },
+    { name: "Mushroom Bagel", price: 250, note: "Toasted bagel with a savoury mushroom filling." },
+    { name: "Classic Grilled Cheese", price: 200, note: "Jain available — melted artisan cheese on toasted sourdough. Add harissa or pesto, +50." },
+  ],
+};
+
+// Panuozzo — differs by edition: the Veg Edition has 2 items, the Veg &
+// Non-Veg Edition adds Chicken Panuozzo as a 3rd (same item also listed
+// under Signature Chicken Mains in that edition — intentional, matches
+// the source handout).
+const panuozzoVeg: MenuCategory = {
+  name: "Panuozzo",
+  note: "Italian sandwiches, baked in their own bread.",
+  items: [
+    { name: "Caprese Panuozzo", price: 350, note: "Tomato, mozzarella and basil in warm panuozzo bread." },
+    { name: "Spiced Paneer Panuozzo", price: 350, note: "Spiced paneer in warm panuozzo bread." },
+  ],
+};
+
+const panuozzoVegNonVeg: MenuCategory = {
+  name: "Panuozzo",
+  note: "Italian sandwiches, baked in their own bread.",
+  items: [
+    { name: "Chicken Panuozzo", price: 350, note: "Non-veg · herb-grilled chicken in warm panuozzo bread." },
+    { name: "Caprese Panuozzo", price: 350, note: "Tomato, mozzarella and basil in warm panuozzo bread." },
+    { name: "Spiced Paneer Panuozzo", price: 350, note: "Spiced paneer in warm panuozzo bread." },
+  ],
+};
+
+const garlicBreads: MenuCategory = {
+  name: "Garlic Breads",
+  items: [
+    { name: "Stuffed Garlic Bread", price: 329, note: "Garlic bread with a cheesy, stuffed centre. Add paneer, +50." },
+    { name: "Indi Garlic Bread", price: 250, note: "Garlic bread with an Indian spice twist." },
+    { name: "Classic Garlic Bread", price: 200, note: "Toasted bread with garlic butter and herbs." },
+  ],
+};
+
+const subs: MenuCategory = {
+  name: "Subs",
+  items: [
+    { name: "Vegan Sub", price: 300, note: "Vegan — artisanal bread stuffed with grilled veggies, avocado spread and vegan house dressing." },
+    { name: "Paneer Sub", price: 250, note: "A soft sub roll filled with spiced paneer and fresh greens." },
+    { name: "Shrooms Sub", price: 250, note: "A soft sub roll filled with a savoury mushroom patty." },
+  ],
+};
+
+const sliders: MenuCategory = {
+  name: "Sliders",
+  note: "Mini buns, big on flavour.",
+  items: [
+    { name: "Sliders, Set of 3", price: 350, note: "Three mini burgers with your choice of filling — paneer, mushroom or beetroot." },
+    { name: "Sliders, Set of 2", price: 250, note: "Two mini burgers with your choice of filling — paneer, mushroom or beetroot." },
+  ],
+};
+
+const fries: MenuCategory = {
+  name: "Fries",
+  note: "Hot, crisp and made for sharing.",
+  items: [
+    { name: "Loaded Fries", price: 250, note: "Golden fries loaded with melted cheese sauce, jalapeños and herbs." },
+    { name: "Peri Peri Fries", price: 200, note: "Crisp fries tossed in smoky, spicy peri peri seasoning." },
+    { name: "Salted Fries", price: 180, note: "Classic golden fries with a sprinkle of sea salt." },
+  ],
+};
+
+const wrapsTacosAndNachos: MenuCategory = {
+  name: "Wraps, Tacos & Nachos",
+  items: [
+    { name: "Grilled Paneer Wrap", price: 300, note: "Grilled paneer, greens and onions in a toasted wrap, with a dip on the side." },
+    { name: "Loaded Nachos", price: 300, note: "Vegan — crisp tortilla chips topped with spiced beans, salsa and guacamole." },
+    { name: "Nachos Salad", price: 300, note: "Crunchy tortilla chips tossed through a fresh salad." },
+    { name: "Taco", price: 250, note: "A crisp taco shell with a spiced, fresh filling." },
+  ],
+};
+
+const openToasts: MenuCategory = {
+  name: "Open Toasts",
+  note: "On toasted sourdough.",
+  items: [
+    { name: "Tomato & Balsamic Bruschetta", price: 200, note: "Diced tomato, fresh basil and a splash of balsamic, piled on toasted sourdough." },
+    { name: "Whipped Feta Hot Honey", price: 300, note: "Whipped feta with a drizzle of hot honey." },
+    { name: "Guac on Toast", price: 300, note: "Vegan — freshly crushed avocado, lemon, microgreens and toasted seeds." },
+    { name: "Avocado Toast", price: 300, note: "Jain available — mashed avocado, lemon zest and herbs on crisp sourdough." },
+    { name: "Hummus Avocado", price: 300, note: "Whipped hummus layered with fresh avocado." },
+    { name: "Creamy Mushroom Melt", price: 300, note: "Creamy mushrooms under melted cheese." },
+    { name: "Hummus on Toast", price: 250, note: "Vegan — freshly whipped hummus, olive oil and herbs." },
+    { name: "Spiced Paneer Toast", price: 250, note: "Spiced paneer on a crisp toast." },
+  ],
+};
+
+const riceBowls: MenuCategory = {
+  name: "Rice Bowls",
+  items: [
+    { name: "Mexican Bowl", price: 300, note: "Mexican seasoned rice, beans, fresh corn salad, salsa, guacamole and sour cream." },
+    { name: "Italian Rice Bowl", price: 300, note: "Herb butter rice with sun-dried tomatoes, olives, pesto and grilled veggies." },
+  ],
+};
+
+const salads: MenuCategory = {
+  name: "Salads",
+  items: [
+    { name: "Cous Cous Salad", price: 350, note: "Vegan — fluffy couscous with roasted Mediterranean vegetables and a citrus herb dressing." },
+    { name: "Green Goddess Salad", price: 279, note: "Fresh greens, microgreens, avocado, cucumber and a creamy herb dressing." },
+    { name: "Pasta Salad", price: 259, note: "Vegan — chilled pasta with black olives, crisp veggies and a light vinaigrette." },
+  ],
+};
+
+const smoothieBowls: MenuCategory = {
+  name: "Smoothie Bowls",
+  items: [
+    { name: "Mango Smoothie Bowl", price: 300, note: "Jain available — thick mango purée topped with kiwi, chia seeds, banana and granola." },
+    { name: "Banana Smoothie Bowl", price: 250, note: "Jain available — creamy banana blend with toasted seeds, blueberries and roasted nuts." },
+    { name: "Coconut Smoothie Bowl", price: 250, note: "Jain available — coconut milk base layered with tropical fruits and coconut flakes." },
+  ],
+};
+
+const sweetThings: MenuCategory = {
+  name: "Sweet Things",
+  items: [
+    { name: "Custard French Toast", price: 300, note: "Jain available — golden brioche soaked in rich custard, with maple syrup, Nutella or Biscoff. Add caramelised banana, blueberry or cream cheese, +160." },
+    { name: "Pancake", price: 300, note: "Jain available — fluffy pancakes with maple syrup, Nutella or Biscoff." },
+    { name: "Tea Cake", price: 89, note: "A soft slice to go with any drink." },
+  ],
+};
+
+const perfectPairs: MenuCategory = {
+  name: "Perfect Pairs",
+  note: "Seven food and coffee pairs, put together by our baristas. Say the number at the counter and save.",
+  items: [
+    { name: "1 · The Morning Cuppa", price: 250, note: "1DM Cuppa + your pick of bake · bake included" },
+    { name: "2 · The Cheese Pull", price: 389, note: "Classic Grilled Cheese + Cappuccino · save 41 vs. 430" },
+    { name: "3 · The Italian Job", price: 399, note: "Tomato & Balsamic Bruschetta + Espresso Tonic · save 51 vs. 450" },
+    { name: "4 · The Wrap Up", price: 479, note: "Grilled Paneer Wrap + Cold Brew Classic · save 51 vs. 530" },
+    { name: "5 · The Sub Club", price: 399, note: "Shrooms Sub + Americano · save 51 vs. 450" },
+    { name: "6 · The Sunny Bowl", price: 499, note: "Mango Smoothie Bowl + Matcha Latte · save 51 vs. 550" },
+    { name: "7 · The Sweet Tooth", price: 499, note: "Custard French Toast + Spanish Latte · save 51 vs. 550" },
+  ],
+};
+
+// The Vegetarian Edition — every live outlet except Tagore Nagar.
+export const dailyPourMenuVeg: MenuCategory[] = [
+  shortAndStrong,
+  milkAndSilk,
+  houseFavourite,
+  espressoSignatures,
+  cloudCreations,
+  espressoCoolers,
+  coldBrew,
+  handBrewed,
+  teasAndInfusions,
+  matchaAndTeaLattes,
+  coolers,
+  kombucha,
+  customizeIt,
+  breakfastPlattersVeg,
+  sandwichesAndBagels,
+  panuozzoVeg,
+  garlicBreads,
+  subs,
+  sliders,
+  fries,
+  wrapsTacosAndNachos,
+  openToasts,
+  riceBowls,
+  salads,
+  smoothieBowls,
+  sweetThings,
+  perfectPairs,
+];
+
+// The Veg & Non-Veg Edition — Tagore Nagar only, the one outlet that
+// serves chicken and eggs.
+export const dailyPourMenuVegNonVeg: MenuCategory[] = [
+  shortAndStrong,
+  milkAndSilk,
+  houseFavourite,
+  espressoSignatures,
+  cloudCreations,
+  espressoCoolers,
+  coldBrew,
+  handBrewed,
+  teasAndInfusions,
+  matchaAndTeaLattes,
+  coolers,
+  kombucha,
+  customizeIt,
+  breakfastPlattersVegNonVeg,
+  artisanalEggs,
+  gourmetSalad,
+  signatureChickenMains,
+  sandwichesAndBagels,
+  panuozzoVegNonVeg,
+  garlicBreads,
+  subs,
+  sliders,
+  fries,
+  wrapsTacosAndNachos,
+  openToasts,
+  riceBowls,
+  salads,
+  smoothieBowls,
+  sweetThings,
+  perfectPairs,
+];
+
+// Tagore Nagar is 1DM's only non-veg outlet (confirmed by Akhand,
+// 2026-10-18) and gets the Veg & Non-Veg Edition; every other live outlet
+// is pure veg and gets the Vegetarian Edition. Both constants above are
+// shared by reference across every outlet that uses them, so a future
+// menu-wide update is still a single edit, not one per location.
 export const menuByLocation: Record<string, MenuCategory[]> = {
-  samta: [
-    {
-      name: "Water-based Coffee",
-      items: [
-        { name: "Espresso", price: 100 },
-        { name: "Doppio", price: 200 },
-        { name: "Americano", price: 130 },
-        { name: "Espresso with Juices", price: 250 },
-        { name: "Espresso, Ale / Tonic / Lemonade", price: 250 },
-        { name: "Cold Brew", price: 200 },
-        { name: "Cold Brew, Juices / Ale / Tonic / Lemonade", price: 250 },
-        { name: "Handcrafted Coffee", price: 250 },
-        { name: "International Handcrafted Coffee", price: 380 },
-      ],
-    },
-    {
-      name: "Lattes & More",
-      items: [
-        { name: "Flat White", price: 200 },
-        { name: "Cafe Latte / Cappuccino / Iced Latte / Cortado", price: 230 },
-        { name: "Spanish Latte", price: 250 },
-        { name: "Vietnamese Latte", price: 250 },
-        { name: "Honey Cinnamon Latte", price: 250 },
-        { name: "Artisan Mocha", price: 280 },
-        { name: "Affogato", price: 250 },
-        { name: "Hot Chocolate", price: 250 },
-      ],
-    },
-    {
-      name: "Teas & Refreshers",
-      items: [
-        { name: "Matcha Tea", price: 130 },
-        { name: "Hibiscus with Juices", price: 230 },
-        { name: "Typical Chai", price: 250 },
-        { name: "Flower Ale", price: 250 },
-        { name: "Bluepea Latte", price: 250 },
-        { name: "Matcha Latte", price: 250 },
-        { name: "Tropical Sunset", price: 250 },
-        { name: "Matcha with Coconut Water", price: 250 },
-      ],
-    },
-    {
-      name: "Artisan Food & Bowls",
-      items: [
-        { name: "Hummus Toast", price: 250 },
-        { name: "Hummus Avocado Toast", price: 300 },
-        { name: "Guac-on Toast", price: 300 },
-        { name: "Spiced Paneer Toast", price: 200 },
-        { name: "Classic Grilled Cheese", price: 200 },
-        { name: "Bagel Mushroom Sandwich", price: 250 },
-        { name: "Bagel Sundried Tomato", price: 250 },
-        { name: "Focaccia Gone Wild", price: 200 },
-        { name: "Focaccia Paneer Tikka", price: 200 },
-        { name: "Paneer Wrap", price: 250 },
-        { name: "Mushroom Taco", price: 250 },
-        { name: "Pumpkin Sauce Pasta", price: 300 },
-        { name: "Mexican Rice Bowl", price: 300 },
-        { name: "Red Velvet Hummus Bowl", price: 300 },
-        { name: "Mediterranean Quinoa Salad Bowl", price: 250 },
-        { name: "Mango Smoothie Bowl", price: 250 },
-        { name: "Banana Smoothie Bowl", price: 250 },
-        { name: "Pancake, Maple or Nutella", price: 250 },
-      ],
-    },
-  ],
-  dumartarai: [
-    {
-      name: "Water-based Coffee",
-      items: [
-        { name: "Filter Kaapi", price: 75 },
-        { name: "Espresso", price: 100 },
-        { name: "Americano", price: 130 },
-        { name: "Cold Brew", price: 200 },
-      ],
-    },
-    {
-      name: "Coolers",
-      items: [
-        { name: "Hibiscus Passion Cooler", price: 250 },
-        { name: "Jasmine Peach Cooler", price: 250 },
-        { name: "Ginger Pineapple Cooler", price: 250 },
-      ],
-    },
-    {
-      name: "Fresh Juices",
-      items: [
-        { name: "Orange", price: 180 },
-        { name: "Cranberry", price: 180 },
-        { name: "Pineapple", price: 180 },
-        { name: "Coconut Water", price: 150 },
-      ],
-    },
-    {
-      name: "Customise it",
-      items: [
-        { name: "Add a syrup", price: 35 },
-        { name: "Swap to almond or oat milk", price: 50 },
-      ],
-    },
-  ],
-  bilaspur: [
-    {
-      name: "Fresh Bakes & Desserts",
-      note: "In partnership with Brownie & Co.",
-      items: [
-        { name: "Matilda Cake", price: 160 },
-        { name: "Opera-inspired Cake", price: 140 },
-        { name: "Classic Brownie", price: 120 },
-        { name: "Ragi Brownie", price: 120 },
-        { name: "Hazelnut Brownie", price: 130 },
-        { name: "Nutella Brownie", price: 150 },
-        { name: "Lotus Biscoff Brownie", price: 150 },
-        { name: "Butter Cake Choco-chunk Muffin", price: 80 },
-        { name: "NY-style Double Choc-chip Cookie", price: 45 },
-      ],
-    },
-  ],
+  samta: dailyPourMenuVeg,
+  dumartarai: dailyPourMenuVeg,
+  bilaspur: dailyPourMenuVeg,
+  avanti: dailyPourMenuVeg,
+  bhilai: dailyPourMenuVeg,
+  tagore: dailyPourMenuVegNonVeg,
+  "slice-shankar-nagar": dailyPourMenuVeg,
 };
 
 // A location's `menuStatus` says whether the cafe itself is open; it does

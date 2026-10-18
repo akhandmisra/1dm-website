@@ -28,7 +28,7 @@ Coming soon: 1DM Civil Line (Raipur), Slice By 1DM VIP Road (Raipur), 1DM Jagdal
 Full list with maps: https://1dm.coffee/locations
 
 ## Menu
-Menus vary by outlet — full items and pricing at https://1dm.coffee/menu. Categories include water-based coffee (espresso, americano, cold brew), milk-based lattes (flat white, cappuccino, Spanish/Vietnamese/honey-cinnamon lattes), teas and refreshers (matcha, chai, hibiscus), and artisan food, toasts, and bowls. 1DM Bilaspur's menu is fresh bakes and desserts made in partnership with Brownie & Co.
+The Daily Pour — 1DM's standard menu, at https://1dm.coffee/menu. Vegetarian edition at every live outlet except Tagore Nagar; Tagore Nagar serves the Veg & Non-Veg edition, adding an eggs-and-chicken page, chicken/egg options on several breakfast platters, a Chicken Panuozzo and a Pesto Chicken Salad. Both editions otherwise share: espresso bar (short & strong, milk-based lattes), house specialty signatures and cloud creations, cold brew and hand-brewed pour-over, teas/matcha/coolers/kombucha, breakfast platters, sandwiches/panuozzo/garlic bread, subs/sliders/fries/wraps, open toasts/rice bowls/salads, smoothie bowls and sweets, plus seven "Perfect Pairs" food-and-coffee combos ordered by number at the counter.
 
 ## Kruptos Coffee Roasters
 Kruptos is 1DM's own roastery — Raipur's first specialty coffee roastery, roasting seed-to-cup, launched in 2026 out of Bilaspur. It supplies 1DM's cafes and sells its own roasted coffee direct at https://kruptoscoffee.com, alongside brewing equipment (grinders, kettles, scales, drippers) for sale or rent. Current release: "Stairway to Heaven" (Side A & Side B), ₹300.
@@ -64,4 +64,4 @@ Akhand — founder; personally signs off on everything that goes on the menu. Tu
 - Contact: https://1dm.coffee/contact
 - Roasted coffee & equipment (external): https://kruptoscoffee.com
 
-<!-- Last updated: 2026-09-15 -->
+<!-- Last updated: 2026-10-18 -->

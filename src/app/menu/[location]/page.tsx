@@ -28,11 +28,20 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const categories = menuByLocation[location];
   if (!loc || !categories) return { title: "Menu" };
 
-  const categoryNames = categories.map((c) => c.name).join(", ");
+  // Not a joined list of every category name — with ~27-30 categories per
+  // edition, that list would blow well past a usable meta description
+  // length. A short, fixed summary of what's on it reads better and stays
+  // under ~160 chars. Tagore Nagar is the one outlet on the Veg & Non-Veg
+  // Edition (see site-data.ts) — its description calls that out instead of
+  // claiming a vegetarian menu it doesn't serve.
+  const isNonVeg = categories.some((c) => c.name === "Signature Chicken Mains");
+
   return pageMetadata({
     path: `/menu/${location}`,
     title: `Menu · ${loc.name}`,
-    description: `The full menu at ${loc.name} in ${loc.city} — ${categoryNames}. Open ${loc.hours}.`,
+    description: isNonVeg
+      ? `The full Daily Pour menu at ${loc.name} in ${loc.city} — espresso, cold brew, teas, breakfast platters, chicken and egg dishes, sandwiches, bowls and more. Open ${loc.hours}.`
+      : `The full vegetarian Daily Pour menu at ${loc.name} in ${loc.city} — espresso, cold brew, teas, breakfast platters, sandwiches, bowls and more. Open ${loc.hours}.`,
   });
 }
 
