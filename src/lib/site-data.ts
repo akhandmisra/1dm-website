@@ -664,6 +664,131 @@ export function hasLiveMenu(slug: string): boolean {
   return Boolean(menuByLocation[slug]);
 }
 
+// ---------------------------------------------------------------------------
+// Menu page photography & partner logos
+//
+// The printed A3 Daily Pour menu this site's menu pages are transcribed from
+// is full of photography and ends with a roaster-partner logo wall — neither
+// made it into the first web version of the menu. These extend MenuPager
+// (src/components/menu-pager.tsx) with that same material: real photos shot
+// for the print menu (extracted from the source PDFs the brand supplied,
+// cropped to remove stray print layout that bled in during extraction) and
+// the exact 20-logo partner wall, split exactly as the PDF splits it
+// ("Roasters we have partnered with" / "From abroad").
+// ---------------------------------------------------------------------------
+
+export type MenuPhoto = {
+  src: string;
+  alt: string;
+  caption?: string;
+};
+
+// One representative photo per page-turn of the regular (non-Pairs,
+// non-Roasters) menu pages. MenuPager chunks a location's categories 4-per-
+// page and, for each page, uses the photo for the first category in that
+// chunk that has an entry here — so not every category needs one, just
+// enough that every page gets art. Keyed by MenuCategory.name, shared across
+// both editions since the shared categories carry the same name. Captions
+// are the print menu's own spread captions where the photo matches exactly.
+export const menuCategoryPhotos: Record<string, MenuPhoto> = {
+  "The House Favourite": {
+    src: "/images/menu/cuppa-and-bake.jpg",
+    alt: "A 1DM Cuppa and a bake, the House Favourite",
+    caption: "The drinks people come back for.",
+  },
+  "Cloud Creations": {
+    src: "/images/menu/cloud-creations-sunflower.jpg",
+    alt: "A Cloud Creations drink topped with its signature cloud",
+    caption: "Topped with its signature cloud, every time.",
+  },
+  "Teas & Infusions": {
+    src: "/images/menu/tea-pour.jpg",
+    alt: "Tea being poured at the 1DM bar",
+    caption: "Floral, earthy or fizzy. Pour it hot, or take it over ice.",
+  },
+  "Breakfast Platters": {
+    src: "/images/menu/breakfast-platter-vegan.jpg",
+    alt: "The Vegan breakfast platter, plated",
+    caption: "The Vegan platter: mushroom patty, grilled zucchini, tofu scramble and a bread basket.",
+  },
+  "Sandwiches & Bagels": {
+    src: "/images/menu/grilled-cheese.jpg",
+    alt: "The Classic Grilled Cheese, cut in half",
+    caption: "The Classic Grilled Cheese, pressed on sourdough.",
+  },
+  Subs: {
+    src: "/images/menu/sub-sandwich.jpg",
+    alt: "A sub roll sliced open, filled and ready to serve",
+    caption: "A sub, fresh off the board.",
+  },
+  "Open Toasts": {
+    src: "/images/menu/bruschetta.jpg",
+    alt: "Tomato & Balsamic Bruschetta, held up on toasted sourdough",
+    caption: "Tomato & Balsamic Bruschetta, 200. Small plate, big crunch.",
+  },
+  "Smoothie Bowls": {
+    src: "/images/menu/smoothie-bowl.jpg",
+    alt: "A Mango Smoothie Bowl, topped and ready to serve",
+    caption: "The Mango Smoothie Bowl, topped to order.",
+  },
+  "Sweet Things": {
+    src: "/images/menu/custard-french-toast.jpg",
+    alt: "Custard French toast, dusted and plated",
+    caption: "Custard French toast and pancakes.",
+  },
+  Kombucha: {
+    src: "/images/menu/kombucha-bottles.jpg",
+    alt: "Bottled 1DM kombucha",
+    caption: "Canned or bottled, cold and ready.",
+  },
+};
+
+// The seven Perfect Pairs photos, in the same order as `perfectPairs.items`
+// above (1. The Morning Cuppa through 7. The Sweet Tooth).
+export const perfectPairPhotos: MenuPhoto[] = [
+  { src: "/images/menu/pair-morning-cuppa.jpg", alt: "The Morning Cuppa — a 1DM Cuppa with a bake" },
+  { src: "/images/menu/pair-cheese-pull.jpg", alt: "The Cheese Pull — a Classic Grilled Cheese with a Cappuccino" },
+  { src: "/images/menu/pair-italian-job.jpg", alt: "The Italian Job — Tomato & Balsamic Bruschetta with an Espresso Tonic" },
+  { src: "/images/menu/pair-wrap-up.jpg", alt: "The Wrap Up — a Grilled Paneer Wrap with a Cold Brew Classic" },
+  { src: "/images/menu/pair-sub-club.jpg", alt: "The Sub Club — a Shrooms Sub with an Americano" },
+  { src: "/images/menu/pair-sunny-bowl.jpg", alt: "The Sunny Bowl — a Mango Smoothie Bowl with a Matcha Latte" },
+  { src: "/images/menu/pair-sweet-tooth.jpg", alt: "The Sweet Tooth — Custard French Toast with a Spanish Latte" },
+];
+
+export type MenuRoasterLogo = { name: string; logo: string };
+
+// The roaster-partner logo wall from the printed menu's own "Roasters we
+// have partnered with" page — distinct from `roasterPartners` /
+// `communityPartners` below (the homepage network marquee) and `barRoasters`
+// (the 5 roasters currently rotating through the bar). This is the full
+// 20-logo list exactly as the print PDF groups it.
+export const menuRoasterPartners: { indian: MenuRoasterLogo[]; abroad: MenuRoasterLogo[] } = {
+  indian: [
+    { name: "Bloom Coffee Roasters", logo: "/images/menu/roasters/bloom-coffee-roasters.png" },
+    { name: "Videshi Coffee", logo: "/images/menu/roasters/videshi-coffee.png" },
+    { name: "Ground Zero Coffee Roasters", logo: "/images/menu/roasters/ground-zero-coffee-roasters.png" },
+    { name: "El Bueno Coffee Roasters", logo: "/images/menu/roasters/el-bueno-coffee-roasters.png" },
+    { name: "Corridor Seven Coffee Roasters", logo: "/images/menu/roasters/corridor-seven-coffee-roasters.png" },
+    { name: "Siolim Specialty Coffee Roasters", logo: "/images/menu/roasters/siolim-specialty-coffee-roasters.png" },
+    { name: "Quick Brown Fox Coffee Roasters", logo: "/images/menu/roasters/quick-brown-fox-coffee-roasters.png" },
+    { name: "Kokoro", logo: "/images/menu/roasters/kokoro.png" },
+    { name: "Naivo Coffee Company", logo: "/images/menu/roasters/naivo-coffee-company.png" },
+    { name: "Capulus Beans", logo: "/images/menu/roasters/capulus-beans.png" },
+    { name: "Blue Tokai Coffee Roasters", logo: "/images/menu/roasters/blue-tokai-coffee-roasters.png" },
+    { name: "Kapi Kottai", logo: "/images/menu/roasters/kapi-kottai.png" },
+    { name: "Savorworks Coffee Roasters", logo: "/images/menu/roasters/savorworks-coffee-roasters.png" },
+    { name: "Rossette Coffee Lab", logo: "/images/menu/roasters/rossette-coffee-lab.png" },
+    { name: "Half Light Coffee Roasters", logo: "/images/menu/roasters/half-light-coffee-roasters.png" },
+    { name: "Tulum Coffee", logo: "/images/menu/roasters/tulum-coffee.png" },
+  ],
+  abroad: [
+    { name: "Black & White Coffee Roasters", logo: "/images/menu/roasters/black-and-white-coffee-roasters.png" },
+    { name: "Dak Coffee Roasters", logo: "/images/menu/roasters/dak-coffee-roasters.png" },
+    { name: "Hydrangea Coffee Roasters", logo: "/images/menu/roasters/hydrangea-coffee-roasters.png" },
+    { name: "Hatch", logo: "/images/menu/roasters/hatch.png" },
+  ],
+};
+
 export type CoffeeProduct = {
   handle: string;
   name: string;
