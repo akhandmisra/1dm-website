@@ -4,8 +4,10 @@ import { notFound } from "next/navigation";
 import { Container } from "@/components/container";
 import { SectionHeading } from "@/components/section-heading";
 import { MenuPager } from "@/components/menu-pager";
+import { MapPin, Phone, Star } from "lucide-react";
 import { locations, menuByLocation } from "@/lib/site-data";
 import { pageMetadata } from "@/lib/metadata";
+import { cafeSchema, withContext } from "@/lib/schema";
 
 type Params = Promise<{ location: string }>;
 
@@ -37,7 +39,9 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 
   return pageMetadata({
     path: `/menu/${location}`,
-    title: `Menu · ${loc.name}`,
+    // This page doubles as the outlet's landing page (its Google Business
+    // Profile links here), so the title leads with what people search for.
+    title: `${loc.name}, ${loc.city} · Specialty Coffee, Menu & Hours`,
     description: isNonVeg
       ? `The full Daily Pour menu at ${loc.name} in ${loc.city} — espresso, cold brew, teas, breakfast platters, chicken and egg dishes, sandwiches, bowls and more. Open ${loc.hours}.`
       : `The full vegetarian Daily Pour menu at ${loc.name} in ${loc.city} — espresso, cold brew, teas, breakfast platters, sandwiches, bowls and more. Open ${loc.hours}.`,
@@ -49,11 +53,41 @@ export default async function LocationMenuPage({ params }: { params: Params }) {
   const loc = locations.find((l) => l.slug === location);
   const categories = menuByLocation[location];
   if (!loc || !categories) return notFound();
+  const schema = cafeSchema(loc);
 
   return (
     <section className="grain bg-cream pb-24 pt-20 md:pb-32 md:pt-28">
+      {schema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(withContext(schema)) }}
+        />
+      )}
       <Container>
-        <SectionHeading eyebrow={loc.city} title={loc.name} copy={loc.hours} as="h1" />
+        <SectionHeading eyebrow={loc.city} title={loc.name} copy={`Specialty coffee · Open ${loc.hours}`} as="h1" />
+
+        <div className="mt-6 flex flex-col gap-3 text-sm text-ink-soft/70 md:flex-row md:flex-wrap md:items-center md:gap-6">
+          {loc.address && (
+            <a href={loc.mapsUrl ?? "#"} target="_blank" rel="noreferrer" className="flex items-start gap-1.5 underline-hover">
+              <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0" /> <span>{loc.address}</span>
+            </a>
+          )}
+          {loc.phone && (
+            <a href={`tel:${loc.phone.replace(/\s+/g, "")}`} className="flex items-center gap-1.5 underline-hover">
+              <Phone className="h-3.5 w-3.5 shrink-0" /> {loc.phone}
+            </a>
+          )}
+          {loc.reviewUrl && (
+            <a
+              href={loc.reviewUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="flex w-fit items-center gap-1 rounded-full border border-ink/15 px-3 py-1.5 text-xs font-medium text-ink transition-colors hover:border-rust/50"
+            >
+              <Star className="h-3 w-3" /> Review us on Google
+            </a>
+          )}
+        </div>
 
         {loc.heroImage && (
           <div className="relative mt-10 aspect-[16/7] w-full overflow-hidden rounded-3xl">

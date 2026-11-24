@@ -14,14 +14,14 @@ This site (1dm.coffee) does not sell coffee beans, equipment, or merchandise —
 ## Locations
 10 cafe outlets across 4 cities in Chhattisgarh, India: Raipur (7), Bhilai (1), Bilaspur (1), Jagdalpur (1).
 
-Open now:
-- 1DM Samta, Raipur — 11:00 AM – 10:30 PM, daily
-- 1DM Dumartarai, Raipur — 10:00 AM – 8:00 PM, closed Sundays
-- 1DM Avanti Vihar, Raipur — 9:00 AM – 10:30 PM, closed Thursdays
-- 1DM Tagore Nagar, Raipur — 9:00 AM – 10:00 PM, daily
-- Slice By 1DM Shankar Nagar, Raipur — 12:00 PM – 10:00 PM, closed Tuesdays
-- 1DM Bhilai, Bhilai — 11:00 AM – 10:00 PM, closed Mondays
-- 1DM Bilaspur, Bilaspur — 12:00 PM – 10:00 PM, daily
+Open now (hours and addresses match each outlet's Google Business Profile):
+- 1DM Samta, Raipur — 11:00 AM – 10:00 PM, daily — Main Road, near Agrasen Hospital, Maharaja Agrasen International College, Samta Colony, Raipur 492001
+- 1DM Dumartarai, Raipur — 10:00 AM – 8:00 PM, closed Sundays — Ground Floor, LK Corporate Towers, Block E, NH-30, New Dhamtari Road, Dumartarai, Raipur 492015
+- 1DM Avanti Vihar, Raipur — 8:30 AM – 10:00 PM, daily — Avanti Vihar Road, Sector 1, Anand Vihar, Shankar Nagar, Raipur 492004
+- 1DM Tagore Nagar, Raipur — 8:30 AM – 10:00 PM, daily — Near Navkar Hospital, Tagore Nagar, Tikrapara, Raipur 492001
+- Slice By 1DM Shankar Nagar, Raipur — 12:00 PM – 10:00 PM, closed Tuesdays — Lane No. 8, Geetanjali Colony, Shankar Nagar, Raipur 492004
+- 1DM Bhilai, Bhilai — 11:00 AM – 10:00 PM, closed Mondays — 76/4, Model Town Road, Nehru Nagar, Bhilai 490020
+- 1DM Bilaspur, Bilaspur — 12:00 PM – 11:00 PM, closed Tuesdays — Narmada Nagar, Smart Road, Bilaspur 495001
 
 Coming soon: 1DM Civil Line (Raipur), Slice By 1DM VIP Road (Raipur), 1DM Jagdalpur (Jagdalpur).
 

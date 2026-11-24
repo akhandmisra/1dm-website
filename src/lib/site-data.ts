@@ -103,7 +103,14 @@ export type Location = {
   name: string;
   city: string;
   hours: string;
+  // Street address exactly as it appears on the outlet's Google Business
+  // Profile — keep these word-for-word in sync with Google (name, address
+  // and phone must match everywhere for local search ranking).
+  address?: string;
+  phone?: string;
   mapsUrl?: string;
+  // Direct "write a review" link for the outlet's Google listing.
+  reviewUrl?: string;
   menuStatus: "live" | "soon";
   heroImage?: string;
 };
@@ -116,14 +123,27 @@ function mapsSearchUrl(query: string) {
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 }
 
+// Pin-accurate link to an outlet's Google Business Profile, by its CID.
+function mapsCidUrl(cid: string) {
+  return `https://www.google.com/maps?cid=${cid}`;
+}
+
+// Opens Google's "write a review" box for an outlet, by its Place ID.
+function reviewLink(placeId: string) {
+  return `https://search.google.com/local/writereview?placeid=${placeId}`;
+}
+
 export const locations: Location[] = [
   {
     slug: "samta",
     name: "1DM Samta",
     city: "Raipur",
-    hours: "11:00 AM – 10:30 PM, daily",
+    hours: "11:00 AM – 10:00 PM, daily",
+    address: "Main Road, near Agrasen Hospital, Maharaja Agrasen International College, Samta Colony, Raipur, Chhattisgarh 492001",
+    phone: "+91 9179241042",
     menuStatus: "live",
-    mapsUrl: mapsSearchUrl("1DM Samta Cafe, Raipur"),
+    mapsUrl: mapsCidUrl("14496719042777369276"),
+    reviewUrl: reviewLink("ChIJLby9oOXdKDoRvMpimSmxLsk"),
     heroImage: "/images/food/bagel-sandwich.jpg",
   },
   {
@@ -131,25 +151,32 @@ export const locations: Location[] = [
     name: "1DM Dumartarai",
     city: "Raipur",
     hours: "10:00 AM – 8:00 PM, closed Sundays",
+    address: "Ground Floor, LK Corporate Towers, Block E, NH-30, New Dhamtari Road, Dumartarai, Raipur, Chhattisgarh 492015",
+    phone: "+91 8817224176",
     menuStatus: "live",
-    mapsUrl:
-      "https://www.google.com/maps/place/1DM+Specialty+Coffee/data=!4m2!3m1!1s0x0:0x2e3464ea6f04c378?sa=X&ved=1t:2428&hl=en-GB&ictx=111",
+    mapsUrl: mapsCidUrl("3329396982581347192"),
+    reviewUrl: reviewLink("ChIJk2Vs1w_DKDoReMMEb-pkNC4"),
   },
   {
     slug: "bilaspur",
     name: "1DM Bilaspur",
     city: "Bilaspur",
-    hours: "12:00 PM – 10:00 PM, daily",
+    hours: "12:00 PM – 11:00 PM, closed Tuesdays",
+    address: "Narmada Nagar, Smart Road, Bilaspur, Chhattisgarh 495001",
+    phone: "+91 9179241042",
     menuStatus: "live",
-    mapsUrl: mapsSearchUrl("1DM Bilaspur Cafe"),
+    mapsUrl: mapsSearchUrl("1DM Specialty Coffee, Narmada Nagar, Smart Road, Bilaspur"),
   },
   {
     slug: "tagore",
     name: "1DM Tagore Nagar",
     city: "Raipur",
-    hours: "9:00 AM – 10:00 PM, daily",
+    hours: "8:30 AM – 10:00 PM, daily",
+    address: "Near Navkar Hospital, Tagore Nagar, Tikrapara, Raipur, Chhattisgarh 492001",
+    phone: "+91 9098475557",
     menuStatus: "live",
-    mapsUrl: mapsSearchUrl("1DM Tagore Nagar Cafe, Raipur"),
+    mapsUrl: mapsCidUrl("16101324100610159792"),
+    reviewUrl: reviewLink("ChIJ8aBGsQLdKDoRsPRNBvZkc98"),
   },
   { slug: "slice-vip-road", name: "Slice By 1DM VIP Road", city: "Raipur", hours: "Coming soon", menuStatus: "soon", mapsUrl: mapsSearchUrl("Slice By 1DM VIP Road, Raipur") },
   {
@@ -157,26 +184,32 @@ export const locations: Location[] = [
     name: "Slice By 1DM Shankar Nagar",
     city: "Raipur",
     hours: "12:00 PM – 10:00 PM, closed Tuesdays",
+    address: "Lane No. 8, Geetanjali Colony, Shankar Nagar, Raipur, Chhattisgarh 492004",
+    phone: "+91 9893137180",
     menuStatus: "live",
-    mapsUrl:
-      "https://www.google.com/maps/place/SLICE+BY+1DM/data=!4m2!3m1!1s0x3a28ddc16768623b:0x8da9884a73fb5713?sa=X&ved=1t:242&hl=en-GB&ictx=111",
+    mapsUrl: mapsCidUrl("10207839883766748947"),
+    reviewUrl: reviewLink("ChIJO2JoZ8HdKDoRE1f7c0qIqY0"),
   },
   { slug: "civil-line", name: "1DM Civil Line", city: "Raipur", hours: "Coming soon", menuStatus: "soon", mapsUrl: mapsSearchUrl("1DM Civil Line Cafe, Raipur") },
   {
     slug: "avanti",
     name: "1DM Avanti Vihar",
     city: "Raipur",
-    hours: "9:00 AM – 10:30 PM, closed Thursdays",
+    hours: "8:30 AM – 10:00 PM, daily",
+    address: "Avanti Vihar Road, Sector 1, Anand Vihar, Geetanjali Colony, Shankar Nagar, Raipur, Chhattisgarh 492004",
+    phone: "+91 9179241042",
     menuStatus: "live",
-    mapsUrl: mapsSearchUrl("1DM Avanti Vihar Cafe, Raipur"),
+    mapsUrl: mapsCidUrl("2796639017778538393"),
+    reviewUrl: reviewLink("ChIJvZvB7l_dKDoRmeevk16ozyY"),
   },
   {
     slug: "bhilai",
     name: "1DM Bhilai",
     city: "Bhilai",
     hours: "11:00 AM – 10:00 PM, closed Mondays",
+    address: "76/4, Model Town Road, Model Town, Nehru Nagar, Bhilai, Chhattisgarh 490020",
     menuStatus: "live",
-    mapsUrl: mapsSearchUrl("1DM Bhilai Cafe"),
+    mapsUrl: mapsSearchUrl("1DM Specialty Coffee, 76/4 Model Town Road, Nehru Nagar, Bhilai"),
   },
   { slug: "jagdalpur", name: "1DM Jagdalpur", city: "Jagdalpur", hours: "Coming soon", menuStatus: "soon", mapsUrl: mapsSearchUrl("1DM Cafe Jagdalpur") },
 ];
