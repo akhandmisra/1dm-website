@@ -166,6 +166,7 @@ export const locations: Location[] = [
     phone: "+91 9179241042",
     menuStatus: "live",
     mapsUrl: mapsSearchUrl("1DM Specialty Coffee, Narmada Nagar, Smart Road, Bilaspur"),
+    reviewUrl: "https://g.page/r/CXjYOgLW1FFkEBM/review",
   },
   {
     slug: "tagore",
@@ -208,8 +209,10 @@ export const locations: Location[] = [
     city: "Bhilai",
     hours: "11:00 AM – 10:00 PM, closed Mondays",
     address: "76/4, Model Town Road, Model Town, Nehru Nagar, Bhilai, Chhattisgarh 490020",
+    phone: "+91 9179241042",
     menuStatus: "live",
     mapsUrl: mapsSearchUrl("1DM Specialty Coffee, 76/4 Model Town Road, Nehru Nagar, Bhilai"),
+    reviewUrl: "https://g.page/r/CQd-dx0-k6-NEBE/review",
   },
   { slug: "jagdalpur", name: "1DM Jagdalpur", city: "Jagdalpur", hours: "Coming soon", menuStatus: "soon", mapsUrl: mapsSearchUrl("1DM Cafe Jagdalpur") },
 ];
