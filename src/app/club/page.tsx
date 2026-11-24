@@ -86,7 +86,11 @@ export default function ClubPage() {
           </h2>
           <p className="mt-4 max-w-2xl text-base leading-relaxed text-cream/70">
             Raipur&apos;s first high-end coffee equipment registry. Trial for 3 days, rent for months, or buy for
-            life.
+            life.{" "}
+            <a href="https://kruptoscoffee.com/coffee-machine-rental" className="text-rust underline">
+              See the coffee machines on rent
+            </a>
+            .
           </p>
 
           <div className="mx-auto mt-14 grid max-w-3xl gap-6 sm:grid-cols-2">
