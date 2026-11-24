@@ -16,6 +16,15 @@ const columns = [
     ],
   },
   {
+    title: "Find us",
+    links: [
+      { href: "/raipur", label: "Specialty coffee in Raipur", external: false },
+      { href: "/bhilai", label: "Specialty coffee in Bhilai", external: false },
+      { href: "/bilaspur", label: "Specialty coffee in Bilaspur", external: false },
+      { href: "/jagdalpur", label: "Jagdalpur (coming soon)", external: false },
+    ],
+  },
+  {
     title: "Shop",
     links: [
       { href: "https://kruptoscoffee.com", label: "Roasted Coffee", external: true },
@@ -35,7 +44,7 @@ const columns = [
 export function Footer() {
   return (
     <footer className="border-t border-ink/10 bg-ink text-cream">
-      <Container className="grid gap-12 py-16 md:grid-cols-[1.3fr_repeat(3,1fr)] md:py-20">
+      <Container className="grid gap-12 py-16 md:grid-cols-[1.3fr_repeat(4,1fr)] md:py-20">
         <div>
           <p className="font-display text-3xl">1DM</p>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-cream/60">

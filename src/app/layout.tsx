@@ -5,9 +5,9 @@ import { Footer } from "@/components/footer";
 import { organizationSchema, withContext } from "@/lib/schema";
 import { pageMetadata, siteUrl } from "@/lib/metadata";
 
-const HOME_TITLE = "1DM — Specialty Coffee, For Everyone";
+const HOME_TITLE = "1DM Specialty Coffee | Cafes in Raipur, Bhilai & Bilaspur";
 const HOME_DESCRIPTION =
-  "1DM Cafe and Kruptos Coffee Roasters — specialty coffee across Chhattisgarh, built one honest cup at a time.";
+  "1DM brought specialty coffee to Chhattisgarh — espresso, pour-over and cold brew at cafes across Raipur, Bhilai and Bilaspur, roasted by our own Kruptos Coffee Roasters.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

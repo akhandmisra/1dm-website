@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 // except the homepage was doing before this fix (Sitechecker flagged this
 // as "Canonical is missing", "Open Graph tags incomplete", and "Twitter
 // card incomplete" across all 21 indexable pages).
-export const siteUrl = "https://1dm.coffee";
+export const siteUrl = "https://www.1dm.coffee";
 export const siteName = "1DM";
 const defaultImage = "/images/branding/storefront-sign.jpg";
 

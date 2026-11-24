@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://1dm.coffee/sitemap.xml",
+    sitemap: "https://www.1dm.coffee/sitemap.xml",
   };
 }

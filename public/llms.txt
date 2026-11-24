@@ -25,20 +25,20 @@ Open now (hours and addresses match each outlet's Google Business Profile):
 
 Coming soon: 1DM Civil Line (Raipur), Slice By 1DM VIP Road (Raipur), 1DM Jagdalpur (Jagdalpur).
 
-Full list with maps: https://1dm.coffee/locations
+Full list with maps: https://www.1dm.coffee/locations
 
 ## Menu
-The Daily Pour — 1DM's standard menu, at https://1dm.coffee/menu. Vegetarian edition at every live outlet except Tagore Nagar; Tagore Nagar serves the Veg & Non-Veg edition, adding an eggs-and-chicken page, chicken/egg options on several breakfast platters, a Chicken Panuozzo and a Pesto Chicken Salad. Both editions otherwise share: espresso bar (short & strong, milk-based lattes), house specialty signatures and cloud creations, cold brew and hand-brewed pour-over, teas/matcha/coolers/kombucha, breakfast platters, sandwiches/panuozzo/garlic bread, subs/sliders/fries/wraps, open toasts/rice bowls/salads, smoothie bowls and sweets, plus seven "Perfect Pairs" food-and-coffee combos ordered by number at the counter.
+The Daily Pour — 1DM's standard menu, at https://www.1dm.coffee/menu. Vegetarian edition at every live outlet except Tagore Nagar; Tagore Nagar serves the Veg & Non-Veg edition, adding an eggs-and-chicken page, chicken/egg options on several breakfast platters, a Chicken Panuozzo and a Pesto Chicken Salad. Both editions otherwise share: espresso bar (short & strong, milk-based lattes), house specialty signatures and cloud creations, cold brew and hand-brewed pour-over, teas/matcha/coolers/kombucha, breakfast platters, sandwiches/panuozzo/garlic bread, subs/sliders/fries/wraps, open toasts/rice bowls/salads, smoothie bowls and sweets, plus seven "Perfect Pairs" food-and-coffee combos ordered by number at the counter.
 
 ## Kruptos Coffee Roasters
 Kruptos is 1DM's own roastery — Raipur's first specialty coffee roastery, roasting seed-to-cup, launched in 2026 out of Bilaspur. It supplies 1DM's cafes and sells its own roasted coffee direct at https://kruptoscoffee.com, alongside brewing equipment (grinders, kettles, scales, drippers) for sale or rent. Current release: "Stairway to Heaven" (Side A & Side B), ₹300.
 
-More: https://1dm.coffee/kruptos
+More: https://www.1dm.coffee/kruptos
 
 ## 1DM Elite Club
 Paid membership: ₹5,999 for new members, ₹2,999 annual renewal, capped at 5 new members a month. Perks: 10% off everything plus a birthday perk, priority seating, a ₹3,500/month credit line, zero-deposit equipment rental from ₹1,200/month (10% of rental payments credits toward eventual purchase, plus a free 3-day trial), 15 hours/year of brewing classes, and invitation-only Member Circle events. Partner perks include Kruptos Roastery (10% off beans) and Chakara Fitness discounts.
 
-Details: https://1dm.coffee/club · Chakara Privilege: https://1dm.coffee/club/chakara-privilege
+Details: https://www.1dm.coffee/club · Chakara Privilege: https://www.1dm.coffee/club/chakara-privilege
 
 ## Roasters on the bar
 1DM's cafes rotate coffee from five roasters: Bloom Coffee Roasters, Capulus Beans, Rossette Coffee Lab, Naivo Coffee Company, and Kruptos Coffee Roasters (its own).
@@ -54,14 +54,14 @@ Akhand — founder; personally signs off on everything that goes on the menu. Tu
 - 2026, Bilaspur: Kruptos Coffee Roasters launches, seed-to-cup — 1DM's tenth outlet.
 
 ## Key pages
-- Home: https://1dm.coffee
-- Our Story: https://1dm.coffee/story
-- Menu: https://1dm.coffee/menu
-- Locations: https://1dm.coffee/locations
-- Kruptos Coffee Roasters: https://1dm.coffee/kruptos
-- 1DM Elite Club: https://1dm.coffee/club
-- Coffee Community: https://1dm.coffee/community
-- Contact: https://1dm.coffee/contact
+- Home: https://www.1dm.coffee
+- Our Story: https://www.1dm.coffee/story
+- Menu: https://www.1dm.coffee/menu
+- Locations: https://www.1dm.coffee/locations
+- Kruptos Coffee Roasters: https://www.1dm.coffee/kruptos
+- 1DM Elite Club: https://www.1dm.coffee/club
+- Coffee Community: https://www.1dm.coffee/community
+- Contact: https://www.1dm.coffee/contact
 - Roasted coffee & equipment (external): https://kruptoscoffee.com
 
 <!-- Last updated: 2026-10-18 -->

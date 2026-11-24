@@ -35,7 +35,7 @@ export default function Home() {
         <Container className="relative">
           <Reveal>
             <p className="mb-5 text-xs font-semibold uppercase tracking-[0.25em] text-gold">
-              Since {brand.founded} · {brand.outlets} outlets · {brand.cities} cities
+              Specialty coffee in Raipur · Bhilai · Bilaspur · Since {brand.founded}
             </p>
           </Reveal>
           <Reveal delay={0.05}>

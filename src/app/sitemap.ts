@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { menuByLocation } from "@/lib/site-data";
 import { journalArticles } from "@/lib/journal";
 
-const siteUrl = "https://1dm.coffee";
+import { siteUrl } from "@/lib/metadata";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [

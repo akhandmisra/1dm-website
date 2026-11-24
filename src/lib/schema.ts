@@ -15,7 +15,7 @@
 import { brand, locations, hasLiveMenu, type Location } from "./site-data";
 import type { JournalArticle } from "./journal";
 
-export const siteUrl = "https://1dm.coffee";
+export const siteUrl = "https://www.1dm.coffee";
 
 // Street address and PIN are parsed from each outlet's `address` in
 // site-data.ts, which is copied word-for-word from its Google Business
