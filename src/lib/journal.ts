@@ -17,9 +17,67 @@ export type JournalArticle = {
   readTime: string;
   publishedAt: string; // ISO date
   body: JournalBlock[];
+  /** Optional end-of-article buttons; overrides the category defaults. */
+  ctas?: { href: string; label: string }[];
 };
 
 export const journalArticles: JournalArticle[] = [
+  {
+    slug: "office-coffee-machine-rental-raipur",
+    title: "Office Coffee Machine on Rent in Raipur: Espresso vs Vending",
+    dek: "Most offices in Raipur rent an instant-coffee vending machine by default. Here's when renting a real espresso machine makes more sense, what it costs, and how to set it up.",
+    category: "For business",
+    readTime: "5 min read",
+    publishedAt: "2026-11-24",
+    ctas: [
+      { href: "https://kruptoscoffee.com/coffee-machine-rental", label: "Coffee machines on rent" },
+      { href: "/coffee-catering", label: "Coffee for events" },
+      { href: "/club", label: "1DM Elite Club" },
+    ],
+    body: [
+      {
+        type: "paragraph",
+        text: "Ask most offices in Raipur, Bhilai or Bilaspur what coffee machine they have and the answer is a rented vending machine running on premix. It's cheap and simple, and nobody looks forward to it. Your team walks past it to order coffee on an app, or to the cafe downstairs.",
+      },
+      {
+        type: "paragraph",
+        text: "We've run specialty coffee bars across Chhattisgarh since 2019, and the question we now hear from offices, co-working spaces and clinics is: can we have that coffee here, without buying a ₹2-lakh machine? Yes — you can rent one.",
+      },
+      { type: "heading", text: "Vending machine or espresso machine?" },
+      {
+        type: "list",
+        items: [
+          "Vending: premix powder, one button, very low cost per cup, very little to manage. Fine if coffee is just a hot drink.",
+          "Espresso machine + grinder: freshly roasted beans ground for each cup, real espresso, cappuccino and lattes. Needs a short training and a regular bean supply.",
+          "The middle ground: for a small team that mostly drinks black coffee, a good grinder and a batch brewer or pour-over setup costs far less than an espresso machine and still tastes like a cafe.",
+        ],
+      },
+      { type: "heading", text: "What it costs" },
+      {
+        type: "paragraph",
+        text: "Through our roastery, Kruptos Coffee Roasters, an espresso machine rents for about ₹7,000 a month and espresso-capable grinders for roughly ₹1,100–3,200 a month; simpler brewing gear starts from a few hundred rupees. Add your beans — a team drinking 20 espresso drinks a working day uses roughly 7–8 kg of coffee a month. For many offices that works out close to what they already spend on delivery coffee, for much better coffee.",
+      },
+      { type: "heading", text: "How we set it up" },
+      {
+        type: "list",
+        items: [
+          "We suggest a machine and grinder based on your headcount and how many cups a day you drink.",
+          "We install it, dial in the recipe on your machine, and train whoever will be making coffee.",
+          "Fresh Kruptos beans are delivered on a schedule, so you never run out or end up with stale coffee.",
+          "You can keep renting, or buy the machine later — 1DM Elite members get 10% of their rent credited toward the purchase.",
+        ],
+      },
+      { type: "heading", text: "For events, not just offices" },
+      {
+        type: "paragraph",
+        text: "If you need coffee for a day rather than every day — a launch, an offsite, a wedding — renting a machine on its own isn't the answer, because someone still has to make the drinks. For those we bring the whole bar: machine, barista and coffee, through our coffee catering service.",
+      },
+      {
+        type: "paragraph",
+        text: "Tell us your team size and city and we'll suggest a setup and the monthly rent. You can see the machines and request a quote on the Kruptos coffee machine rental page, or WhatsApp us on +91 9179241042.",
+      },
+    ],
+  },
   {
     slug: "dialing-in-light-roasts",
     title: "Dialing In Your V60 (or AeroPress) for Light Roasts",

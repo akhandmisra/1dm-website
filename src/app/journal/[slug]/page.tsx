@@ -82,7 +82,7 @@ export default async function JournalArticlePage({ params }: { params: Params })
         </div>
 
         <div className="mt-14 flex max-w-2xl flex-wrap gap-3 border-t border-ink/10 pt-8">
-          {(article.category === "For business"
+          {(article.ctas ?? (article.category === "For business"
             ? [
                 { href: "/coffee-catering", label: "Coffee catering quote" },
                 { href: "/franchise", label: "Franchise & cafe consulting" },
@@ -91,7 +91,7 @@ export default async function JournalArticlePage({ params }: { params: Params })
                 { href: "/raipur", label: "1DM cafes in Raipur" },
                 { href: "/locations", label: "All 1DM locations" },
                 { href: "/kruptos", label: "Kruptos Coffee Roasters" },
-              ]
+              ])
           ).map((cta) => (
             <Link
               key={cta.href}
