@@ -20,6 +20,11 @@ export const metadata: Metadata = {
     default: HOME_TITLE,
     template: "%s · 1DM",
   },
+  // Google Search Console ownership for https://www.1dm.coffee/ — keep this
+  // tag, or the property loses verification.
+  verification: {
+    google: "0Tq-C-7nfWQCJnalmeyGlEXicf2ZYE60SbxihLxGt3k",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
