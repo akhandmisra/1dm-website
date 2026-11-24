@@ -17,6 +17,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/club/chakara-privilege",
     "/community",
     "/contact",
+    "/coffee-catering",
+    "/franchise",
     "/raipur",
     "/bhilai",
     "/bilaspur",

@@ -278,6 +278,36 @@ export default function Home() {
         </Container>
       </section>
 
+      {/* For business */}
+      <section className="grain bg-cream py-20 md:py-24">
+        <Container>
+          <SectionHeading
+            eyebrow="For business"
+            title="Bring 1DM to your event, office or cafe."
+            copy="Live coffee bars for corporate events and weddings, a 1DM franchise in your city, or Kruptos beans for your own menu."
+          />
+          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+            {[
+              { href: "/coffee-catering", title: "Coffee catering", copy: "Events, offices & weddings in Raipur, Bhilai, Bilaspur" },
+              { href: "/franchise", title: "Franchise & consulting", copy: "Open a 1DM cafe, or build your own coffee program" },
+              { href: "https://kruptoscoffee.com/wholesale", title: "Wholesale beans", copy: "Kruptos specialty coffee for cafes, hotels & offices" },
+            ].map((b) => (
+              <Link
+                key={b.title}
+                href={b.href}
+                className="group flex items-start justify-between rounded-2xl border border-ink/10 bg-paper p-6 transition-colors hover:border-rust/40"
+              >
+                <div>
+                  <p className="font-display text-xl">{b.title}</p>
+                  <p className="mt-1 text-sm text-ink-soft/60">{b.copy}</p>
+                </div>
+                <ArrowUpRight className="h-5 w-5 shrink-0 text-ink-soft/30 transition-colors group-hover:text-rust" />
+              </Link>
+            ))}
+          </div>
+        </Container>
+      </section>
+
       {/* Club CTA */}
       <section className="bg-ink py-24 text-cream md:py-32">
         <Container className="grid gap-10 md:grid-cols-2 md:gap-16">

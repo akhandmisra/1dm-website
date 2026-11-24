@@ -25,10 +25,12 @@ const columns = [
     ],
   },
   {
-    title: "Shop",
+    title: "Shop & business",
     links: [
       { href: "https://kruptoscoffee.com", label: "Roasted Coffee", external: true },
-      { href: "https://kruptoscoffee.com", label: "Equipment & Tools", external: true },
+      { href: "https://kruptoscoffee.com/wholesale", label: "Wholesale beans", external: true },
+      { href: "/coffee-catering", label: "Coffee catering", external: false },
+      { href: "/franchise", label: "Franchise & consulting", external: false },
     ],
   },
   {

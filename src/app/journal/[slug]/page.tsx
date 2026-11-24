@@ -80,6 +80,28 @@ export default async function JournalArticlePage({ params }: { params: Params })
             <Block key={i} block={block} />
           ))}
         </div>
+
+        <div className="mt-14 flex max-w-2xl flex-wrap gap-3 border-t border-ink/10 pt-8">
+          {(article.category === "For business"
+            ? [
+                { href: "/coffee-catering", label: "Coffee catering quote" },
+                { href: "/franchise", label: "Franchise & cafe consulting" },
+              ]
+            : [
+                { href: "/raipur", label: "1DM cafes in Raipur" },
+                { href: "/locations", label: "All 1DM locations" },
+                { href: "/kruptos", label: "Kruptos Coffee Roasters" },
+              ]
+          ).map((cta) => (
+            <Link
+              key={cta.href}
+              href={cta.href}
+              className="rounded-full border border-ink/15 px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:border-rust/50 hover:text-rust"
+            >
+              {cta.label} →
+            </Link>
+          ))}
+        </div>
       </Container>
     </article>
   );

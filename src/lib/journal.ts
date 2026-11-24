@@ -216,6 +216,221 @@ export const journalArticles: JournalArticle[] = [
       },
     ],
   },
+  {
+    slug: "best-specialty-coffee-in-raipur",
+    title: "Where to Find the Best Specialty Coffee in Raipur (2026 Guide)",
+    dek: "Raipur has gone from instant coffee to hand-brewed pour-overs in a few short years. Here's where to drink specialty coffee in the city, what to order, and when to go.",
+    category: "City guides",
+    readTime: "6 min read",
+    publishedAt: "2026-11-24",
+    body: [
+      {
+        type: "paragraph",
+        text: "Ask anyone who grew up in Raipur what coffee meant ten years ago and you'll mostly hear about filter coffee at home or a sweet, milky cup from a vending machine. That changed fast. Specialty coffee — traceable beans, roasted for flavour, brewed to a recipe by a trained barista — arrived in the city in 2021, when 1DM parked its coffee truck in Raipur for good. Today the city has a proper coffee scene, and this guide is the short version of where to find it.",
+      },
+      { type: "heading", text: "What counts as specialty coffee?" },
+      {
+        type: "paragraph",
+        text: "Specialty coffee isn't about fancy latte art or a higher price tag. It starts with green beans that score well when professionally cupped, comes from farms you can actually name, and is roasted lightly enough that you can taste where it came from — fruit, chocolate, nuts or florals rather than just bitterness. Then it's brewed with measured doses, water temperatures and times. If a cafe can tell you which estate your coffee came from and how it was processed, you're in the right place.",
+      },
+      { type: "heading", text: "1DM's five Raipur cafes, and which one to pick" },
+      {
+        type: "list",
+        items: [
+          "1DM Tagore Nagar (near Navkar Hospital, Tikrapara) — open 8:30 AM to 10 PM daily. The early-morning pick, and the only Raipur outlet serving the Veg & Non-Veg menu with eggs and chicken.",
+          "1DM Avanti Vihar (Avanti Vihar Road, Shankar Nagar) — open 8:30 AM to 10 PM daily. The other early opener; good for a quiet breakfast-and-pour-over before work.",
+          "1DM Samta (Main Road, Samta Colony) — open 11 AM to 10 PM daily. The busiest evening spot, especially for cold brew and signatures.",
+          "1DM Dumartarai (LK Corporate Towers, New Dhamtari Road) — open 10 AM to 8 PM, closed Sundays. Built for the office crowd on the Dhamtari Road side of town.",
+          "Slice By 1DM, Shankar Nagar (Lane 8, Geetanjali Colony) — open 12 PM to 10 PM, closed Tuesdays. Handcrafted pizza slices with the same coffee program.",
+        ],
+      },
+      { type: "heading", text: "What to order if you're new to specialty coffee" },
+      {
+        type: "paragraph",
+        text: "If you normally drink a cappuccino, start there — a cafe latte or cappuccino made with a fresh, lighter roast tastes sweeter and less bitter than you expect, and it's an easy way to notice the difference. If you want to try coffee the way roasters taste it, order a pour-over on V60: it's black coffee, brewed slowly by hand, and it's where a single origin's character shows up most clearly. On a hot Raipur afternoon, the cold brew is the crowd favourite.",
+      },
+      {
+        type: "paragraph",
+        text: "Prices at 1DM start at ₹200 for espresso and Americano, ₹230 for lattes and cappuccinos, and ₹250 for espresso signatures. Every outlet's full menu, with food, is on its menu page on this site.",
+      },
+      { type: "heading", text: "Why the beans matter" },
+      {
+        type: "paragraph",
+        text: "Most of the coffee on the 1DM bar is roasted by Kruptos Coffee Roasters, our own roastery, which means the beans reach the grinder days after roasting rather than months. Guest roasters from across India rotate through the bar too, so there's always something new to taste. Our baristas were the first from Chhattisgarh to win coffee trophies at state and national level, including 2nd place at the 2023 India AeroPress Championship — ask them what's on pour-over today.",
+      },
+      {
+        type: "quote",
+        text: "The best coffee in Raipur is the one brewed fresh, by someone who can tell you where it came from.",
+      },
+      {
+        type: "paragraph",
+        text: "Visiting from Bhilai or Bilaspur? 1DM also runs cafes in Nehru Nagar, Bhilai and on Smart Road, Bilaspur — see the city pages for directions and hours.",
+      },
+    ],
+  },
+  {
+    slug: "what-is-specialty-coffee",
+    title: "What Is Specialty Coffee? A Simple Guide for Coffee Lovers in India",
+    dek: "Specialty coffee gets thrown around a lot. Here's what it actually means — from the farm to your cup — and how to tell the real thing from marketing.",
+    category: "Coffee basics",
+    readTime: "6 min read",
+    publishedAt: "2026-11-24",
+    body: [
+      {
+        type: "paragraph",
+        text: "\"Specialty coffee\" is printed on a lot of menus now, and it's fair to wonder whether it means anything. It does. The term describes coffee that is graded, sourced, roasted and brewed to a standard high enough that the flavour of the bean itself — not just the roast, the milk or the sugar — is the point.",
+      },
+      { type: "heading", text: "It starts with a score" },
+      {
+        type: "paragraph",
+        text: "Green coffee is graded by trained tasters called Q graders, who roast a sample, brew it in a standard way (called cupping) and score it out of 100 on things like sweetness, acidity, body and aftertaste. Coffee that scores 80 points or more, with very few defects in the green beans, qualifies as specialty grade. Most of the world's coffee — including most instant coffee — falls well below that line.",
+      },
+      { type: "heading", text: "It's traceable" },
+      {
+        type: "paragraph",
+        text: "Specialty coffee usually tells you exactly where it came from: the estate or cooperative, the region, the variety of coffee plant, the altitude and how the cherries were processed after picking. In India that might be an arabica from Chikmagalur, Coorg or Araku Valley — or, increasingly, from newer regions like Bastar in Chhattisgarh. Traceability matters because it lets roasters pay farmers for quality, and lets you taste the difference between places.",
+      },
+      { type: "heading", text: "Processing changes the taste" },
+      {
+        type: "list",
+        items: [
+          "Washed — the fruit is removed before drying. Clean, bright, tea-like cups.",
+          "Natural — the whole cherry dries around the bean. Fruity, jammy, heavier body.",
+          "Honey — some of the sticky fruit is left on during drying. Sweet, round, in between the two.",
+          "Monsooned — an Indian speciality where beans absorb monsoon humidity for weeks. Low acidity, earthy and heavy.",
+        ],
+      },
+      { type: "heading", text: "It's roasted to show the bean, not hide it" },
+      {
+        type: "paragraph",
+        text: "Dark roasts taste mostly of the roast: smoky, bitter, similar from one coffee to the next. Specialty roasters usually roast lighter so the bean's own flavours come through. Freshness matters too — coffee is at its best roughly one to four weeks after roasting, which is why good cafes work with roasters close to home. At 1DM, most of our coffee comes from our own roastery, Kruptos Coffee Roasters.",
+      },
+      { type: "heading", text: "And it's brewed to a recipe" },
+      {
+        type: "paragraph",
+        text: "The last step is the barista. Specialty cafes weigh their coffee and water, control grind size, water temperature and brew time, and taste constantly to keep every cup consistent. That's the difference between a cappuccino that tastes of milk and bitterness, and one that tastes sweet, chocolatey and balanced.",
+      },
+      { type: "heading", text: "How to tell if a cafe is serious about it" },
+      {
+        type: "list",
+        items: [
+          "They can tell you the origin and roast date of the coffee they're using today.",
+          "They offer at least one manual brew — pour-over, AeroPress or similar.",
+          "They grind fresh for every drink and weigh their shots.",
+          "Black coffee tastes good without sugar.",
+        ],
+      },
+      {
+        type: "paragraph",
+        text: "If you're in Raipur, Bhilai or Bilaspur, the easiest way to taste the difference is to order a pour-over and a cappuccino side by side at any 1DM cafe — and ask the barista what's on the bar today.",
+      },
+    ],
+  },
+  {
+    slug: "coffee-catering-corporate-events-raipur",
+    title: "Coffee Catering for Corporate Events in Raipur: A Planning Checklist",
+    dek: "Planning a conference, offsite, launch or wedding in Raipur? Here's how to get a live coffee bar right — headcount, drinks, power, timing and budget.",
+    category: "For business",
+    readTime: "5 min read",
+    publishedAt: "2026-11-24",
+    body: [
+      {
+        type: "paragraph",
+        text: "A live coffee bar has become one of the most-talked-about parts of corporate events and weddings in Raipur — guests remember a properly made latte far longer than another tray of tea. But an espresso bar is a piece of equipment and a team, not just a menu, and a little planning makes the difference between a queue that moves and one that doesn't.",
+      },
+      { type: "heading", text: "1. Start with headcount and timing" },
+      {
+        type: "paragraph",
+        text: "The two numbers that decide everything are how many guests will drink coffee and when. A conference with a 20-minute break needs more baristas and machines than a wedding where coffee runs all evening. Share your expected guest count and the peak moments — registration, breaks, after lunch — so the bar can be sized for the rush, not the average.",
+      },
+      { type: "heading", text: "2. Keep the menu short" },
+      {
+        type: "paragraph",
+        text: "Four to six drinks is plenty: a cappuccino or latte, an Americano, a cold coffee or cold brew, one or two signatures, and a non-coffee option. A short menu keeps the line moving and every drink consistent. Ask for dairy-free milk if your guest list needs it.",
+      },
+      { type: "heading", text: "3. Check the venue basics" },
+      {
+        type: "list",
+        items: [
+          "Power: commercial espresso machines need a dedicated power point close to the counter.",
+          "Water: access to clean water nearby, or confirmation that the caterer brings their own.",
+          "Space: a counter or table of roughly 6–8 feet, with room for the queue to form without blocking a doorway.",
+          "Setup time: allow at least an hour before guests arrive for the machine to heat and the team to dial in.",
+        ],
+      },
+      { type: "heading", text: "4. Brand it" },
+      {
+        type: "paragraph",
+        text: "A coffee bar is one of the few places every guest will stop. Branded cups, sleeves or a counter backdrop turn it into an easy photo moment for a launch or a company event.",
+      },
+      { type: "heading", text: "5. Book early" },
+      {
+        type: "paragraph",
+        text: "During the wedding season and year-end conference season, baristas and machines get booked out. A week's notice works for most corporate events; for weddings and large conferences, book as soon as your date is fixed.",
+      },
+      {
+        type: "quote",
+        text: "The coffee at your event should taste exactly like the coffee in a good cafe — because it's made by the same people.",
+      },
+      {
+        type: "paragraph",
+        text: "1DM runs live specialty coffee bars for corporate events, office coffee days, weddings and launches across Raipur, Bhilai and Bilaspur, with trained baristas and beans from our own roastery, Kruptos. Share your date, venue and guest count on our coffee catering page, or WhatsApp +91 9179241042, and we'll come back with a quote within a working day.",
+      },
+    ],
+  },
+  {
+    slug: "how-to-open-a-cafe-in-chhattisgarh",
+    title: "How to Open a Cafe in Chhattisgarh: What We've Learned Running 1DM",
+    dek: "Thinking of opening a cafe in Raipur, Bhilai or Bilaspur? The location, menu, coffee, people and systems questions to answer before you sign a lease.",
+    category: "For business",
+    readTime: "7 min read",
+    publishedAt: "2026-11-24",
+    body: [
+      {
+        type: "paragraph",
+        text: "1DM started in 2019 as a one-dollar coffee truck in Pune and has grown into a chain of specialty cafes across Raipur, Bhilai and Bilaspur, with its own roastery. Along the way we've opened, run and fixed a lot of cafes — and we get asked the same question almost every week: what does it actually take to open a cafe in Chhattisgarh? Here's our honest checklist.",
+      },
+      { type: "heading", text: "Location beats decor" },
+      {
+        type: "paragraph",
+        text: "Footfall, visibility and parking matter more than an Instagram-ready interior. In Raipur, the strongest cafe locations sit near colleges, hospitals, offices and residential main roads where people pass every day — not tucked away where they have to make a special trip. Study the street at different times of day before you sign anything, and understand who will be walking past at 9 AM and at 8 PM.",
+      },
+      { type: "heading", text: "Decide what you're famous for" },
+      {
+        type: "paragraph",
+        text: "A cafe that tries to be everything usually ends up known for nothing. Pick one or two things you want people to come back for — for us, it's specialty coffee — and build a short, tight menu around them. Every extra dish adds inventory, training and waste.",
+      },
+      { type: "heading", text: "Get the coffee right from day one" },
+      {
+        type: "list",
+        items: [
+          "Choose fresh, traceable beans from a roaster who can support you with recipes and training.",
+          "Buy the right grinder — it matters as much as the espresso machine.",
+          "Dial in recipes (dose, yield, time) and write them down so every barista makes the same cup.",
+          "Plan for water filtration; local water hardness will affect both taste and machine life.",
+        ],
+      },
+      { type: "heading", text: "People are the product" },
+      {
+        type: "paragraph",
+        text: "Your barista is the person your customer actually meets. Budget time and money for training before opening, not after. Skilled baristas are still scarce in Chhattisgarh, which is why 1DM trains its own team in-house — several of whom have gone on to win state and national coffee trophies.",
+      },
+      { type: "heading", text: "Systems keep the doors open" },
+      {
+        type: "paragraph",
+        text: "Most cafes that close don't close because the coffee was bad — they close because costs, stock and cash weren't tracked. Cost every menu item before launch, track inventory daily, and know your break-even number of cups per day. Simple systems, used consistently, are worth more than any fancy software.",
+      },
+      { type: "heading", text: "Build vs. partner" },
+      {
+        type: "paragraph",
+        text: "You can build everything yourself, bring in a consultant for the coffee program and operations, or partner with an established brand. 1DM offers all three routes: a franchise-owned, company-operated 1DM outlet, where we run the cafe day to day; cafe consulting for people building their own brand; and specialty coffee supply from Kruptos Coffee Roasters.",
+      },
+      {
+        type: "paragraph",
+        text: "If you're thinking about a cafe anywhere in Chhattisgarh, tell us your location and plans on our franchise page or WhatsApp +91 9179241042 — we're always happy to talk it through.",
+      },
+    ],
+  },
 ];
 
 export function getJournalArticle(slug: string) {
