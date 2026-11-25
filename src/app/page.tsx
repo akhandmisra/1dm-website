@@ -246,6 +246,11 @@ export default function Home() {
           />
         </Container>
         <LogoMarquee rowOne={partnerRowOne} rowTwo={partnerRowTwo} />
+        <Container>
+          <Link href="/coffee-beans-raipur" className="underline-hover mt-10 inline-flex items-center gap-1 text-sm font-medium text-ink">
+            See every roaster we&apos;ve partnered with, and where to buy coffee beans in Raipur <ArrowUpRight className="h-4 w-4" />
+          </Link>
+        </Container>
       </section>
 
       {/* Locations */}

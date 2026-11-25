@@ -27,6 +27,7 @@ const columns = [
   {
     title: "Shop & business",
     links: [
+      { href: "/coffee-beans-raipur", label: "Buy coffee beans", external: false },
       { href: "https://kruptoscoffee.com", label: "Roasted Coffee", external: true },
       { href: "https://kruptoscoffee.com/wholesale", label: "Wholesale beans", external: true },
       { href: "https://kruptoscoffee.com/coffee-equipment-supplier", label: "Coffee equipment supplier", external: true },

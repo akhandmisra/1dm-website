@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/contact",
     "/coffee-catering",
     "/franchise",
+    "/coffee-beans-raipur",
     "/raipur",
     "/bhilai",
     "/bilaspur",
