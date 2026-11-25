@@ -29,6 +29,7 @@ const columns = [
     links: [
       { href: "https://kruptoscoffee.com", label: "Roasted Coffee", external: true },
       { href: "https://kruptoscoffee.com/wholesale", label: "Wholesale beans", external: true },
+      { href: "https://kruptoscoffee.com/coffee-equipment-supplier", label: "Coffee equipment supplier", external: true },
       { href: "https://kruptoscoffee.com/coffee-machine-rental", label: "Coffee machine on rent", external: true },
       { href: "/coffee-catering", label: "Coffee catering", external: false },
       { href: "/franchise", label: "Franchise & consulting", external: false },
