@@ -289,13 +289,16 @@ export default function Home() {
           <SectionHeading
             eyebrow="For business"
             title="Bring 1DM to your event, office or cafe."
-            copy="Live coffee bars for corporate events and weddings, a 1DM franchise in your city, or Kruptos beans for your own menu."
+            copy="Live coffee bars for events, cafe consulting and barista training, a 1DM franchise in your city, espresso machines, or Kruptos beans for your own menu."
           />
           <div className="mt-10 grid gap-4 sm:grid-cols-3">
             {[
               { href: "/coffee-catering", title: "Coffee catering", copy: "Events, offices & weddings in Raipur, Bhilai, Bilaspur" },
-              { href: "/franchise", title: "Franchise & consulting", copy: "Open a 1DM cafe, or build your own coffee program" },
+              { href: "/cafe-consulting", title: "Cafe consulting", copy: "Open or grow your own specialty cafe" },
+              { href: "/barista-training", title: "Barista training", copy: "Espresso, latte art & brewing classes" },
+              { href: "/franchise", title: "1DM franchise", copy: "Open a 1DM cafe in your city" },
               { href: "https://kruptoscoffee.com/wholesale", title: "Wholesale beans", copy: "Kruptos specialty coffee for cafes, hotels & offices" },
+              { href: "https://kruptoscoffee.com/espresso-machines-chhattisgarh", title: "Espresso machines", copy: "Buy or rent, installed & dialled in" },
             ].map((b) => (
               <Link
                 key={b.title}

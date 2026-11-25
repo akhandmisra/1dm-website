@@ -19,7 +19,7 @@ const offers = [
   },
   {
     title: "Cafe consulting",
-    copy: "Already running a cafe, or opening your own brand? We help with menu and recipe development, coffee program and equipment choice, barista training, and setting up operations and inventory.",
+    copy: "Already running a cafe, or opening your own brand? We help with menu and recipe development, coffee program and equipment choice, barista training, and setting up operations and inventory. See cafe consulting.",
   },
   {
     title: "Coffee supply",

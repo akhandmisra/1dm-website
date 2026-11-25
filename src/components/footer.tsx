@@ -34,7 +34,9 @@ const columns = [
       { href: "https://kruptoscoffee.com/brewing-gadgets-dealer-chhattisgarh", label: "Brewing Gadgets dealer", external: true },
       { href: "https://kruptoscoffee.com/coffee-machine-rental", label: "Coffee machine on rent", external: true },
       { href: "/coffee-catering", label: "Coffee catering", external: false },
-      { href: "/franchise", label: "Franchise & consulting", external: false },
+      { href: "/cafe-consulting", label: "Cafe consulting", external: false },
+      { href: "/barista-training", label: "Barista training", external: false },
+      { href: "/franchise", label: "Franchise", external: false },
     ],
   },
   {

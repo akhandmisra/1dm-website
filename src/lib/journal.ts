@@ -23,6 +23,73 @@ export type JournalArticle = {
 
 export const journalArticles: JournalArticle[] = [
   {
+    slug: "coffee-equipment-checklist-new-cafe-india",
+    title: "Coffee Equipment Checklist for a New Cafe in India (and What to Buy First)",
+    dek: "Everything a new specialty cafe needs behind the bar — espresso machine, grinders, brewing gear, water and the small tools people forget — and which pieces are worth spending on.",
+    category: "For business",
+    readTime: "7 min read",
+    publishedAt: "2026-11-25",
+    ctas: [
+      { href: "/cafe-consulting", label: "Cafe consulting" },
+      { href: "https://kruptoscoffee.com/espresso-machines-chhattisgarh", label: "Espresso machines — buy or rent" },
+      { href: "/barista-training", label: "Barista training" },
+    ],
+    body: [
+      {
+        type: "paragraph",
+        text: "We've set up the bars for every 1DM cafe across Chhattisgarh, and help other cafes do the same. The same mistakes come up again and again: overspending on the espresso machine, underspending on the grinder, and forgetting water filtration until the first service bill. Here's the checklist we work from.",
+      },
+      { type: "heading", text: "1. Espresso machine" },
+      {
+        type: "paragraph",
+        text: "Size it to your drinks per day. Most new specialty cafes selling 40–150 drinks a day do well with a two-group commercial machine. Busy cafes and hotels need two or three groups from a brand built for volume. Under 40 drinks a day, a good dual-boiler prosumer machine is enough. If you're not sure of your volume yet, rent first.",
+      },
+      { type: "heading", text: "2. Grinders (plural)" },
+      {
+        type: "list",
+        items: [
+          "An on-demand espresso grinder with large flat burrs — this matters as much as the machine.",
+          "A second grinder for filter coffee (pour-over, batch brew) or decaf, so you're not constantly re-adjusting the espresso grinder.",
+        ],
+      },
+      { type: "heading", text: "3. Water" },
+      {
+        type: "paragraph",
+        text: "Hard water scales boilers and flattens flavour. Budget for a proper filter or softener from day one, and a direct water line and drain for the machine if your space allows.",
+      },
+      { type: "heading", text: "4. Brewing gear for filter coffee" },
+      {
+        type: "list",
+        items: [
+          "Pour-over drippers (V60 or flat-bottom), servers and filters.",
+          "A temperature-controlled gooseneck kettle.",
+          "Cold brew setup — immersion pots or a cold drip tower.",
+          "AeroPress for quick single cups and events.",
+        ],
+      },
+      { type: "heading", text: "5. The small tools people forget" },
+      {
+        type: "list",
+        items: [
+          "0.1 g scales at every station — for espresso and filter.",
+          "Tampers, distribution tools, knock box, milk pitchers in two sizes.",
+          "Cleaning brushes, backflush detergent, grinder cleaning tablets.",
+          "Thermometer, timers, and plenty of clean cloths.",
+        ],
+      },
+      { type: "heading", text: "6. Coffee and training" },
+      {
+        type: "paragraph",
+        text: "Line up a roaster who can supply fresh coffee consistently — ideally one who will build a roast profile or house blend with you — and train your team on your actual machine before you open. Good equipment with untrained staff and stale coffee still makes bad coffee.",
+      },
+      { type: "heading", text: "Buy, rent, or get help" },
+      {
+        type: "paragraph",
+        text: "In Chhattisgarh, our roastery Kruptos supplies and rents espresso machines, commercial grinders and brewing equipment, and is the authorised Brewing Gadgets dealer for the state. Through 1DM's cafe consulting we'll help you choose the right setup for your budget, get it installed and dialled in, and train your team.",
+      },
+    ],
+  },
+  {
     slug: "office-coffee-machine-rental-raipur",
     title: "Office Coffee Machine on Rent in Raipur: Espresso vs Vending",
     dek: "Most offices in Raipur rent an instant-coffee vending machine by default. Here's when renting a real espresso machine makes more sense, what it costs, and how to set it up.",
